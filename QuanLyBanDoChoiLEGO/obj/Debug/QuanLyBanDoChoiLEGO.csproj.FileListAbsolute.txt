@@ -1,0 +1,11 @@
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\bin\Debug\QuanLyBanDoChoiLEGO.exe.config
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\bin\Debug\QuanLyBanDoChoiLEGO.exe
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\bin\Debug\QuanLyBanDoChoiLEGO.pdb
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.csprojAssemblyReference.cache
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_login.resources
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_mainwindow.resources
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.Properties.Resources.resources
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.csproj.GenerateResource.cache
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.csproj.CoreCompileInputs.cache
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.exe
+E:\Spaceship420\MY GIT\CNPM\QuanLyBanDoChoiLEGO\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.pdb
