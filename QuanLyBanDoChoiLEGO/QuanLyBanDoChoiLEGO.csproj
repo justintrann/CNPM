@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="form_customer_information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_customer_information.Designer.cs">
+      <DependentUpon>form_customer_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_dashboard_banhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_dashboard_banhang.Designer.cs">
+      <DependentUpon>form_dashboard_banhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_mainwindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="form_customer_information.resx">
+      <DependentUpon>form_customer_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_dashboard_banhang.resx">
+      <DependentUpon>form_dashboard_banhang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_login.resx">
       <DependentUpon>form_login.cs</DependentUpon>
     </EmbeddedResource>

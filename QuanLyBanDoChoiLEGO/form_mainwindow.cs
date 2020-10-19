@@ -16,5 +16,25 @@ namespace QuanLyBanDoChoiLEGO
         {
             InitializeComponent();
         }
+
+        private void btn_board_1_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach(Form f in Application.OpenForms)
+            {
+                if(f.Text=="Bán Hàng")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+            if(isOpen == false)
+            {
+                form_dashboard_banhang f2 = new form_dashboard_banhang();
+                f2.MdiParent = this;
+                f2.Show();
+            }
+        }
     }
 }
