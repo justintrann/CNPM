@@ -36,5 +36,45 @@ namespace QuanLyBanDoChoiLEGO
                 f2.Show();
             }
         }
+
+        private void btn_board_2_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Lịch sử")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+            if (isOpen == false)
+            {
+                form_dashboard_lichsu f2 = new form_dashboard_lichsu();
+                f2.MdiParent = this;
+                f2.Show();
+            }
+        }
+
+        private void btn_board_3_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Thống kê")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+            if (isOpen == false)
+            {
+                form_dashboard_thongke f2 = new form_dashboard_thongke();
+                f2.MdiParent = this;
+                f2.Show();
+            }
+        }
     }
 }

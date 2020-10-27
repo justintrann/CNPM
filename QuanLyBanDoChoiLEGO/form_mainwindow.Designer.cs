@@ -33,10 +33,11 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_board_3 = new System.Windows.Forms.Button();
-            this.btn_board_2 = new System.Windows.Forms.Button();
-            this.btn_board_1 = new System.Windows.Forms.Button();
+            this.btn_board_thongke = new System.Windows.Forms.Button();
+            this.btn_board_lichsu = new System.Windows.Forms.Button();
+            this.btn_board_banhang = new System.Windows.Forms.Button();
             this.lbl_dashboard = new System.Windows.Forms.Label();
+            this.btn_board_sanpham = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +50,6 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1467, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -65,7 +65,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // aboutToolStripMenuItem
@@ -76,47 +76,50 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_board_3);
-            this.panel1.Controls.Add(this.btn_board_2);
-            this.panel1.Controls.Add(this.btn_board_1);
+            this.panel1.Controls.Add(this.btn_board_sanpham);
+            this.panel1.Controls.Add(this.btn_board_thongke);
+            this.panel1.Controls.Add(this.btn_board_lichsu);
+            this.panel1.Controls.Add(this.btn_board_banhang);
             this.panel1.Controls.Add(this.lbl_dashboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(165, 781);
             this.panel1.TabIndex = 1;
             // 
-            // btn_board_3
+            // btn_board_thongke
             // 
-            this.btn_board_3.Location = new System.Drawing.Point(27, 91);
-            this.btn_board_3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_board_3.Name = "btn_board_3";
-            this.btn_board_3.Size = new System.Drawing.Size(100, 28);
-            this.btn_board_3.TabIndex = 3;
-            this.btn_board_3.Text = "button3";
-            this.btn_board_3.UseVisualStyleBackColor = true;
+            this.btn_board_thongke.Location = new System.Drawing.Point(26, 128);
+            this.btn_board_thongke.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_board_thongke.Name = "btn_board_thongke";
+            this.btn_board_thongke.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_thongke.TabIndex = 3;
+            this.btn_board_thongke.Text = "Thống kê";
+            this.btn_board_thongke.UseVisualStyleBackColor = true;
+            this.btn_board_thongke.Click += new System.EventHandler(this.btn_board_3_Click);
             // 
-            // btn_board_2
+            // btn_board_lichsu
             // 
-            this.btn_board_2.Location = new System.Drawing.Point(27, 55);
-            this.btn_board_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_board_2.Name = "btn_board_2";
-            this.btn_board_2.Size = new System.Drawing.Size(100, 28);
-            this.btn_board_2.TabIndex = 2;
-            this.btn_board_2.Text = "button2";
-            this.btn_board_2.UseVisualStyleBackColor = true;
+            this.btn_board_lichsu.Location = new System.Drawing.Point(26, 92);
+            this.btn_board_lichsu.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_board_lichsu.Name = "btn_board_lichsu";
+            this.btn_board_lichsu.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_lichsu.TabIndex = 2;
+            this.btn_board_lichsu.Text = "Lịch sử";
+            this.btn_board_lichsu.UseVisualStyleBackColor = true;
+            this.btn_board_lichsu.Click += new System.EventHandler(this.btn_board_2_Click);
             // 
-            // btn_board_1
+            // btn_board_banhang
             // 
-            this.btn_board_1.Location = new System.Drawing.Point(27, 20);
-            this.btn_board_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_board_1.Name = "btn_board_1";
-            this.btn_board_1.Size = new System.Drawing.Size(100, 28);
-            this.btn_board_1.TabIndex = 1;
-            this.btn_board_1.Text = "button1";
-            this.btn_board_1.UseVisualStyleBackColor = true;
-            this.btn_board_1.Click += new System.EventHandler(this.btn_board_1_Click);
+            this.btn_board_banhang.Location = new System.Drawing.Point(26, 57);
+            this.btn_board_banhang.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_board_banhang.Name = "btn_board_banhang";
+            this.btn_board_banhang.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_banhang.TabIndex = 1;
+            this.btn_board_banhang.Text = "Bán hàng";
+            this.btn_board_banhang.UseVisualStyleBackColor = true;
+            this.btn_board_banhang.Click += new System.EventHandler(this.btn_board_1_Click);
             // 
             // lbl_dashboard
             // 
@@ -128,6 +131,16 @@
             this.lbl_dashboard.TabIndex = 0;
             this.lbl_dashboard.Text = "Dashboard";
             // 
+            // btn_board_sanpham
+            // 
+            this.btn_board_sanpham.Location = new System.Drawing.Point(26, 21);
+            this.btn_board_sanpham.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_board_sanpham.Name = "btn_board_sanpham";
+            this.btn_board_sanpham.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_sanpham.TabIndex = 4;
+            this.btn_board_sanpham.Text = "Sản phẩm";
+            this.btn_board_sanpham.UseVisualStyleBackColor = true;
+            // 
             // form_mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -137,7 +150,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "form_mainwindow";
             this.Text = "Quản lí bán đồ chơi LEGO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -158,9 +171,10 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_dashboard;
-        private System.Windows.Forms.Button btn_board_3;
-        private System.Windows.Forms.Button btn_board_2;
-        private System.Windows.Forms.Button btn_board_1;
+        private System.Windows.Forms.Button btn_board_thongke;
+        private System.Windows.Forms.Button btn_board_lichsu;
+        private System.Windows.Forms.Button btn_board_banhang;
+        private System.Windows.Forms.Button btn_board_sanpham;
     }
 }
 

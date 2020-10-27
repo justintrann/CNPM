@@ -53,10 +53,10 @@
             // textBoxSearchProduct
             // 
             this.textBoxSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchProduct.Location = new System.Drawing.Point(50, 12);
-            this.textBoxSearchProduct.MinimumSize = new System.Drawing.Size(440, 30);
+            this.textBoxSearchProduct.Location = new System.Drawing.Point(48, 12);
+            this.textBoxSearchProduct.MinimumSize = new System.Drawing.Size(349, 30);
             this.textBoxSearchProduct.Name = "textBoxSearchProduct";
-            this.textBoxSearchProduct.Size = new System.Drawing.Size(440, 30);
+            this.textBoxSearchProduct.Size = new System.Drawing.Size(349, 30);
             this.textBoxSearchProduct.TabIndex = 1;
             // 
             // listViewProduct
