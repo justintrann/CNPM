@@ -56,6 +56,7 @@ CREATE TABLE PRODUCT
 	id_type INT,
 	product_name TEXT,
 	price FLOAT,
+	img_path TEXT,
 	product_desc TEXT,
 
 	CONSTRAINT pk_product_id PRIMARY KEY(id),
