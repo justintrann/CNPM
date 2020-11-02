@@ -20,16 +20,16 @@ namespace QuanLyBanDoChoiLEGO
         private void btn_board_1_Click(object sender, EventArgs e)
         {
             bool isOpen = false;
-            foreach(Form f in Application.OpenForms)
+            foreach (Form f in Application.OpenForms)
             {
-                if(f.Text=="Bán Hàng")
+                if (f.Text == "Bán Hàng")
                 {
                     isOpen = true;
                     f.Focus();
                     break;
                 }
             }
-            if(isOpen == false)
+            if (isOpen == false)
             {
                 form_dashboard_banhang f2 = new form_dashboard_banhang();
                 f2.MdiParent = this;
@@ -76,5 +76,26 @@ namespace QuanLyBanDoChoiLEGO
                 f2.Show();
             }
         }
+
+        private void btn_board_sanpham_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Sản phẩm")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+            if (isOpen == false)
+            {
+                form_dashboard_sanpham f2 = new form_dashboard_sanpham();
+                f2.MdiParent = this;
+                f2.Show();
+            }
+        }
     }
 }
+

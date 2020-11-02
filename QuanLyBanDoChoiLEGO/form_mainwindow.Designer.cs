@@ -33,11 +33,11 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_board_sanpham = new System.Windows.Forms.Button();
             this.btn_board_thongke = new System.Windows.Forms.Button();
             this.btn_board_lichsu = new System.Windows.Forms.Button();
             this.btn_board_banhang = new System.Windows.Forms.Button();
             this.lbl_dashboard = new System.Windows.Forms.Label();
-            this.btn_board_sanpham = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,17 @@
             this.panel1.Size = new System.Drawing.Size(165, 781);
             this.panel1.TabIndex = 1;
             // 
+            // btn_board_sanpham
+            // 
+            this.btn_board_sanpham.Location = new System.Drawing.Point(26, 21);
+            this.btn_board_sanpham.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_board_sanpham.Name = "btn_board_sanpham";
+            this.btn_board_sanpham.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_sanpham.TabIndex = 4;
+            this.btn_board_sanpham.Text = "Sản phẩm";
+            this.btn_board_sanpham.UseVisualStyleBackColor = true;
+            this.btn_board_sanpham.Click += new System.EventHandler(this.btn_board_sanpham_Click);
+            // 
             // btn_board_thongke
             // 
             this.btn_board_thongke.Location = new System.Drawing.Point(26, 128);
@@ -130,16 +141,6 @@
             this.lbl_dashboard.Size = new System.Drawing.Size(78, 17);
             this.lbl_dashboard.TabIndex = 0;
             this.lbl_dashboard.Text = "Dashboard";
-            // 
-            // btn_board_sanpham
-            // 
-            this.btn_board_sanpham.Location = new System.Drawing.Point(26, 21);
-            this.btn_board_sanpham.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_board_sanpham.Name = "btn_board_sanpham";
-            this.btn_board_sanpham.Size = new System.Drawing.Size(100, 28);
-            this.btn_board_sanpham.TabIndex = 4;
-            this.btn_board_sanpham.Text = "Sản phẩm";
-            this.btn_board_sanpham.UseVisualStyleBackColor = true;
             // 
             // form_mainwindow
             // 

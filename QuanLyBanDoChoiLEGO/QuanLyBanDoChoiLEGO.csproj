@@ -106,6 +106,9 @@
     <EmbeddedResource Include="form_dashboard_banhang.resx">
       <DependentUpon>form_dashboard_banhang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form_dashboard_sanpham.resx">
+      <DependentUpon>form_dashboard_sanpham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_dashboard_thongke.resx">
       <DependentUpon>form_dashboard_thongke.cs</DependentUpon>
     </EmbeddedResource>

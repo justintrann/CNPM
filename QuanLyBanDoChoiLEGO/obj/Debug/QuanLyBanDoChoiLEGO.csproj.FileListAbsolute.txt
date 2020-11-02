@@ -24,3 +24,4 @@ D:\source\GIT\CNPM\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_dashbo
 D:\source\GIT\CNPM\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_customer_information.resources
 D:\source\GIT\CNPM\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_dashboard_lichsu.resources
 D:\source\GIT\CNPM\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_dashboard_thongke.resources
+D:\source\GIT\CNPM\QuanLyBanDoChoiLEGO\obj\Debug\QuanLyBanDoChoiLEGO.form_dashboard_sanpham.resources
