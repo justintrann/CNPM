@@ -1,0 +1,23 @@
+Architecture:
+1. https://www.lego.com/en-gb/product/burj-khalifa-21055
+2. https://www.lego.com/en-gb/product/london-21034
+3. https://www.lego.com/en-gb/product/the-white-house-21054
+4. https://www.lego.com/en-gb/product/paris-21044
+
+City:
+1. https://www.lego.com/en-gb/product/ocean-exploration-ship-60266
+2. https://www.lego.com/en-gb/product/passenger-train-60197
+3. https://www.lego.com/en-gb/product/police-station-60246
+4. https://www.lego.com/en-gb/product/tuning-workshop-60258
+
+Classic:
+1. https://www.lego.com/en-gb/product/lego-large-creative-brick-box-10698
+2. https://www.lego.com/en-gb/product/bricks-and-lights-11009
+3. https://www.lego.com/en-gb/product/bricks-and-houses-11008
+4. https://www.lego.com/en-gb/product/bricks-and-animals-11011
+
+Technics:
+1. https://www.lego.com/en-gb/product/land-rover-defender-42110
+2. https://www.lego.com/en-gb/product/porsche-911-rsr-42096
+3. https://www.lego.com/en-gb/product/dom-s-dodge-charger-42111
+4. https://www.lego.com/en-gb/product/ducati-panigale-v4-r-42107
