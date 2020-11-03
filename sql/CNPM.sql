@@ -52,11 +52,18 @@ CREATE TABLE PRODUCT_TYPE
 GO
 
 --gender: 0 = male, 1 = female
+--age_range:
+-- 0: 1-2 tuổi
+-- 1: 3-5 tuổi
+-- 2: 6-8 tuổi
+-- 3: 9-11 tuổi
+-- 4: trên 12 tuổi
 CREATE TABLE PRODUCT
 (
 	id INT NOT NULL UNIQUE IDENTITY(1,1),
 	id_type INT,
 	gender TINYINT DEFAULT(0),
+	age_range TINYINT,
 	product_name NVARCHAR(50),
 	price FLOAT,
 	img_path VARCHAR(100),
