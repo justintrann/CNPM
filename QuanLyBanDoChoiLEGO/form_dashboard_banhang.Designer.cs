@@ -36,11 +36,8 @@
             this.labelTongTien = new System.Windows.Forms.Label();
             this.textBoxTongTien = new System.Windows.Forms.TextBox();
             this.buttonCheckOut = new System.Windows.Forms.Button();
-            this.checkBox1_2_Tuoi = new System.Windows.Forms.CheckBox();
-            this.checkBox3_5_Tuoi = new System.Windows.Forms.CheckBox();
-            this.checkBox6_8_Tuoi = new System.Windows.Forms.CheckBox();
-            this.checkBox9_11_Tuoi = new System.Windows.Forms.CheckBox();
-            this.checkBoxTren12Tuoi = new System.Windows.Forms.CheckBox();
+            this.comboBoxTuoi = new System.Windows.Forms.ComboBox();
+            this.comboBoxTheme = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonSearchProduct
@@ -124,68 +121,40 @@
             this.buttonCheckOut.UseVisualStyleBackColor = true;
             this.buttonCheckOut.Click += new System.EventHandler(this.buttonCheckOut_Click);
             // 
-            // checkBox1_2_Tuoi
+            // comboBoxTuoi
             // 
-            this.checkBox1_2_Tuoi.AutoSize = true;
-            this.checkBox1_2_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1_2_Tuoi.Location = new System.Drawing.Point(407, 4);
-            this.checkBox1_2_Tuoi.Name = "checkBox1_2_Tuoi";
-            this.checkBox1_2_Tuoi.Size = new System.Drawing.Size(86, 21);
-            this.checkBox1_2_Tuoi.TabIndex = 7;
-            this.checkBox1_2_Tuoi.Text = "1 - 2 tuổi";
-            this.checkBox1_2_Tuoi.UseVisualStyleBackColor = true;
+            this.comboBoxTuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTuoi.FormattingEnabled = true;
+            this.comboBoxTuoi.Items.AddRange(new object[] {
+            "1 - 2 tuổi",
+            "3 - 5 tuổi",
+            "6 - 8 tuổi",
+            "9 - 11 tuổi",
+            "Trên 12 tuổi"});
+            this.comboBoxTuoi.Location = new System.Drawing.Point(667, 12);
+            this.comboBoxTuoi.Name = "comboBoxTuoi";
+            this.comboBoxTuoi.Size = new System.Drawing.Size(121, 33);
+            this.comboBoxTuoi.TabIndex = 13;
             // 
-            // checkBox3_5_Tuoi
+            // comboBoxTheme
             // 
-            this.checkBox3_5_Tuoi.AutoSize = true;
-            this.checkBox3_5_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3_5_Tuoi.Location = new System.Drawing.Point(407, 31);
-            this.checkBox3_5_Tuoi.Name = "checkBox3_5_Tuoi";
-            this.checkBox3_5_Tuoi.Size = new System.Drawing.Size(86, 21);
-            this.checkBox3_5_Tuoi.TabIndex = 8;
-            this.checkBox3_5_Tuoi.Text = "3 - 5 tuổi";
-            this.checkBox3_5_Tuoi.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6_8_Tuoi
-            // 
-            this.checkBox6_8_Tuoi.AutoSize = true;
-            this.checkBox6_8_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6_8_Tuoi.Location = new System.Drawing.Point(518, 4);
-            this.checkBox6_8_Tuoi.Name = "checkBox6_8_Tuoi";
-            this.checkBox6_8_Tuoi.Size = new System.Drawing.Size(86, 21);
-            this.checkBox6_8_Tuoi.TabIndex = 9;
-            this.checkBox6_8_Tuoi.Text = "6 - 8 tuổi";
-            this.checkBox6_8_Tuoi.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9_11_Tuoi
-            // 
-            this.checkBox9_11_Tuoi.AutoSize = true;
-            this.checkBox9_11_Tuoi.Location = new System.Drawing.Point(518, 31);
-            this.checkBox9_11_Tuoi.Name = "checkBox9_11_Tuoi";
-            this.checkBox9_11_Tuoi.Size = new System.Drawing.Size(94, 21);
-            this.checkBox9_11_Tuoi.TabIndex = 10;
-            this.checkBox9_11_Tuoi.Text = "9 - 11 tuổi";
-            this.checkBox9_11_Tuoi.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxTren12Tuoi
-            // 
-            this.checkBoxTren12Tuoi.AutoSize = true;
-            this.checkBoxTren12Tuoi.Location = new System.Drawing.Point(610, 4);
-            this.checkBoxTren12Tuoi.Name = "checkBoxTren12Tuoi";
-            this.checkBoxTren12Tuoi.Size = new System.Drawing.Size(107, 21);
-            this.checkBoxTren12Tuoi.TabIndex = 11;
-            this.checkBoxTren12Tuoi.Text = "Trên 12 tuổi";
-            this.checkBoxTren12Tuoi.UseVisualStyleBackColor = true;
+            this.comboBoxTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTheme.FormattingEnabled = true;
+            this.comboBoxTheme.Items.AddRange(new object[] {
+            "jadljala",
+            "kjasldasldas",
+            "anldsajda"});
+            this.comboBoxTheme.Location = new System.Drawing.Point(404, 12);
+            this.comboBoxTheme.Name = "comboBoxTheme";
+            this.comboBoxTheme.Size = new System.Drawing.Size(257, 33);
+            this.comboBoxTheme.TabIndex = 14;
             // 
             // form_dashboard_banhang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.checkBoxTren12Tuoi);
-            this.Controls.Add(this.checkBox9_11_Tuoi);
-            this.Controls.Add(this.checkBox6_8_Tuoi);
-            this.Controls.Add(this.checkBox3_5_Tuoi);
-            this.Controls.Add(this.checkBox1_2_Tuoi);
+            this.Controls.Add(this.comboBoxTheme);
+            this.Controls.Add(this.comboBoxTuoi);
             this.Controls.Add(this.buttonCheckOut);
             this.Controls.Add(this.textBoxTongTien);
             this.Controls.Add(this.labelTongTien);
@@ -213,10 +182,7 @@
         private System.Windows.Forms.Label labelTongTien;
         private System.Windows.Forms.TextBox textBoxTongTien;
         private System.Windows.Forms.Button buttonCheckOut;
-        private System.Windows.Forms.CheckBox checkBox1_2_Tuoi;
-        private System.Windows.Forms.CheckBox checkBox3_5_Tuoi;
-        private System.Windows.Forms.CheckBox checkBox6_8_Tuoi;
-        private System.Windows.Forms.CheckBox checkBox9_11_Tuoi;
-        private System.Windows.Forms.CheckBox checkBoxTren12Tuoi;
+        private System.Windows.Forms.ComboBox comboBoxTuoi;
+        private System.Windows.Forms.ComboBox comboBoxTheme;
     }
 }

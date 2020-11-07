@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CNPM_NHOM_1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_staff" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="pass" Type="varchar" MaxLength="20" />
+          <Property Name="is_admin" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone_number" Type="varchar" MaxLength="12" />
+          <Property Name="date_of_birth" Type="date" />
+          <Property Name="home_address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_type" Type="int" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="nchar" MaxLength="10" />
+          <Property Name="age_range" Type="nvarchar" MaxLength="100" />
+          <Property Name="price" Type="float" />
+          <Property Name="img_path" Type="varchar" MaxLength="100" />
+          <Property Name="product_desc" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PRODUCT_TYPE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="product_type_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="product_type_desc" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PURCHASE_BILL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_staff" Type="int" Nullable="false" />
+          <Property Name="id_customer" Type="int" Nullable="false" />
+          <Property Name="date_of_purchase" Type="datetime" />
+          <Property Name="purchase_bill_desc" Type="nvarchar" MaxLength="100" />
+          <Property Name="total_cost" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CNPM_NHOM_1.dbo.PURCHASE_BILL_DETAIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PURCHASE_BILL_DETAIL">
+          <Key>
+            <PropertyRef Name="id_bill" />
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_bill" Type="int" Nullable="false" />
+          <Property Name="id_product" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="cost" Type="float" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="staff_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone_number" Type="varchar" MaxLength="12" />
+          <Property Name="date_of_birth" Type="date" />
+          <Property Name="home_address" Type="nvarchar" MaxLength="100" />
+          <Property Name="citizen_id" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="STORAGE">
+          <Key>
+            <PropertyRef Name="id_type" />
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_type" Type="int" Nullable="false" />
+          <Property Name="product_type_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_product" Type="int" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="nchar" MaxLength="10" />
+          <Property Name="age_range" Type="nchar" MaxLength="100" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="price" Type="float" />
+          <Property Name="input_date" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="fk_account_id_staff">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="id_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_id_type">
+          <End Role="PRODUCT_TYPE" Type="Self.PRODUCT_TYPE" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_TYPE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_detail_id_bill">
+          <End Role="PURCHASE_BILL" Type="Self.PURCHASE_BILL" Multiplicity="1" />
+          <End Role="PURCHASE_BILL_DETAIL" Type="Self.PURCHASE_BILL_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PURCHASE_BILL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL_DETAIL">
+              <PropertyRef Name="id_bill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_detail_id_product">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="PURCHASE_BILL_DETAIL" Type="Self.PURCHASE_BILL_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL_DETAIL">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_id_customer">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="PURCHASE_BILL" Type="Self.PURCHASE_BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_id_staff">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="1" />
+          <End Role="PURCHASE_BILL" Type="Self.PURCHASE_BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL">
+              <PropertyRef Name="id_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_storage_id_product">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="STORAGE">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_storage_id_type">
+          <End Role="PRODUCT_TYPE" Type="Self.PRODUCT_TYPE" Multiplicity="1" />
+          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_TYPE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="STORAGE">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CNPM_NHOM_1ModelStoreContainer">
+          <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_TYPE" EntityType="Self.PRODUCT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASE_BILL" EntityType="Self.PURCHASE_BILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASE_BILL_DETAIL" EntityType="Self.PURCHASE_BILL_DETAIL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PURCHASE_BILL_DETAIL].[id_bill] AS [id_bill], 
+    [PURCHASE_BILL_DETAIL].[id_product] AS [id_product], 
+    [PURCHASE_BILL_DETAIL].[quantity] AS [quantity], 
+    [PURCHASE_BILL_DETAIL].[cost] AS [cost]
+    FROM [dbo].[PURCHASE_BILL_DETAIL] AS [PURCHASE_BILL_DETAIL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="STORAGE" EntityType="Self.STORAGE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [STORAGE].[id_type] AS [id_type], 
+    [STORAGE].[product_type_name] AS [product_type_name], 
+    [STORAGE].[id_product] AS [id_product], 
+    [STORAGE].[product_name] AS [product_name], 
+    [STORAGE].[gender] AS [gender], 
+    [STORAGE].[age_range] AS [age_range], 
+    [STORAGE].[quantity] AS [quantity], 
+    [STORAGE].[price] AS [price], 
+    [STORAGE].[input_date] AS [input_date]
+    FROM [dbo].[STORAGE] AS [STORAGE]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_account_id_staff" Association="Self.fk_account_id_staff">
+            <End Role="STAFF" EntitySet="STAFF" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_id_type" Association="Self.fk_product_id_type">
+            <End Role="PRODUCT_TYPE" EntitySet="PRODUCT_TYPE" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_detail_id_bill" Association="Self.fk_purchase_bill_detail_id_bill">
+            <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
+            <End Role="PURCHASE_BILL_DETAIL" EntitySet="PURCHASE_BILL_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_detail_id_product" Association="Self.fk_purchase_bill_detail_id_product">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="PURCHASE_BILL_DETAIL" EntitySet="PURCHASE_BILL_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_id_customer" Association="Self.fk_purchase_bill_id_customer">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_id_staff" Association="Self.fk_purchase_bill_id_staff">
+            <End Role="STAFF" EntitySet="STAFF" />
+            <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_storage_id_product" Association="Self.fk_storage_id_product">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="STORAGE" EntitySet="STORAGE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_storage_id_type" Association="Self.fk_storage_id_type">
+            <End Role="PRODUCT_TYPE" EntitySet="PRODUCT_TYPE" />
+            <End Role="STORAGE" EntitySet="STORAGE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CNPM_NHOM_1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCOUNT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_staff" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="is_admin" Type="Byte" />
+          <NavigationProperty Name="STAFF" Relationship="Self.fk_account_id_staff" FromRole="ACCOUNT" ToRole="STAFF" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="0" />
+          <Property Name="home_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PURCHASE_BILL" Relationship="Self.fk_purchase_bill_id_customer" FromRole="CUSTOMER" ToRole="PURCHASE_BILL" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id_type" Type="Int32" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="age_range" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" />
+          <Property Name="img_path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="product_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PRODUCT_TYPE" Relationship="Self.fk_product_id_type" FromRole="PRODUCT" ToRole="PRODUCT_TYPE" />
+          <NavigationProperty Name="PURCHASE_BILL_DETAIL" Relationship="Self.fk_purchase_bill_detail_id_product" FromRole="PRODUCT" ToRole="PURCHASE_BILL_DETAIL" />
+          <NavigationProperty Name="STORAGEs" Relationship="Self.fk_storage_id_product" FromRole="PRODUCT" ToRole="STORAGE" />
+        </EntityType>
+        <EntityType Name="PRODUCT_TYPE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="product_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="product_type_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.fk_product_id_type" FromRole="PRODUCT_TYPE" ToRole="PRODUCT" />
+          <NavigationProperty Name="STORAGEs" Relationship="Self.fk_storage_id_type" FromRole="PRODUCT_TYPE" ToRole="STORAGE" />
+        </EntityType>
+        <EntityType Name="PURCHASE_BILL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_staff" Type="Int32" Nullable="false" />
+          <Property Name="id_customer" Type="Int32" Nullable="false" />
+          <Property Name="date_of_purchase" Type="DateTime" Precision="3" />
+          <Property Name="purchase_bill_desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="total_cost" Type="Double" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.fk_purchase_bill_id_customer" FromRole="PURCHASE_BILL" ToRole="CUSTOMER" />
+          <NavigationProperty Name="PURCHASE_BILL_DETAIL" Relationship="Self.fk_purchase_bill_detail_id_bill" FromRole="PURCHASE_BILL" ToRole="PURCHASE_BILL_DETAIL" />
+          <NavigationProperty Name="STAFF" Relationship="Self.fk_purchase_bill_id_staff" FromRole="PURCHASE_BILL" ToRole="STAFF" />
+        </EntityType>
+        <EntityType Name="STAFF">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="staff_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone_number" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="0" />
+          <Property Name="home_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="citizen_id" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="Self.fk_account_id_staff" FromRole="STAFF" ToRole="ACCOUNT" />
+          <NavigationProperty Name="PURCHASE_BILL" Relationship="Self.fk_purchase_bill_id_staff" FromRole="STAFF" ToRole="PURCHASE_BILL" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PURCHASE_BILL_DETAIL">
+          <Key>
+            <PropertyRef Name="id_bill" />
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_bill" Type="Int32" Nullable="false" />
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="cost" Type="Double" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.fk_purchase_bill_detail_id_product" FromRole="PURCHASE_BILL_DETAIL" ToRole="PRODUCT" />
+          <NavigationProperty Name="PURCHASE_BILL" Relationship="Self.fk_purchase_bill_detail_id_bill" FromRole="PURCHASE_BILL_DETAIL" ToRole="PURCHASE_BILL" />
+        </EntityType>
+        <EntityType Name="STORAGE">
+          <Key>
+            <PropertyRef Name="id_type" />
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_type" Type="Int32" Nullable="false" />
+          <Property Name="product_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="age_range" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="price" Type="Double" />
+          <Property Name="input_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.fk_storage_id_product" FromRole="STORAGE" ToRole="PRODUCT" />
+          <NavigationProperty Name="PRODUCT_TYPE" Relationship="Self.fk_storage_id_type" FromRole="STORAGE" ToRole="PRODUCT_TYPE" />
+        </EntityType>
+        <Association Name="fk_account_id_staff">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="1" />
+          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ACCOUNT">
+              <PropertyRef Name="id_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_id_customer">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="PURCHASE_BILL" Type="Self.PURCHASE_BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL">
+              <PropertyRef Name="id_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_id_type">
+          <End Role="PRODUCT_TYPE" Type="Self.PRODUCT_TYPE" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_TYPE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_detail_id_product">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="PURCHASE_BILL_DETAIL" Type="Self.PURCHASE_BILL_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL_DETAIL">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_storage_id_product">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="STORAGE">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_storage_id_type">
+          <End Role="PRODUCT_TYPE" Type="Self.PRODUCT_TYPE" Multiplicity="1" />
+          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_TYPE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="STORAGE">
+              <PropertyRef Name="id_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_detail_id_bill">
+          <End Role="PURCHASE_BILL" Type="Self.PURCHASE_BILL" Multiplicity="1" />
+          <End Role="PURCHASE_BILL_DETAIL" Type="Self.PURCHASE_BILL_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PURCHASE_BILL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL_DETAIL">
+              <PropertyRef Name="id_bill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_purchase_bill_id_staff">
+          <End Role="STAFF" Type="Self.STAFF" Multiplicity="1" />
+          <End Role="PURCHASE_BILL" Type="Self.PURCHASE_BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STAFF">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PURCHASE_BILL">
+              <PropertyRef Name="id_staff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CNPM_NHOM_1Entities11" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+          <EntitySet Name="PRODUCT_TYPE" EntityType="Self.PRODUCT_TYPE" />
+          <EntitySet Name="PURCHASE_BILL" EntityType="Self.PURCHASE_BILL" />
+          <EntitySet Name="STAFFs" EntityType="Self.STAFF" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="PURCHASE_BILL_DETAIL" EntityType="Self.PURCHASE_BILL_DETAIL" />
+          <EntitySet Name="STORAGEs" EntityType="Self.STORAGE" />
+          <AssociationSet Name="fk_account_id_staff" Association="Self.fk_account_id_staff">
+            <End Role="STAFF" EntitySet="STAFFs" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_id_customer" Association="Self.fk_purchase_bill_id_customer">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_id_type" Association="Self.fk_product_id_type">
+            <End Role="PRODUCT_TYPE" EntitySet="PRODUCT_TYPE" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_detail_id_product" Association="Self.fk_purchase_bill_detail_id_product">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="PURCHASE_BILL_DETAIL" EntitySet="PURCHASE_BILL_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_storage_id_product" Association="Self.fk_storage_id_product">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="STORAGE" EntitySet="STORAGEs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_storage_id_type" Association="Self.fk_storage_id_type">
+            <End Role="PRODUCT_TYPE" EntitySet="PRODUCT_TYPE" />
+            <End Role="STORAGE" EntitySet="STORAGEs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_detail_id_bill" Association="Self.fk_purchase_bill_detail_id_bill">
+            <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
+            <End Role="PURCHASE_BILL_DETAIL" EntitySet="PURCHASE_BILL_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_purchase_bill_id_staff" Association="Self.fk_purchase_bill_id_staff">
+            <End Role="STAFF" EntitySet="STAFFs" />
+            <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CNPM_NHOM_1ModelStoreContainer" CdmEntityContainer="CNPM_NHOM_1Entities11">
+          <EntitySetMapping Name="ACCOUNTs">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.ACCOUNT">
+              <MappingFragment StoreEntitySet="ACCOUNT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_staff" ColumnName="id_staff" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="home_address" ColumnName="home_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="age_range" ColumnName="age_range" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="img_path" ColumnName="img_path" />
+                <ScalarProperty Name="product_desc" ColumnName="product_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_TYPE">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PRODUCT_TYPE">
+              <MappingFragment StoreEntitySet="PRODUCT_TYPE">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="product_type_name" ColumnName="product_type_name" />
+                <ScalarProperty Name="product_type_desc" ColumnName="product_type_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PURCHASE_BILL">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PURCHASE_BILL">
+              <MappingFragment StoreEntitySet="PURCHASE_BILL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_staff" ColumnName="id_staff" />
+                <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+                <ScalarProperty Name="date_of_purchase" ColumnName="date_of_purchase" />
+                <ScalarProperty Name="purchase_bill_desc" ColumnName="purchase_bill_desc" />
+                <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAFFs">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.STAFF">
+              <MappingFragment StoreEntitySet="STAFF">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="staff_name" ColumnName="staff_name" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="home_address" ColumnName="home_address" />
+                <ScalarProperty Name="citizen_id" ColumnName="citizen_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PURCHASE_BILL_DETAIL">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PURCHASE_BILL_DETAIL">
+              <MappingFragment StoreEntitySet="PURCHASE_BILL_DETAIL">
+                <ScalarProperty Name="id_bill" ColumnName="id_bill" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORAGEs">
+            <EntityTypeMapping TypeName="CNPM_NHOM_1Model.STORAGE">
+              <MappingFragment StoreEntitySet="STORAGE">
+                <ScalarProperty Name="id_type" ColumnName="id_type" />
+                <ScalarProperty Name="product_type_name" ColumnName="product_type_name" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="age_range" ColumnName="age_range" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="input_date" ColumnName="input_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

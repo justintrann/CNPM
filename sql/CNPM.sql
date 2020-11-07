@@ -30,7 +30,7 @@ GO
 CREATE TABLE ACCOUNT
 (
 	id INT NOT NULL UNIQUE IDENTITY(1,1),
-	id_staff INT UNIQUE,
+	id_staff INT UNIQUE NOT NULL,
 	username VARCHAR(20) UNIQUE,
 	pass VARCHAR(20),
 	is_admin TINYINT,
@@ -45,7 +45,7 @@ CREATE TABLE PRODUCT_TYPE
 (
 	id INT NOT NULL UNIQUE, 
 	product_type_name NVARCHAR(50),
-	product_type_desc NVARCHAR(100),
+	product_type_desc NVARCHAR(100) ,
 
 	CONSTRAINT pk_product_type_id PRIMARY KEY(id)
 );
@@ -60,35 +60,43 @@ GO
 -- 4: trên 12 tuổi
 CREATE TABLE PRODUCT
 (
-	id INT NOT NULL UNIQUE IDENTITY(1,1),
-	id_type INT,
-	gender TINYINT DEFAULT(0),
-	age_range TINYINT,
+	id INT NOT NULL,
+	id_type INT NOT NULL,
 	product_name NVARCHAR(50),
+	gender NCHAR(10),
+	age_range NVARCHAR(100),
 	price FLOAT,
 	img_path VARCHAR(100),
 	product_desc NVARCHAR(100),
 
 	CONSTRAINT pk_product_id PRIMARY KEY(id),
-	CONSTRAINT fk_product_id_type FOREIGN KEY(id_type) REFERENCES PRODUCT_TYPE(ID)
+	CONSTRAINT fk_product_id_type FOREIGN KEY(id_type) REFERENCES PRODUCT_TYPE(id)
 );
 GO
 
 CREATE TABLE STORAGE
 (
-	id_product INT,
+	id_type INT NOT NULL,
+	product_type_name NVARCHAR(50),
+	id_product INT NOT NULL,
+	product_name NVARCHAR(50),
+	gender NCHAR(10),
+	age_range NCHAR(100),
 	quantity INT,
+	price FLOAT,
 	input_date DATE,
 
-	CONSTRAINT pk_storage_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id)
+	CONSTRAINT fk_storage_id_type FOREIGN KEY(id_type) REFERENCES PRODUCT_TYPE(id),
+	CONSTRAINT fk_storage_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id)
+	
 );
 GO
 
 CREATE TABLE PURCHASE_BILL
 (
 	id INT NOT NULL UNIQUE IDENTITY(1,1),
-	id_staff INT,
-	id_customer INT,
+	id_staff INT NOT NULL,
+	id_customer INT NOT NULL,
 	date_of_purchase DATETIME,
 	purchase_bill_desc NVARCHAR(100),
 	total_cost FLOAT,
@@ -101,8 +109,8 @@ GO
 
 CREATE TABLE PURCHASE_BILL_DETAIL
 (
-	id_bill INT,
-	id_product INT,
+	id_bill INT NOT NULL,
+	id_product INT NOT NULL,
 	quantity INT,
 	cost FLOAT,
 
