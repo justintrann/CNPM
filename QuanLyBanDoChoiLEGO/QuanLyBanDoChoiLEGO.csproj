@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CNPM_DataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNPM_DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="CNPM_NHOM_1DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNPM_NHOM_1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="form_dashboard_lichsu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,14 +100,14 @@
     <Compile Include="form_login.Designer.cs">
       <DependentUpon>form_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_nhap_hang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_nhap_hang.Designer.cs">
+      <DependentUpon>form_nhap_hang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="form_dashboard_lichsu.resx">
       <DependentUpon>form_dashboard_lichsu.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +129,9 @@
     <EmbeddedResource Include="form_mainwindow.resx">
       <DependentUpon>form_mainwindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form_nhap_hang.resx">
+      <DependentUpon>form_nhap_hang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -126,7 +140,27 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CNPM_DataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CNPM_DataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CNPM_DataClasses.dbml.layout">
+      <DependentUpon>CNPM_DataClasses.dbml</DependentUpon>
+    </None>
+    <None Include="CNPM_NHOM_1DataSet.xsc">
+      <DependentUpon>CNPM_NHOM_1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CNPM_NHOM_1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CNPM_NHOM_1DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CNPM_NHOM_1DataSet.xss">
+      <DependentUpon>CNPM_NHOM_1DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lego_placeholder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
