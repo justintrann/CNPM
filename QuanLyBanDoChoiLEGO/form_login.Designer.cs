@@ -50,7 +50,7 @@
             // lbl_username
             // 
             this.lbl_username.AutoSize = true;
-            this.lbl_username.Location = new System.Drawing.Point(22, 91);
+            this.lbl_username.Location = new System.Drawing.Point(98, 87);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(55, 13);
             this.lbl_username.TabIndex = 1;
@@ -58,23 +58,23 @@
             // 
             // textbox_username
             // 
-            this.textbox_username.Location = new System.Drawing.Point(85, 84);
+            this.textbox_username.Location = new System.Drawing.Point(157, 84);
             this.textbox_username.Name = "textbox_username";
-            this.textbox_username.Size = new System.Drawing.Size(182, 20);
+            this.textbox_username.Size = new System.Drawing.Size(257, 20);
             this.textbox_username.TabIndex = 2;
             // 
             // textbox_password
             // 
-            this.textbox_password.Location = new System.Drawing.Point(85, 110);
+            this.textbox_password.Location = new System.Drawing.Point(157, 114);
             this.textbox_password.Name = "textbox_password";
             this.textbox_password.PasswordChar = '*';
-            this.textbox_password.Size = new System.Drawing.Size(182, 20);
+            this.textbox_password.Size = new System.Drawing.Size(257, 20);
             this.textbox_password.TabIndex = 4;
             // 
             // lbl_password
             // 
             this.lbl_password.AutoSize = true;
-            this.lbl_password.Location = new System.Drawing.Point(22, 117);
+            this.lbl_password.Location = new System.Drawing.Point(98, 117);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(53, 13);
             this.lbl_password.TabIndex = 3;
@@ -83,7 +83,7 @@
             // btn_login
             // 
             this.btn_login.Enabled = false;
-            this.btn_login.Location = new System.Drawing.Point(191, 152);
+            this.btn_login.Location = new System.Drawing.Point(339, 173);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(75, 23);
             this.btn_login.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(110, 152);
+            this.btn_cancel.Location = new System.Drawing.Point(258, 173);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 6;
@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 214);
+            this.ClientSize = new System.Drawing.Size(426, 208);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.textbox_password);
