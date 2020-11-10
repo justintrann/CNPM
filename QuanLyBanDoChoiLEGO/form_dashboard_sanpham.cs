@@ -16,5 +16,12 @@ namespace QuanLyBanDoChoiLEGO
         {
             InitializeComponent();
         }
+
+        private void form_dashboard_sanpham_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.PRODUCT' table. You can move, or remove it, as needed.
+            this.pRODUCTTableAdapter.Fill(this.cNPM_NHOM_1DataSet.PRODUCT);
+
+        }
     }
 }
