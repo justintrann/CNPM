@@ -66,6 +66,7 @@ CREATE TABLE PRODUCT
 	age_range TINYINT,
 	product_name NVARCHAR(50),
 	price FLOAT,
+	quantity INT CHECK (quantity >= 0),
 	img_path VARCHAR(100),
 	product_desc NVARCHAR(100),
 
@@ -74,15 +75,28 @@ CREATE TABLE PRODUCT
 );
 GO
 
-CREATE TABLE STORAGE
+CREATE TABLE STORAGE_HISTORY
 (
 	id_product INT,
-	quantity INT,
 	input_date DATE,
+	quantity INT,
 
-	CONSTRAINT pk_storage_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id)
+	CONSTRAINT fk_storage_history_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id)
 );
 GO
+
+/*
+CREATE TABLE EXPORT_HISTORY
+(
+	id_product INT,
+	input_date DATE,
+	quantity INT,
+
+	CONSTRAINT fk_storage_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id)
+);
+GO
+*/
+
 
 CREATE TABLE PURCHASE_BILL
 (
@@ -113,7 +127,7 @@ GO
 
 
 /*
-DROP TABLE STORAGE
+DROP TABLE STORAGE_HISTORY
 DROP TABLE PURCHASE_BILL
 DROP TABLE PURCHASE_BILL_DETAIL
 DROP TABLE PRODUCT_TYPE
