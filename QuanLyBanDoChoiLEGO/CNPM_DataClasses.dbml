@@ -18,6 +18,13 @@
       <Association Name="PRODUCT_STORAGE_HISTORY" Member="PRODUCT" ThisKey="id_product" OtherKey="id" Type="PRODUCT" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.AGE_RANGE" Member="AGE_RANGEs">
+    <Type Name="AGE_RANGE">
+      <Column Name="id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="age_range_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="AGE_RANGE_PRODUCT" Member="PRODUCTs" ThisKey="id" OtherKey="id_age_range" Type="PRODUCT" />
+    </Type>
+  </Table>
   <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
     <Type Name="CUSTOMER">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -31,9 +38,9 @@
   <Table Name="dbo.PRODUCT" Member="PRODUCTs">
     <Type Name="PRODUCT">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="id_type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_type" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="gender" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="age_range" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="id_age_range" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -41,12 +48,13 @@
       <Column Name="product_desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="PRODUCT_STORAGE_HISTORY" Member="STORAGE_HISTORies" ThisKey="id" OtherKey="id_product" Type="STORAGE_HISTORY" />
       <Association Name="PRODUCT_PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAILs" ThisKey="id" OtherKey="id_product" Type="PURCHASE_BILL_DETAIL" />
+      <Association Name="AGE_RANGE_PRODUCT" Member="AGE_RANGE" ThisKey="id_age_range" OtherKey="id" Type="AGE_RANGE" IsForeignKey="true" />
       <Association Name="PRODUCT_TYPE_PRODUCT" Member="PRODUCT_TYPE" ThisKey="id_type" OtherKey="id" Type="PRODUCT_TYPE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PRODUCT_TYPE" Member="PRODUCT_TYPEs">
     <Type Name="PRODUCT_TYPE">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="product_type_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="product_type_desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="PRODUCT_TYPE_PRODUCT" Member="PRODUCTs" ThisKey="id" OtherKey="id_type" Type="PRODUCT" />

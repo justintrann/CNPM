@@ -1,4 +1,4 @@
-﻿CREATE DATABASE CNPM_NHOM_1
+﻿--CREATE DATABASE CNPM_NHOM_1
 
 USE CNPM_NHOM_1
 
@@ -43,7 +43,7 @@ GO
 --id này nên tự nhập tay để đỡ lỗi
 CREATE TABLE PRODUCT_TYPE
 (
-	id INT NOT NULL UNIQUE IDENTITY(1,1), 
+	id TINYINT NOT NULL UNIQUE IDENTITY(1,1), 
 	product_type_name NVARCHAR(50),
 	product_type_desc NVARCHAR(100),
 
@@ -51,19 +51,27 @@ CREATE TABLE PRODUCT_TYPE
 );
 GO
 
+CREATE TABLE AGE_RANGE
+(
+	id TINYINT NOT NULL UNIQUE IDENTITY(1,1), 
+	age_range_name NVARCHAR(50),
+
+	CONSTRAINT pk_age_range_id PRIMARY KEY(id)
+);
+
 --gender: 0 = male, 1 = female
 --age_range:
--- 0: 1-2 tuổi
--- 1: 3-5 tuổi
--- 2: 6-8 tuổi
--- 3: 9-11 tuổi
--- 4: trên 12 tuổi
+-- 1: 1-2 tuổi
+-- 2: 3-5 tuổi
+-- 3: 6-8 tuổi
+-- 4: 9-11 tuổi
+-- 5: trên 12 tuổi
 CREATE TABLE PRODUCT
 (
 	id INT NOT NULL UNIQUE IDENTITY(1,1),
-	id_type INT,
+	id_type TINYINT,
 	gender TINYINT DEFAULT(0),
-	age_range TINYINT,
+	id_age_range TINYINT,
 	product_name NVARCHAR(50),
 	price FLOAT,
 	quantity INT CHECK (quantity >= 0),
@@ -71,7 +79,8 @@ CREATE TABLE PRODUCT
 	product_desc NVARCHAR(100),
 
 	CONSTRAINT pk_product_id PRIMARY KEY(id),
-	CONSTRAINT fk_product_id_type FOREIGN KEY(id_type) REFERENCES PRODUCT_TYPE(ID)
+	CONSTRAINT fk_product_id_type FOREIGN KEY(id_type) REFERENCES PRODUCT_TYPE(id),
+	CONSTRAINT fk_product_id_age_range FOREIGN KEY(id_age_range) REFERENCES AGE_RANGE(id)
 );
 GO
 
@@ -131,6 +140,7 @@ DROP TABLE STORAGE_HISTORY
 DROP TABLE PURCHASE_BILL
 DROP TABLE PURCHASE_BILL_DETAIL
 DROP TABLE PRODUCT_TYPE
+DROP TABLE AGE_RANGE
 DROP TABLE PRODUCT
 DROP TABLE ACCOUNT
 DROP TABLE CUSTOMER

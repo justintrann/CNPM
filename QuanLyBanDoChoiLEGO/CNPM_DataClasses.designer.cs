@@ -33,6 +33,9 @@ namespace QuanLyBanDoChoiLEGO
     partial void InsertACCOUNT(ACCOUNT instance);
     partial void UpdateACCOUNT(ACCOUNT instance);
     partial void DeleteACCOUNT(ACCOUNT instance);
+    partial void InsertAGE_RANGE(AGE_RANGE instance);
+    partial void UpdateAGE_RANGE(AGE_RANGE instance);
+    partial void DeleteAGE_RANGE(AGE_RANGE instance);
     partial void InsertCUSTOMER(CUSTOMER instance);
     partial void UpdateCUSTOMER(CUSTOMER instance);
     partial void DeleteCUSTOMER(CUSTOMER instance);
@@ -93,6 +96,14 @@ namespace QuanLyBanDoChoiLEGO
 			get
 			{
 				return this.GetTable<STORAGE_HISTORY>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AGE_RANGE> AGE_RANGEs
+		{
+			get
+			{
+				return this.GetTable<AGE_RANGE>();
 			}
 		}
 		
@@ -407,6 +418,120 @@ namespace QuanLyBanDoChoiLEGO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGE_RANGE")]
+	public partial class AGE_RANGE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private byte _id;
+		
+		private string _age_range_name;
+		
+		private EntitySet<PRODUCT> _PRODUCTs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(byte value);
+    partial void OnidChanged();
+    partial void Onage_range_nameChanging(string value);
+    partial void Onage_range_nameChanged();
+    #endregion
+		
+		public AGE_RANGE()
+		{
+			this._PRODUCTs = new EntitySet<PRODUCT>(new Action<PRODUCT>(this.attach_PRODUCTs), new Action<PRODUCT>(this.detach_PRODUCTs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="TinyInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public byte id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_age_range_name", DbType="NVarChar(50)")]
+		public string age_range_name
+		{
+			get
+			{
+				return this._age_range_name;
+			}
+			set
+			{
+				if ((this._age_range_name != value))
+				{
+					this.Onage_range_nameChanging(value);
+					this.SendPropertyChanging();
+					this._age_range_name = value;
+					this.SendPropertyChanged("age_range_name");
+					this.Onage_range_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGE_RANGE_PRODUCT", Storage="_PRODUCTs", ThisKey="id", OtherKey="id_age_range")]
+		public EntitySet<PRODUCT> PRODUCTs
+		{
+			get
+			{
+				return this._PRODUCTs;
+			}
+			set
+			{
+				this._PRODUCTs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PRODUCTs(PRODUCT entity)
+		{
+			this.SendPropertyChanging();
+			entity.AGE_RANGE = this;
+		}
+		
+		private void detach_PRODUCTs(PRODUCT entity)
+		{
+			this.SendPropertyChanging();
+			entity.AGE_RANGE = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CUSTOMER")]
 	public partial class CUSTOMER : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -601,11 +726,11 @@ namespace QuanLyBanDoChoiLEGO
 		
 		private int _id;
 		
-		private System.Nullable<int> _id_type;
+		private System.Nullable<byte> _id_type;
 		
 		private System.Nullable<byte> _gender;
 		
-		private System.Nullable<byte> _age_range;
+		private System.Nullable<byte> _id_age_range;
 		
 		private string _product_name;
 		
@@ -617,6 +742,8 @@ namespace QuanLyBanDoChoiLEGO
 		
 		private string _product_desc;
 		
+		private EntityRef<AGE_RANGE> _AGE_RANGE;
+		
 		private EntityRef<PRODUCT_TYPE> _PRODUCT_TYPE;
 		
     #region Extensibility Method Definitions
@@ -625,12 +752,12 @@ namespace QuanLyBanDoChoiLEGO
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void Onid_typeChanging(System.Nullable<int> value);
+    partial void Onid_typeChanging(System.Nullable<byte> value);
     partial void Onid_typeChanged();
     partial void OngenderChanging(System.Nullable<byte> value);
     partial void OngenderChanged();
-    partial void Onage_rangeChanging(System.Nullable<byte> value);
-    partial void Onage_rangeChanged();
+    partial void Onid_age_rangeChanging(System.Nullable<byte> value);
+    partial void Onid_age_rangeChanged();
     partial void Onproduct_nameChanging(string value);
     partial void Onproduct_nameChanged();
     partial void OnpriceChanging(System.Nullable<double> value);
@@ -645,6 +772,7 @@ namespace QuanLyBanDoChoiLEGO
 		
 		public PRODUCT()
 		{
+			this._AGE_RANGE = default(EntityRef<AGE_RANGE>);
 			this._PRODUCT_TYPE = default(EntityRef<PRODUCT_TYPE>);
 			OnCreated();
 		}
@@ -669,8 +797,8 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_type", DbType="Int")]
-		public System.Nullable<int> id_type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_type", DbType="TinyInt")]
+		public System.Nullable<byte> id_type
 		{
 			get
 			{
@@ -713,22 +841,26 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_age_range", DbType="TinyInt")]
-		public System.Nullable<byte> age_range
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_age_range", DbType="TinyInt")]
+		public System.Nullable<byte> id_age_range
 		{
 			get
 			{
-				return this._age_range;
+				return this._id_age_range;
 			}
 			set
 			{
-				if ((this._age_range != value))
+				if ((this._id_age_range != value))
 				{
-					this.Onage_rangeChanging(value);
+					if (this._AGE_RANGE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_age_rangeChanging(value);
 					this.SendPropertyChanging();
-					this._age_range = value;
-					this.SendPropertyChanged("age_range");
-					this.Onage_rangeChanged();
+					this._id_age_range = value;
+					this.SendPropertyChanged("id_age_range");
+					this.Onid_age_rangeChanged();
 				}
 			}
 		}
@@ -833,6 +965,40 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGE_RANGE_PRODUCT", Storage="_AGE_RANGE", ThisKey="id_age_range", OtherKey="id", IsForeignKey=true)]
+		public AGE_RANGE AGE_RANGE
+		{
+			get
+			{
+				return this._AGE_RANGE.Entity;
+			}
+			set
+			{
+				AGE_RANGE previousValue = this._AGE_RANGE.Entity;
+				if (((previousValue != value) 
+							|| (this._AGE_RANGE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AGE_RANGE.Entity = null;
+						previousValue.PRODUCTs.Remove(this);
+					}
+					this._AGE_RANGE.Entity = value;
+					if ((value != null))
+					{
+						value.PRODUCTs.Add(this);
+						this._id_age_range = value.id;
+					}
+					else
+					{
+						this._id_age_range = default(Nullable<byte>);
+					}
+					this.SendPropertyChanged("AGE_RANGE");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRODUCT_TYPE_PRODUCT", Storage="_PRODUCT_TYPE", ThisKey="id_type", OtherKey="id", IsForeignKey=true)]
 		public PRODUCT_TYPE PRODUCT_TYPE
 		{
@@ -860,7 +1026,7 @@ namespace QuanLyBanDoChoiLEGO
 					}
 					else
 					{
-						this._id_type = default(Nullable<int>);
+						this._id_type = default(Nullable<byte>);
 					}
 					this.SendPropertyChanged("PRODUCT_TYPE");
 				}
@@ -894,7 +1060,7 @@ namespace QuanLyBanDoChoiLEGO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private byte _id;
 		
 		private string _product_type_name;
 		
@@ -906,7 +1072,7 @@ namespace QuanLyBanDoChoiLEGO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
+    partial void OnidChanging(byte value);
     partial void OnidChanged();
     partial void Onproduct_type_nameChanging(string value);
     partial void Onproduct_type_nameChanged();
@@ -920,8 +1086,8 @@ namespace QuanLyBanDoChoiLEGO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="TinyInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public byte id
 		{
 			get
 			{
