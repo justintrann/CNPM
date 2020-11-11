@@ -106,6 +106,14 @@ namespace QuanLyBanDoChoiLEGO
         {
             this.Close();
         }
+
+        private void form_mainwindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Thoát khỏi chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
 
