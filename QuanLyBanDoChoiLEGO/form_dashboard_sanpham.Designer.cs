@@ -33,11 +33,19 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_storage = new System.Windows.Forms.Button();
             this.dgv_product = new System.Windows.Forms.DataGridView();
+            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_age_range = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRODUCTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cNPMNHOM1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
             this.picbox_product = new System.Windows.Forms.PictureBox();
             this.lbl_product_name = new System.Windows.Forms.Label();
-            this.cbox_product_name = new System.Windows.Forms.ComboBox();
             this.lbl_product_type = new System.Windows.Forms.Label();
             this.lbl_product_gender = new System.Windows.Forms.Label();
             this.lbl_product_quantity = new System.Windows.Forms.Label();
@@ -48,22 +56,13 @@
             this.textbox_product_quantity = new System.Windows.Forms.TextBox();
             this.textbox_product_age_range = new System.Windows.Forms.TextBox();
             this.textbox_product_price = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_age_range = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNPMNHOM1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
             this.pRODUCTTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.PRODUCTTableAdapter();
+            this.textbox_product_name = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbox_product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_product)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_add
@@ -126,158 +125,7 @@
             this.dgv_product.ReadOnly = true;
             this.dgv_product.Size = new System.Drawing.Size(419, 396);
             this.dgv_product.TabIndex = 3;
-            this.dgv_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellClick);
-            // 
-            // col_quantity
-            // 
-            this.col_quantity.DataPropertyName = "quantity";
-            this.col_quantity.HeaderText = "Số lượng";
-            this.col_quantity.MinimumWidth = 75;
-            this.col_quantity.Name = "col_quantity";
-            this.col_quantity.ReadOnly = true;
-            this.col_quantity.Width = 75;
-            // 
-            // pRODUCTBindingSource1
-            // 
-            this.pRODUCTBindingSource1.DataMember = "PRODUCT";
-            this.pRODUCTBindingSource1.DataSource = this.cNPMNHOM1DataSetBindingSource;
-            // 
-            // picbox_product
-            // 
-            this.picbox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picbox_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbox_product.Image = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_placeholder;
-            this.picbox_product.Location = new System.Drawing.Point(432, 45);
-            this.picbox_product.MinimumSize = new System.Drawing.Size(180, 180);
-            this.picbox_product.Name = "picbox_product";
-            this.picbox_product.Size = new System.Drawing.Size(180, 180);
-            this.picbox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbox_product.TabIndex = 5;
-            this.picbox_product.TabStop = false;
-            // 
-            // lbl_product_name
-            // 
-            this.lbl_product_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_product_name.AutoSize = true;
-            this.lbl_product_name.Location = new System.Drawing.Point(433, 234);
-            this.lbl_product_name.Name = "lbl_product_name";
-            this.lbl_product_name.Size = new System.Drawing.Size(29, 13);
-            this.lbl_product_name.TabIndex = 4;
-            this.lbl_product_name.Text = "Tên:";
-            // 
-            // cbox_product_name
-            // 
-            this.cbox_product_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbox_product_name.FormattingEnabled = true;
-            this.cbox_product_name.Location = new System.Drawing.Point(467, 231);
-            this.cbox_product_name.Name = "cbox_product_name";
-            this.cbox_product_name.Size = new System.Drawing.Size(145, 21);
-            this.cbox_product_name.TabIndex = 5;
-            // 
-            // lbl_product_type
-            // 
-            this.lbl_product_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_product_type.AutoSize = true;
-            this.lbl_product_type.Location = new System.Drawing.Point(433, 263);
-            this.lbl_product_type.Name = "lbl_product_type";
-            this.lbl_product_type.Size = new System.Drawing.Size(30, 13);
-            this.lbl_product_type.TabIndex = 6;
-            this.lbl_product_type.Text = "Loại:";
-            // 
-            // lbl_product_gender
-            // 
-            this.lbl_product_gender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_product_gender.AutoSize = true;
-            this.lbl_product_gender.Location = new System.Drawing.Point(433, 286);
-            this.lbl_product_gender.Name = "lbl_product_gender";
-            this.lbl_product_gender.Size = new System.Drawing.Size(50, 13);
-            this.lbl_product_gender.TabIndex = 8;
-            this.lbl_product_gender.Text = "Giới tính:";
-            // 
-            // lbl_product_quantity
-            // 
-            this.lbl_product_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_product_quantity.AutoSize = true;
-            this.lbl_product_quantity.Location = new System.Drawing.Point(433, 332);
-            this.lbl_product_quantity.Name = "lbl_product_quantity";
-            this.lbl_product_quantity.Size = new System.Drawing.Size(52, 13);
-            this.lbl_product_quantity.TabIndex = 12;
-            this.lbl_product_quantity.Text = "Số lượng:";
-            // 
-            // lbl_product_age_range
-            // 
-            this.lbl_product_age_range.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_product_age_range.AutoSize = true;
-            this.lbl_product_age_range.Location = new System.Drawing.Point(433, 309);
-            this.lbl_product_age_range.Name = "lbl_product_age_range";
-            this.lbl_product_age_range.Size = new System.Drawing.Size(44, 13);
-            this.lbl_product_age_range.TabIndex = 10;
-            this.lbl_product_age_range.Text = "Độ tuổi:";
-            // 
-            // lbl_product_price
-            // 
-            this.lbl_product_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_product_price.AutoSize = true;
-            this.lbl_product_price.Location = new System.Drawing.Point(433, 356);
-            this.lbl_product_price.Name = "lbl_product_price";
-            this.lbl_product_price.Size = new System.Drawing.Size(46, 13);
-            this.lbl_product_price.TabIndex = 14;
-            this.lbl_product_price.Text = "Giá tiền:";
-            // 
-            // textbox_product_type
-            // 
-            this.textbox_product_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textbox_product_type.Enabled = false;
-            this.textbox_product_type.Location = new System.Drawing.Point(493, 260);
-            this.textbox_product_type.Name = "textbox_product_type";
-            this.textbox_product_type.Size = new System.Drawing.Size(119, 20);
-            this.textbox_product_type.TabIndex = 7;
-            // 
-            // textbox_product_gender
-            // 
-            this.textbox_product_gender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textbox_product_gender.Enabled = false;
-            this.textbox_product_gender.Location = new System.Drawing.Point(493, 283);
-            this.textbox_product_gender.Name = "textbox_product_gender";
-            this.textbox_product_gender.Size = new System.Drawing.Size(119, 20);
-            this.textbox_product_gender.TabIndex = 9;
-            // 
-            // textbox_product_quantity
-            // 
-            this.textbox_product_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textbox_product_quantity.Enabled = false;
-            this.textbox_product_quantity.Location = new System.Drawing.Point(493, 330);
-            this.textbox_product_quantity.Name = "textbox_product_quantity";
-            this.textbox_product_quantity.Size = new System.Drawing.Size(119, 20);
-            this.textbox_product_quantity.TabIndex = 13;
-            // 
-            // textbox_product_age_range
-            // 
-            this.textbox_product_age_range.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textbox_product_age_range.Enabled = false;
-            this.textbox_product_age_range.Location = new System.Drawing.Point(493, 306);
-            this.textbox_product_age_range.Name = "textbox_product_age_range";
-            this.textbox_product_age_range.Size = new System.Drawing.Size(119, 20);
-            this.textbox_product_age_range.TabIndex = 11;
-            // 
-            // textbox_product_price
-            // 
-            this.textbox_product_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textbox_product_price.Enabled = false;
-            this.textbox_product_price.Location = new System.Drawing.Point(493, 353);
-            this.textbox_product_price.Name = "textbox_product_price";
-            this.textbox_product_price.Size = new System.Drawing.Size(119, 20);
-            this.textbox_product_price.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(315, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "label1";
+            this.dgv_product.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellEnter);
             // 
             // col_id
             // 
@@ -314,7 +162,7 @@
             this.col_gender.MinimumWidth = 50;
             this.col_gender.Name = "col_gender";
             this.col_gender.ReadOnly = true;
-            this.col_gender.Width = 69;
+            this.col_gender.Width = 93;
             // 
             // col_age_range
             // 
@@ -335,6 +183,15 @@
             this.col_price.Name = "col_price";
             this.col_price.ReadOnly = true;
             // 
+            // col_quantity
+            // 
+            this.col_quantity.DataPropertyName = "quantity";
+            this.col_quantity.HeaderText = "Số lượng";
+            this.col_quantity.MinimumWidth = 75;
+            this.col_quantity.Name = "col_quantity";
+            this.col_quantity.ReadOnly = true;
+            this.col_quantity.Width = 75;
+            // 
             // col_product_desc
             // 
             this.col_product_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -343,6 +200,11 @@
             this.col_product_desc.MinimumWidth = 100;
             this.col_product_desc.Name = "col_product_desc";
             this.col_product_desc.ReadOnly = true;
+            // 
+            // pRODUCTBindingSource1
+            // 
+            this.pRODUCTBindingSource1.DataMember = "PRODUCT";
+            this.pRODUCTBindingSource1.DataSource = this.cNPMNHOM1DataSetBindingSource;
             // 
             // cNPMNHOM1DataSetBindingSource
             // 
@@ -354,16 +216,143 @@
             this.cNPM_NHOM_1DataSet.DataSetName = "CNPM_NHOM_1DataSet";
             this.cNPM_NHOM_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // picbox_product
+            // 
+            this.picbox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picbox_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbox_product.Image = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_placeholder;
+            this.picbox_product.Location = new System.Drawing.Point(432, 45);
+            this.picbox_product.MinimumSize = new System.Drawing.Size(180, 180);
+            this.picbox_product.Name = "picbox_product";
+            this.picbox_product.Size = new System.Drawing.Size(180, 180);
+            this.picbox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbox_product.TabIndex = 5;
+            this.picbox_product.TabStop = false;
+            // 
+            // lbl_product_name
+            // 
+            this.lbl_product_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_product_name.AutoSize = true;
+            this.lbl_product_name.Location = new System.Drawing.Point(433, 234);
+            this.lbl_product_name.Name = "lbl_product_name";
+            this.lbl_product_name.Size = new System.Drawing.Size(29, 13);
+            this.lbl_product_name.TabIndex = 4;
+            this.lbl_product_name.Text = "Tên:";
+            // 
+            // lbl_product_type
+            // 
+            this.lbl_product_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_product_type.AutoSize = true;
+            this.lbl_product_type.Location = new System.Drawing.Point(433, 258);
+            this.lbl_product_type.Name = "lbl_product_type";
+            this.lbl_product_type.Size = new System.Drawing.Size(30, 13);
+            this.lbl_product_type.TabIndex = 6;
+            this.lbl_product_type.Text = "Loại:";
+            // 
+            // lbl_product_gender
+            // 
+            this.lbl_product_gender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_product_gender.AutoSize = true;
+            this.lbl_product_gender.Location = new System.Drawing.Point(433, 282);
+            this.lbl_product_gender.Name = "lbl_product_gender";
+            this.lbl_product_gender.Size = new System.Drawing.Size(50, 13);
+            this.lbl_product_gender.TabIndex = 8;
+            this.lbl_product_gender.Text = "Giới tính:";
+            // 
+            // lbl_product_quantity
+            // 
+            this.lbl_product_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_product_quantity.AutoSize = true;
+            this.lbl_product_quantity.Location = new System.Drawing.Point(433, 330);
+            this.lbl_product_quantity.Name = "lbl_product_quantity";
+            this.lbl_product_quantity.Size = new System.Drawing.Size(52, 13);
+            this.lbl_product_quantity.TabIndex = 12;
+            this.lbl_product_quantity.Text = "Số lượng:";
+            // 
+            // lbl_product_age_range
+            // 
+            this.lbl_product_age_range.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_product_age_range.AutoSize = true;
+            this.lbl_product_age_range.Location = new System.Drawing.Point(433, 306);
+            this.lbl_product_age_range.Name = "lbl_product_age_range";
+            this.lbl_product_age_range.Size = new System.Drawing.Size(44, 13);
+            this.lbl_product_age_range.TabIndex = 10;
+            this.lbl_product_age_range.Text = "Độ tuổi:";
+            // 
+            // lbl_product_price
+            // 
+            this.lbl_product_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_product_price.AutoSize = true;
+            this.lbl_product_price.Location = new System.Drawing.Point(433, 354);
+            this.lbl_product_price.Name = "lbl_product_price";
+            this.lbl_product_price.Size = new System.Drawing.Size(46, 13);
+            this.lbl_product_price.TabIndex = 14;
+            this.lbl_product_price.Text = "Giá tiền:";
+            // 
+            // textbox_product_type
+            // 
+            this.textbox_product_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_product_type.Enabled = false;
+            this.textbox_product_type.Location = new System.Drawing.Point(493, 255);
+            this.textbox_product_type.Name = "textbox_product_type";
+            this.textbox_product_type.Size = new System.Drawing.Size(119, 20);
+            this.textbox_product_type.TabIndex = 7;
+            // 
+            // textbox_product_gender
+            // 
+            this.textbox_product_gender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_product_gender.Enabled = false;
+            this.textbox_product_gender.Location = new System.Drawing.Point(493, 279);
+            this.textbox_product_gender.Name = "textbox_product_gender";
+            this.textbox_product_gender.Size = new System.Drawing.Size(119, 20);
+            this.textbox_product_gender.TabIndex = 9;
+            // 
+            // textbox_product_quantity
+            // 
+            this.textbox_product_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_product_quantity.Enabled = false;
+            this.textbox_product_quantity.Location = new System.Drawing.Point(493, 327);
+            this.textbox_product_quantity.Name = "textbox_product_quantity";
+            this.textbox_product_quantity.Size = new System.Drawing.Size(119, 20);
+            this.textbox_product_quantity.TabIndex = 13;
+            // 
+            // textbox_product_age_range
+            // 
+            this.textbox_product_age_range.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_product_age_range.Enabled = false;
+            this.textbox_product_age_range.Location = new System.Drawing.Point(493, 303);
+            this.textbox_product_age_range.Name = "textbox_product_age_range";
+            this.textbox_product_age_range.Size = new System.Drawing.Size(119, 20);
+            this.textbox_product_age_range.TabIndex = 11;
+            // 
+            // textbox_product_price
+            // 
+            this.textbox_product_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_product_price.Enabled = false;
+            this.textbox_product_price.Location = new System.Drawing.Point(493, 351);
+            this.textbox_product_price.Name = "textbox_product_price";
+            this.textbox_product_price.Size = new System.Drawing.Size(119, 20);
+            this.textbox_product_price.TabIndex = 15;
+            // 
             // pRODUCTTableAdapter
             // 
             this.pRODUCTTableAdapter.ClearBeforeFill = true;
+            // 
+            // textbox_product_name
+            // 
+            this.textbox_product_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textbox_product_name.Enabled = false;
+            this.textbox_product_name.Location = new System.Drawing.Point(493, 231);
+            this.textbox_product_name.Name = "textbox_product_name";
+            this.textbox_product_name.Size = new System.Drawing.Size(119, 20);
+            this.textbox_product_name.TabIndex = 17;
             // 
             // form_dashboard_sanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textbox_product_name);
             this.Controls.Add(this.textbox_product_price);
             this.Controls.Add(this.textbox_product_quantity);
             this.Controls.Add(this.textbox_product_age_range);
@@ -374,7 +363,6 @@
             this.Controls.Add(this.lbl_product_quantity);
             this.Controls.Add(this.lbl_product_gender);
             this.Controls.Add(this.lbl_product_type);
-            this.Controls.Add(this.cbox_product_name);
             this.Controls.Add(this.lbl_product_name);
             this.Controls.Add(this.picbox_product);
             this.Controls.Add(this.dgv_product);
@@ -389,9 +377,9 @@
             this.Load += new System.EventHandler(this.form_dashboard_sanpham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbox_product)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbox_product)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,7 +398,6 @@
         private System.Windows.Forms.PictureBox picbox_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_quantity;
         private System.Windows.Forms.Label lbl_product_name;
-        private System.Windows.Forms.ComboBox cbox_product_name;
         private System.Windows.Forms.Label lbl_product_type;
         private System.Windows.Forms.Label lbl_product_gender;
         private System.Windows.Forms.Label lbl_product_quantity;
@@ -428,6 +415,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_age_range;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_product_desc;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textbox_product_name;
     }
 }

@@ -15,7 +15,6 @@ namespace QuanLyBanDoChoiLEGO
         public form_dashboard_sanpham()
         {
             InitializeComponent();
-            this.label2.Text = System.IO.Directory.GetCurrentDirectory();
         }
 
         private void form_dashboard_sanpham_Load(object sender, EventArgs e)
@@ -41,10 +40,12 @@ namespace QuanLyBanDoChoiLEGO
             MessageBox.Show("WIP");
         }
 
-        private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_product_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             int indexRow = e.RowIndex;
             if (indexRow < 0) return;
+
+            string dir = System.IO.Directory.GetCurrentDirectory();
 
             int id = int.Parse(dgv_product.Rows[indexRow].Cells[0].Value.ToString());
 
@@ -52,13 +53,15 @@ namespace QuanLyBanDoChoiLEGO
             PRODUCT product = db.PRODUCTs.Where(p => p.id == id).SingleOrDefault();
             if (product != null)
             {
-                cbox_product_name.Text = product.product_name.ToString();
+                textbox_product_name.Text = product.product_name.ToString();
                 textbox_product_type.Text = product.id_type.ToString();
                 textbox_product_gender.Text = product.gender.ToString();
                 textbox_product_age_range.Text = product.age_range.ToString();
                 textbox_product_quantity.Text = product.quantity.ToString();
                 textbox_product_price.Text = product.price.ToString();
-                //picbox_product.ImageLocation = product.img_path.ToString();
+                //Image image = Image.FromFile(product.img_path.ToString());
+                //if (image)
+                picbox_product.Image = Image.FromFile("../../../"+ product.img_path.ToString());
             }
         }
     }
