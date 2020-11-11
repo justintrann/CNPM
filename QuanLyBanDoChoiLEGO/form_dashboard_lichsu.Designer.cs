@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_lichsu));
-            this.textBoxSearchProduct = new System.Windows.Forms.TextBox();
+            this.textbox_search_product = new System.Windows.Forms.TextBox();
             this.buttonSearchProduct = new System.Windows.Forms.Button();
             this.listViewProductOut = new System.Windows.Forms.ListView();
             this.listViewProductIn = new System.Windows.Forms.ListView();
@@ -38,14 +38,14 @@
             this.domainUpDownThang = new System.Windows.Forms.DomainUpDown();
             this.SuspendLayout();
             // 
-            // textBoxSearchProduct
+            // textbox_search_product
             // 
-            this.textBoxSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchProduct.Location = new System.Drawing.Point(48, 12);
-            this.textBoxSearchProduct.MinimumSize = new System.Drawing.Size(349, 30);
-            this.textBoxSearchProduct.Name = "textBoxSearchProduct";
-            this.textBoxSearchProduct.Size = new System.Drawing.Size(349, 30);
-            this.textBoxSearchProduct.TabIndex = 3;
+            this.textbox_search_product.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox_search_product.Location = new System.Drawing.Point(48, 12);
+            this.textbox_search_product.MinimumSize = new System.Drawing.Size(349, 30);
+            this.textbox_search_product.Name = "textbox_search_product";
+            this.textbox_search_product.Size = new System.Drawing.Size(349, 30);
+            this.textbox_search_product.TabIndex = 3;
             // 
             // buttonSearchProduct
             // 
@@ -85,41 +85,41 @@
             // 
             // domainUpDownTheLoai
             // 
-            this.domainUpDownTheLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.domainUpDownTheLoai.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.domainUpDownTheLoai.Location = new System.Drawing.Point(403, 12);
             this.domainUpDownTheLoai.Name = "domainUpDownTheLoai";
-            this.domainUpDownTheLoai.Size = new System.Drawing.Size(90, 30);
+            this.domainUpDownTheLoai.Size = new System.Drawing.Size(90, 26);
             this.domainUpDownTheLoai.TabIndex = 6;
             this.domainUpDownTheLoai.Text = "Ngày";
             // 
             // domainUpDownNam
             // 
-            this.domainUpDownNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.domainUpDownNam.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.domainUpDownNam.Location = new System.Drawing.Point(605, 12);
             this.domainUpDownNam.Name = "domainUpDownNam";
-            this.domainUpDownNam.Size = new System.Drawing.Size(97, 30);
+            this.domainUpDownNam.Size = new System.Drawing.Size(97, 26);
             this.domainUpDownNam.TabIndex = 7;
             this.domainUpDownNam.Text = "Năm";
             // 
             // domainUpDownThang
             // 
-            this.domainUpDownThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.domainUpDownThang.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.domainUpDownThang.Location = new System.Drawing.Point(499, 12);
             this.domainUpDownThang.Name = "domainUpDownThang";
-            this.domainUpDownThang.Size = new System.Drawing.Size(100, 30);
+            this.domainUpDownThang.Size = new System.Drawing.Size(100, 26);
             this.domainUpDownThang.TabIndex = 8;
             this.domainUpDownThang.Text = "Tháng";
             // 
             // form_dashboard_lichsu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 458);
             this.Controls.Add(this.domainUpDownThang);
             this.Controls.Add(this.domainUpDownNam);
             this.Controls.Add(this.domainUpDownTheLoai);
             this.Controls.Add(this.listViewProductOut);
             this.Controls.Add(this.listViewProductIn);
-            this.Controls.Add(this.textBoxSearchProduct);
+            this.Controls.Add(this.textbox_search_product);
             this.Controls.Add(this.buttonSearchProduct);
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "form_dashboard_lichsu";
@@ -133,7 +133,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxSearchProduct;
+        private System.Windows.Forms.TextBox textbox_search_product;
         private System.Windows.Forms.Button buttonSearchProduct;
         private System.Windows.Forms.ListView listViewProductOut;
         private System.Windows.Forms.ListView listViewProductIn;

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_banhang));
             this.buttonSearchProduct = new System.Windows.Forms.Button();
-            this.textBoxSearchProduct = new System.Windows.Forms.TextBox();
+            this.textbox_searchbar = new System.Windows.Forms.TextBox();
             this.listViewProduct = new System.Windows.Forms.ListView();
             this.listViewIsSelectedProduct = new System.Windows.Forms.ListView();
             this.labelTongTien = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             this.buttonSearchProduct.TabIndex = 0;
             this.buttonSearchProduct.UseVisualStyleBackColor = false;
             // 
-            // textBoxSearchProduct
+            // textbox_searchbar
             // 
-            this.textBoxSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchProduct.Location = new System.Drawing.Point(48, 12);
-            this.textBoxSearchProduct.MinimumSize = new System.Drawing.Size(349, 30);
-            this.textBoxSearchProduct.Name = "textBoxSearchProduct";
-            this.textBoxSearchProduct.Size = new System.Drawing.Size(349, 30);
-            this.textBoxSearchProduct.TabIndex = 1;
+            this.textbox_searchbar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textbox_searchbar.Location = new System.Drawing.Point(48, 12);
+            this.textbox_searchbar.MinimumSize = new System.Drawing.Size(349, 30);
+            this.textbox_searchbar.Name = "textbox_searchbar";
+            this.textbox_searchbar.Size = new System.Drawing.Size(349, 30);
+            this.textbox_searchbar.TabIndex = 1;
             // 
             // listViewProduct
             // 
@@ -91,7 +91,7 @@
             // labelTongTien
             // 
             this.labelTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.labelTongTien.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.labelTongTien.Location = new System.Drawing.Point(403, 413);
             this.labelTongTien.MinimumSize = new System.Drawing.Size(87, 20);
             this.labelTongTien.Name = "labelTongTien";
@@ -104,7 +104,7 @@
             this.textBoxTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.textBoxTongTien.Font = new System.Drawing.Font("Arial", 14F);
             this.textBoxTongTien.Location = new System.Drawing.Point(496, 404);
             this.textBoxTongTien.MinimumSize = new System.Drawing.Size(187, 34);
             this.textBoxTongTien.Name = "textBoxTongTien";
@@ -114,7 +114,7 @@
             // buttonCheckOut
             // 
             this.buttonCheckOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.buttonCheckOut.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.buttonCheckOut.Location = new System.Drawing.Point(689, 404);
             this.buttonCheckOut.MinimumSize = new System.Drawing.Size(99, 34);
             this.buttonCheckOut.Name = "buttonCheckOut";
@@ -127,10 +127,10 @@
             // checkBox1_2_Tuoi
             // 
             this.checkBox1_2_Tuoi.AutoSize = true;
-            this.checkBox1_2_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1_2_Tuoi.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1_2_Tuoi.Location = new System.Drawing.Point(407, 4);
             this.checkBox1_2_Tuoi.Name = "checkBox1_2_Tuoi";
-            this.checkBox1_2_Tuoi.Size = new System.Drawing.Size(86, 21);
+            this.checkBox1_2_Tuoi.Size = new System.Drawing.Size(68, 18);
             this.checkBox1_2_Tuoi.TabIndex = 7;
             this.checkBox1_2_Tuoi.Text = "1 - 2 tuổi";
             this.checkBox1_2_Tuoi.UseVisualStyleBackColor = true;
@@ -138,10 +138,10 @@
             // checkBox3_5_Tuoi
             // 
             this.checkBox3_5_Tuoi.AutoSize = true;
-            this.checkBox3_5_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3_5_Tuoi.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3_5_Tuoi.Location = new System.Drawing.Point(407, 31);
             this.checkBox3_5_Tuoi.Name = "checkBox3_5_Tuoi";
-            this.checkBox3_5_Tuoi.Size = new System.Drawing.Size(86, 21);
+            this.checkBox3_5_Tuoi.Size = new System.Drawing.Size(68, 18);
             this.checkBox3_5_Tuoi.TabIndex = 8;
             this.checkBox3_5_Tuoi.Text = "3 - 5 tuổi";
             this.checkBox3_5_Tuoi.UseVisualStyleBackColor = true;
@@ -149,10 +149,10 @@
             // checkBox6_8_Tuoi
             // 
             this.checkBox6_8_Tuoi.AutoSize = true;
-            this.checkBox6_8_Tuoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox6_8_Tuoi.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox6_8_Tuoi.Location = new System.Drawing.Point(518, 4);
             this.checkBox6_8_Tuoi.Name = "checkBox6_8_Tuoi";
-            this.checkBox6_8_Tuoi.Size = new System.Drawing.Size(86, 21);
+            this.checkBox6_8_Tuoi.Size = new System.Drawing.Size(68, 18);
             this.checkBox6_8_Tuoi.TabIndex = 9;
             this.checkBox6_8_Tuoi.Text = "6 - 8 tuổi";
             this.checkBox6_8_Tuoi.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             this.checkBox9_11_Tuoi.AutoSize = true;
             this.checkBox9_11_Tuoi.Location = new System.Drawing.Point(518, 31);
             this.checkBox9_11_Tuoi.Name = "checkBox9_11_Tuoi";
-            this.checkBox9_11_Tuoi.Size = new System.Drawing.Size(94, 21);
+            this.checkBox9_11_Tuoi.Size = new System.Drawing.Size(73, 18);
             this.checkBox9_11_Tuoi.TabIndex = 10;
             this.checkBox9_11_Tuoi.Text = "9 - 11 tuổi";
             this.checkBox9_11_Tuoi.UseVisualStyleBackColor = true;
@@ -172,7 +172,7 @@
             this.checkBoxTren12Tuoi.AutoSize = true;
             this.checkBoxTren12Tuoi.Location = new System.Drawing.Point(610, 4);
             this.checkBoxTren12Tuoi.Name = "checkBoxTren12Tuoi";
-            this.checkBoxTren12Tuoi.Size = new System.Drawing.Size(107, 21);
+            this.checkBoxTren12Tuoi.Size = new System.Drawing.Size(83, 18);
             this.checkBoxTren12Tuoi.TabIndex = 11;
             this.checkBoxTren12Tuoi.Text = "Trên 12 tuổi";
             this.checkBoxTren12Tuoi.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             // form_dashboard_banhang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 458);
             this.Controls.Add(this.checkBoxTren12Tuoi);
             this.Controls.Add(this.checkBox9_11_Tuoi);
             this.Controls.Add(this.checkBox6_8_Tuoi);
@@ -191,7 +191,7 @@
             this.Controls.Add(this.labelTongTien);
             this.Controls.Add(this.listViewIsSelectedProduct);
             this.Controls.Add(this.listViewProduct);
-            this.Controls.Add(this.textBoxSearchProduct);
+            this.Controls.Add(this.textbox_searchbar);
             this.Controls.Add(this.buttonSearchProduct);
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "form_dashboard_banhang";
@@ -207,7 +207,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSearchProduct;
-        private System.Windows.Forms.TextBox textBoxSearchProduct;
+        private System.Windows.Forms.TextBox textbox_searchbar;
         private System.Windows.Forms.ListView listViewProduct;
         private System.Windows.Forms.ListView listViewIsSelectedProduct;
         private System.Windows.Forms.Label labelTongTien;
