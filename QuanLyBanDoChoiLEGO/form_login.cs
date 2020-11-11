@@ -17,14 +17,81 @@ namespace QuanLyBanDoChoiLEGO
             InitializeComponent();
         }
 
+        public ACCOUNT account = new ACCOUNT();
+        private bool is_valid = false;
         private void btn_login_Click(object sender, EventArgs e)
         {
+            CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
 
+            //truy vấn tài khoản trong CSDL
+            account = db.ACCOUNTs.Where(p => p.username == textbox_username.Text && p.pass == textbox_password.Text).SingleOrDefault();
+
+            if (account == null)
+            {
+                MessageBox.Show("Sai tài khoản/mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+/*
+                if (account.is_verified == false)
+                {
+                    MessageBox.Show("Tài khoản chưa được kích hoạt\n" +
+                        "Vui lòng liên hệ admin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+                else
+                {
+                    is_valid = true;
+                    //quyền bình thường
+                    if (account.is_admin == 0)
+                    {
+                        MessageBox.Show("Xin chào " + account.username, "Đăng nhập thành công", MessageBoxButtons.OK);
+                        DialogResult = DialogResult.OK;
+                    }
+                    //quyền admin
+                    if (account.is_admin == 1)
+                    {
+                        MessageBox.Show("Xin chào " + account.username + "\nbạn đang đăng nhập bằng quyền admin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        DialogResult = DialogResult.OK;
+                    }
+                }
+*/
+                is_valid = true;
+                //quyền bình thường
+                if (account.is_admin == 0)
+                {
+                    MessageBox.Show("Xin chào " + account.username, "Đăng nhập thành công", MessageBoxButtons.OK);
+                    DialogResult = DialogResult.OK;
+                }
+                //quyền admin
+                if (account.is_admin == 1)
+                {
+                    MessageBox.Show("Xin chào " + account.username + "\nbạn đang đăng nhập bằng quyền admin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    DialogResult = DialogResult.OK;
+                }
+            }
+
+            if (is_valid)
+            {
+                Close();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Abort;
+        }
 
+        private void login_textboxes_TextChanged(object sender, EventArgs e)
+        {
+            if(textbox_username.Text == "" && textbox_password.Text != "")
+            {
+                btn_login.Enabled = false;
+            }
+            else
+            {
+                btn_login.Enabled = true;
+            }
         }
     }
 }

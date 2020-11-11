@@ -62,6 +62,7 @@
             this.textbox_username.Name = "textbox_username";
             this.textbox_username.Size = new System.Drawing.Size(257, 20);
             this.textbox_username.TabIndex = 2;
+            this.textbox_username.TextChanged += new System.EventHandler(this.login_textboxes_TextChanged);
             // 
             // textbox_password
             // 
@@ -70,6 +71,7 @@
             this.textbox_password.PasswordChar = '*';
             this.textbox_password.Size = new System.Drawing.Size(257, 20);
             this.textbox_password.TabIndex = 4;
+            this.textbox_password.TextChanged += new System.EventHandler(this.login_textboxes_TextChanged);
             // 
             // lbl_password
             // 
