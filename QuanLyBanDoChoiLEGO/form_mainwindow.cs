@@ -17,6 +17,11 @@ namespace QuanLyBanDoChoiLEGO
             InitializeComponent();
         }
 
+        public form_mainwindow(ACCOUNT account)
+        {
+            InitializeComponent();
+            //do stuff with account
+        }
         private void btn_board_1_Click(object sender, EventArgs e)
         {
             bool isOpen = false;
