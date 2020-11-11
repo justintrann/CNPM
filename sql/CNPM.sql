@@ -43,7 +43,7 @@ GO
 --id này nên tự nhập tay để đỡ lỗi
 CREATE TABLE PRODUCT_TYPE
 (
-	id INT NOT NULL UNIQUE, 
+	id INT NOT NULL UNIQUE IDENTITY(1,1), 
 	product_type_name NVARCHAR(50),
 	product_type_desc NVARCHAR(100),
 

@@ -24,30 +24,30 @@ INSERT INTO ACCOUNT VALUES
 GO
 
 INSERT INTO PRODUCT_TYPE VALUES
-	(1, N'Architecture', N'LEGO® Architecture presents some of the iconic buildings of world architecture.'),
-	(2, N'City', N'LEGO® City is a realistic LEGO world for your child to explore.'),
-	(3, N'Classic', N'Develop children’s creativity with LEGO® Classic.'),
-	(4, N'Technic™', N'LEGO® Technic provides a real challenge for experienced LEGO builders.');
+	(N'Architecture', N'LEGO® Architecture presents some of the iconic buildings of world architecture.'),
+	(N'City', N'LEGO® City is a realistic LEGO world for your child to explore.'),
+	(N'Classic', N'Develop children’s creativity with LEGO® Classic.'),
+	(N'Technic™', N'LEGO® Technic provides a real challenge for experienced LEGO builders.');
 GO
 
--- template: (1,0,0,N'product_name', 0, '../resouce/lego_placeholder.png', N'desc'),
+-- template: (1,0,0,N'product_name', 0, 'resource/lego_placeholder.png', N'desc'),
 INSERT INTO PRODUCT VALUES
-	(1,1,2,N'Paris', 44.99, 100, '../resouce/lego_placeholder.png', N'Paris'),
-	(1,0,2,N'London', 44.99, 100, '../resouce/lego_placeholder.png', N'London'),
-	(1,0,2,N'The White House', 89.99, 1, '../resouce/lego_placeholder.png', N'This LEGO® Architecture display model of The White House.'),
-	(1,0,2,N'Burj Khalifa', 44.99, 2, '../resouce/lego_placeholder.png', N'Enjoy some quality time recreating a famous Dubai landmark.'),
-	(2,1,0,N'Ocean Exploration Ship', 124.99, 3, '../resouce/lego_placeholder.png', 'Ocean Exploration Ship'),
-	(2,1,1,N'Passenger Train', 119.99, 200,'../resouce/lego_placeholder.png', N'Passenger Train'),
-	(2,0,1,N'Police Station', 89.99, 200,'../resouce/lego_placeholder.png', N'Police Station'),
-	(2,0,1,N'Tuning Workshop', 89.99, 200,'../resouce/lego_placeholder.png', N'Tuning Workshop'),
-	(3,1,0,N'LEGO® Large Creative Brick Box', 39.99, 200,'../resouce/lego_placeholder.png', N'LEGO® Large Creative Brick Box'),
-	(3,1,3,N'Bricks and Lights', 24.99, 200,'../resouce/lego_placeholder.png', N'Bricks and Lights'),
-	(3,1,3,N'Bricks and Houses', 17.99, 200,'../resouce/lego_placeholder.png', N'Bricks and Houses'),
-	(3,1,3,N'B6 ricks and Animals', 54.99, 200,'../resouce/lego_placeholder.png', N'Bricks and Animals'),
-	(4,0,4,N'Land Rover Defender', 154.99, 200,'../resouce/lego_placeholder.png', N'Land Rover Defender'),
-	(4,0,4,N'Porsche 911 RSR', 89.99, 200,'../resouce/lego_placeholder.png', N'Porsche 911 RSR'),
-	(4,0,4,N'Dom''s Dodge Charger', 89.99, 200,'../resouce/lego_placeholder.png', N'Dom''s Dodge Charger'),
-	(4,0,4,N'Ducati Panigale V4 R', 54.99, 200,'../resouce/lego_placeholder.png', N'Ducati Panigale V4 R');
+	(1,1,2,N'Paris', 44.99, 100, 'resource/paris.png', N'Paris'),
+	(1,0,2,N'London', 44.99, 100, 'resource/london.png', N'London'),
+	(1,0,2,N'The White House', 89.99, 1, 'resource/whitehouse.png', N'This LEGO® Architecture display model of The White House.'),
+	(1,0,2,N'Burj Khalifa', 44.99, 2, 'resource/burjkhalifa.png', N'Enjoy some quality time recreating a famous Dubai landmark.'),
+	(2,1,0,N'Ocean Exploration Ship', 124.99, 3, 'resource/oceanexplorationship.png', 'Ocean Exploration Ship'),
+	(2,1,1,N'Passenger Train', 119.99, 200,'resource/passengertrain.png', N'Passenger Train'),
+	(2,0,1,N'Police Station', 89.99, 200,'resource/policestation.png', N'Police Station'),
+	(2,0,1,N'Tuning Workshop', 89.99, 200,'resource/tuningworkshop.png', N'Tuning Workshop'),
+	(3,1,0,N'LEGO® Large Creative Brick Box', 39.99, 200,'resource/legolargecreativebrickbox.png', N'LEGO® Large Creative Brick Box'),
+	(3,1,3,N'Bricks and Lights', 24.99, 200,'resource/bricksandlights.png', N'Bricks and Lights'),
+	(3,1,3,N'Bricks and Houses', 17.99, 200,'resource/bricksandhouses.png', N'Bricks and Houses'),
+	(3,1,3,N'B6 ricks and Animals', 54.99, 200,'resource/bricksandanimals.png', N'Bricks and Animals'),
+	(4,0,4,N'Land Rover Defender', 154.99, 200,'resource/landroverdefender.png', N'Land Rover Defender'),
+	(4,0,4,N'Porsche 911 RSR', 89.99, 200,'resource/porsche911rsr.png', N'Porsche 911 RSR'),
+	(4,0,4,N'Dom''s Dodge Charger', 89.99, 200,'resource/domsdodgecharger.png', N'Dom''s Dodge Charger'),
+	(4,0,4,N'Ducati Panigale V4 R', 54.99, 200,'resource/ducatipanigalev4r.png', N'Ducati Panigale V4 R');
 GO
 /* SELECT for debugging
 SELECT * FROM STAFF
@@ -59,8 +59,17 @@ SELECT * FROM PRODUCT_TYPE
 
 /* DELETE for debugging
 DELETE FROM ACCOUNT
+DBCC CHECKIDENT (ACCOUNT, RESEED, 0)
+
 DELETE FROM PRODUCT
+DBCC CHECKIDENT (PRODUCT, RESEED, 0)
+
 DELETE FROM PRODUCT_TYPE
+DBCC CHECKIDENT (PRODUCT_TYPE, RESEED, 0)
+
 DELETE FROM STAFF
+DBCC CHECKIDENT (STAFF, RESEED, 0)
+
 DELETE FROM CUSTOMER
+DBCC CHECKIDENT (CUSTOMER, RESEED, 0)
 */
