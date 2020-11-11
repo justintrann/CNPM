@@ -45,24 +45,52 @@ namespace QuanLyBanDoChoiLEGO
             int indexRow = e.RowIndex;
             if (indexRow < 0) return;
 
-            string dir = System.IO.Directory.GetCurrentDirectory();
-
             int id = int.Parse(dgv_product.Rows[indexRow].Cells[0].Value.ToString());
 
             CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
             PRODUCT product = db.PRODUCTs.Where(p => p.id == id).SingleOrDefault();
             if (product != null)
             {
-                textbox_product_name.Text = product.product_name.ToString();
-                textbox_product_type.Text = product.id_type.ToString();
-                textbox_product_gender.Text = product.gender.ToString();
-                textbox_product_age_range.Text = product.age_range.ToString();
-                textbox_product_quantity.Text = product.quantity.ToString();
-                textbox_product_price.Text = product.price.ToString();
-                //Image image = Image.FromFile(product.img_path.ToString());
-                //if (image)
-                picbox_product.Image = Image.FromFile("../../../"+ product.img_path.ToString());
+                displayProductInfo(product);
             }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            loadDataFromDatabase();
+        }
+
+        private void loadDataFromDatabase()
+        {
+            CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
+            dgv_product.DataSource = db.PRODUCTs.Select(p => new
+            {
+                p.id,
+                p.id_type,
+                p.product_name,
+                p.id_age_range,
+                //p.QUYEN,
+                //p.KICHHOAT
+            });
+            //LoadCboMaTK();
+        }
+
+        private void displayProductInfo(PRODUCT product)
+        {
+            textbox_product_name.Text = product.product_name.ToString();
+            textbox_product_type.Text = product.id_type.ToString();
+            //textbox_product_gender.Text = product.gender.ToString();
+            switch (product.gender)
+            {
+                case 0: textbox_product_gender.Text = "Nam"; break;
+                case 1: textbox_product_gender.Text = "Nữ"; break;
+                default: textbox_product_gender.Text = "Khác"; break;
+            }
+            textbox_product_age_range.Text = product.id_age_range.ToString();
+            
+            textbox_product_quantity.Text = product.quantity.ToString();
+            textbox_product_price.Text = product.price.ToString();
+            picbox_product.Image = Image.FromFile("../../../" + product.img_path.ToString());
         }
     }
 }
