@@ -88,11 +88,11 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		public System.Data.Linq.Table<STORAGE> STORAGEs
+		public System.Data.Linq.Table<STORAGE_HISTORY> STORAGE_HISTORies
 		{
 			get
 			{
-				return this.GetTable<STORAGE>();
+				return this.GetTable<STORAGE_HISTORY>();
 			}
 		}
 		
@@ -344,17 +344,17 @@ namespace QuanLyBanDoChoiLEGO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STORAGE")]
-	public partial class STORAGE
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.STORAGE_HISTORY")]
+	public partial class STORAGE_HISTORY
 	{
 		
 		private System.Nullable<int> _id_product;
 		
-		private System.Nullable<int> _quantity;
-		
 		private System.Nullable<System.DateTime> _input_date;
 		
-		public STORAGE()
+		private System.Nullable<int> _quantity;
+		
+		public STORAGE_HISTORY()
 		{
 		}
 		
@@ -374,22 +374,6 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
-		{
-			get
-			{
-				return this._quantity;
-			}
-			set
-			{
-				if ((this._quantity != value))
-				{
-					this._quantity = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_date", DbType="Date")]
 		public System.Nullable<System.DateTime> input_date
 		{
@@ -402,6 +386,22 @@ namespace QuanLyBanDoChoiLEGO
 				if ((this._input_date != value))
 				{
 					this._input_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this._quantity = value;
 				}
 			}
 		}
@@ -611,6 +611,8 @@ namespace QuanLyBanDoChoiLEGO
 		
 		private System.Nullable<double> _price;
 		
+		private System.Nullable<int> _quantity;
+		
 		private string _img_path;
 		
 		private string _product_desc;
@@ -633,6 +635,8 @@ namespace QuanLyBanDoChoiLEGO
     partial void Onproduct_nameChanged();
     partial void OnpriceChanging(System.Nullable<double> value);
     partial void OnpriceChanged();
+    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanged();
     partial void Onimg_pathChanging(string value);
     partial void Onimg_pathChanged();
     partial void Onproduct_descChanging(string value);
@@ -765,6 +769,26 @@ namespace QuanLyBanDoChoiLEGO
 					this._price = value;
 					this.SendPropertyChanged("price");
 					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
 				}
 			}
 		}
