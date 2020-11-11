@@ -10,12 +10,12 @@
       <Association Name="STAFF_ACCOUNT" Member="STAFF" ThisKey="id_staff" OtherKey="id" Type="STAFF" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.STORAGE" Member="STORAGEs">
-    <Type Name="STORAGE">
+  <Table Name="dbo.STORAGE_HISTORY" Member="STORAGE_HISTORies">
+    <Type Name="STORAGE_HISTORY">
       <Column Name="id_product" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="input_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="PRODUCT_STORAGE" Member="PRODUCT" ThisKey="id_product" OtherKey="id" Type="PRODUCT" IsForeignKey="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PRODUCT_STORAGE_HISTORY" Member="PRODUCT" ThisKey="id_product" OtherKey="id" Type="PRODUCT" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
@@ -36,9 +36,10 @@
       <Column Name="age_range" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="product_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="img_path" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="product_desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="PRODUCT_STORAGE" Member="STORAGEs" ThisKey="id" OtherKey="id_product" Type="STORAGE" />
+      <Association Name="PRODUCT_STORAGE_HISTORY" Member="STORAGE_HISTORies" ThisKey="id" OtherKey="id_product" Type="STORAGE_HISTORY" />
       <Association Name="PRODUCT_PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAILs" ThisKey="id" OtherKey="id_product" Type="PURCHASE_BILL_DETAIL" />
       <Association Name="PRODUCT_TYPE_PRODUCT" Member="PRODUCT_TYPE" ThisKey="id_type" OtherKey="id" Type="PRODUCT_TYPE" IsForeignKey="true" />
     </Type>
