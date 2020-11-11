@@ -12,11 +12,27 @@ namespace QuanLyBanDoChoiLEGO
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_mainwindow());
+            //Application.Run(new form_mainwindow());
+            //Application.Run(new form_dashboard_sanpham());
+            DialogResult login_result;
+            ACCOUNT account = new ACCOUNT();
+            using (var loginForm = new form_login())
+            {
+                login_result = loginForm.ShowDialog();
+                account = loginForm.account;
+            }
+
+            if (login_result == DialogResult.OK)
+            {
+                Application.Run(new form_mainwindow());
+            }
+            //Application.Run(new form_login());
+
         }
     }
 }
