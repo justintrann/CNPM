@@ -41,7 +41,7 @@
             // textbox_search_product
             // 
             this.textbox_search_product.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textbox_search_product.Location = new System.Drawing.Point(48, 12);
+            this.textbox_search_product.Location = new System.Drawing.Point(48, 13);
             this.textbox_search_product.MinimumSize = new System.Drawing.Size(349, 30);
             this.textbox_search_product.Name = "textbox_search_product";
             this.textbox_search_product.Size = new System.Drawing.Size(349, 30);

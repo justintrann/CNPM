@@ -67,5 +67,6 @@ namespace QuanLyBanDoChoiLEGO
         {
             return this.Height - 117;
         }
+
     }
 }
