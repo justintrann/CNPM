@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,7 +85,24 @@ namespace QuanLyBanDoChoiLEGO
             textbox_product_age_range.Text = HelperClass.getAgeRangeString(product.id_age_range);
             textbox_product_quantity.Text = product.quantity.ToString();
             textbox_product_price.Text = product.price.ToString();
-            picbox_product.Image = Image.FromFile("../../../" + product.img_path.ToString());
+
+            string filepath = "../../../" + product.img_path.ToString();
+            picbox_product.Image = getImageFromFile(filepath);
+        }
+
+        private Image getImageFromFile(string filepath)
+        {
+            Image image;
+            try
+            {
+                image = Image.FromFile(filepath);
+            }
+            catch (FileNotFoundException)
+            {
+                image = Properties.Resources.lego_placeholder;
+                //throw;
+            }
+            return image;
         }
     }
 }
