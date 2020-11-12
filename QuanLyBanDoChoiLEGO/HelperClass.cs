@@ -8,6 +8,7 @@ namespace QuanLyBanDoChoiLEGO
 {
     public class HelperClass
     {
+        public static string defaultSelectString = "--Chọn--";
         public static string getGenderString(byte? gender_value)
         {
             switch (gender_value)
@@ -15,6 +16,16 @@ namespace QuanLyBanDoChoiLEGO
                 case 0: return "Nam";
                 case 1: return "Nữ";
                 default: return "Khác";
+            }
+        }
+
+        public static byte getGenderValue(string gender_string)
+        {
+            switch (gender_string)
+            {
+                case "Nam": return 0;
+                case "Nữ": return 1;
+                default: return 2;
             }
         }
 
