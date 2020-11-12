@@ -21,5 +21,14 @@ namespace QuanLyBanDoChoiLEGO
         {
             this.Close();
         }
+
+        private void form_nhap_hang_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.AGE_RANGE' table. You can move, or remove it, as needed.
+            this.aGE_RANGETableAdapter.Fill(this.cNPM_NHOM_1DataSet.AGE_RANGE);
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.PRODUCT_TYPE' table. You can move, or remove it, as needed.
+            this.pRODUCT_TYPETableAdapter.Fill(this.cNPM_NHOM_1DataSet.PRODUCT_TYPE);
+
+        }
     }
 }
