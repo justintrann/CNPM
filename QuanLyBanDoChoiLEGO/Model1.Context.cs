@@ -13,10 +13,10 @@ namespace QuanLyBanDoChoiLEGO
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CNPM_NHOM_1Entities11 : DbContext
+    public partial class CNPM_NHOM_1Entities : DbContext
     {
-        public CNPM_NHOM_1Entities11()
-            : base("name=CNPM_NHOM_1Entities11")
+        public CNPM_NHOM_1Entities()
+            : base("name=CNPM_NHOM_1Entities")
         {
         }
     
@@ -27,12 +27,12 @@ namespace QuanLyBanDoChoiLEGO
     
         public virtual DbSet<ACCOUNT> ACCOUNTs { get; set; }
         public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
-        public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PRODUCT_TYPE> PRODUCT_TYPE { get; set; }
         public virtual DbSet<PURCHASE_BILL> PURCHASE_BILL { get; set; }
         public virtual DbSet<STAFF> STAFFs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<PURCHASE_BILL_DETAIL> PURCHASE_BILL_DETAIL { get; set; }
         public virtual DbSet<STORAGE> STORAGEs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
+        public virtual DbSet<PURCHASE_BILL_DETAIL> PURCHASE_BILL_DETAIL { get; set; }
     }
 }

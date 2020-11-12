@@ -14,12 +14,12 @@ namespace QuanLyBanDoChoiLEGO
     
     public partial class PURCHASE_BILL_DETAIL
     {
-        public int id_bill { get; set; }
-        public int id_product { get; set; }
+        public decimal id_bill { get; set; }
+        public decimal id_product { get; set; }
         public Nullable<int> quantity { get; set; }
         public Nullable<double> cost { get; set; }
     
-        public virtual PRODUCT PRODUCT { get; set; }
         public virtual PURCHASE_BILL PURCHASE_BILL { get; set; }
+        public virtual STORAGE STORAGE { get; set; }
     }
 }

@@ -11,22 +11,21 @@ namespace QuanLyBanDoChoiLEGO
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class PRODUCT_TYPE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRODUCT_TYPE()
         {
-            this.PRODUCTs = new HashSet<PRODUCT>();
             this.STORAGEs = new HashSet<STORAGE>();
         }
     
-        public int id { get; set; }
+        public decimal id { get; set; }
         public string product_type_name { get; set; }
         public string product_type_desc { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<STORAGE> STORAGEs { get; set; }
     }

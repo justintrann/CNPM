@@ -4,8 +4,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_staff" Type="int" Nullable="false" />
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_staff" Type="decimal" Precision="18" Scale="0" />
     <Property Name="username" Type="varchar" MaxLength="20" />
     <Property Name="pass" Type="varchar" MaxLength="20" />
     <Property Name="is_admin" Type="tinyint" />
@@ -14,21 +14,22 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="customer_name" Type="nvarchar" MaxLength="50" />
     <Property Name="phone_number" Type="varchar" MaxLength="12" />
     <Property Name="date_of_birth" Type="date" />
     <Property Name="home_address" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CNPM_NHOM_1.dbo.PRODUCT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="PRODUCT">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="id_type" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="id_type" Type="int" Nullable="false" />
+    <Property Name="id_type" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="gender" Type="int" />
+    <Property Name="age_range" Type="int" />
     <Property Name="product_name" Type="nvarchar" MaxLength="50" />
-    <Property Name="gender" Type="nchar" MaxLength="10" />
-    <Property Name="age_range" Type="nvarchar" MaxLength="100" />
     <Property Name="price" Type="float" />
     <Property Name="img_path" Type="varchar" MaxLength="100" />
     <Property Name="product_desc" Type="nvarchar" MaxLength="100" />
@@ -37,17 +38,17 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="product_type_name" Type="nvarchar" MaxLength="50" />
-    <Property Name="product_type_desc" Type="nvarchar" MaxLength="100" />
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="product_type_name" Type="nvarchar" MaxLength="4000" />
+    <Property Name="product_type_desc" Type="nvarchar" MaxLength="4000" />
   </EntityType>
   <EntityType Name="PURCHASE_BILL">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_staff" Type="int" Nullable="false" />
-    <Property Name="id_customer" Type="int" Nullable="false" />
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_staff" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_customer" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="date_of_purchase" Type="datetime" />
     <Property Name="purchase_bill_desc" Type="nvarchar" MaxLength="100" />
     <Property Name="total_cost" Type="float" />
@@ -59,8 +60,8 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.PURCHASE_BILL_DETAIL' does not hav
       <PropertyRef Name="id_bill" />
       <PropertyRef Name="id_product" />
     </Key>
-    <Property Name="id_bill" Type="int" Nullable="false" />
-    <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="id_bill" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_product" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="quantity" Type="int" />
     <Property Name="cost" Type="float" />
   </EntityType>
@@ -68,26 +69,19 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.PURCHASE_BILL_DETAIL' does not hav
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="staff_name" Type="nvarchar" MaxLength="50" />
     <Property Name="phone_number" Type="varchar" MaxLength="12" />
     <Property Name="date_of_birth" Type="date" />
     <Property Name="home_address" Type="nvarchar" MaxLength="100" />
     <Property Name="citizen_id" Type="varchar" MaxLength="12" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="STORAGE">
     <Key>
-      <PropertyRef Name="id_type" />
       <PropertyRef Name="id_product" />
     </Key>
-    <Property Name="id_type" Type="int" Nullable="false" />
-    <Property Name="product_type_name" Type="nvarchar" MaxLength="50" />
-    <Property Name="id_product" Type="int" Nullable="false" />
-    <Property Name="product_name" Type="nvarchar" MaxLength="50" />
-    <Property Name="gender" Type="nchar" MaxLength="10" />
-    <Property Name="age_range" Type="nchar" MaxLength="100" />
+    <Property Name="id_type" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_product" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="quantity" Type="int" />
     <Property Name="price" Type="float" />
     <Property Name="input_date" Type="date" />
@@ -103,7 +97,7 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="fk_account_id_staff">
-    <End Role="STAFF" Type="Self.STAFF" Multiplicity="1" />
+    <End Role="STAFF" Type="Self.STAFF" Multiplicity="0..1" />
     <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="STAFF">
@@ -116,7 +110,7 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
   </Association>
   <Association Name="fk_product_id_type">
     <End Role="PRODUCT_TYPE" Type="Self.PRODUCT_TYPE" Multiplicity="1" />
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="PRODUCT_TYPE">
         <PropertyRef Name="id" />
@@ -139,11 +133,11 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_purchase_bill_detail_id_product">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+    <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="1" />
     <End Role="PURCHASE_BILL_DETAIL" Type="Self.PURCHASE_BILL_DETAIL" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="PRODUCT">
-        <PropertyRef Name="id" />
+      <Principal Role="STORAGE">
+        <PropertyRef Name="id_product" />
       </Principal>
       <Dependent Role="PURCHASE_BILL_DETAIL">
         <PropertyRef Name="id_product" />
@@ -174,18 +168,6 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_storage_id_product">
-    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
-    <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PRODUCT">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="STORAGE">
-        <PropertyRef Name="id_product" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_storage_id_type">
     <End Role="PRODUCT_TYPE" Type="Self.PRODUCT_TYPE" Multiplicity="1" />
     <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="*" />
@@ -201,11 +183,22 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
   <EntityContainer Name="CNPM_NHOM_1ModelStoreContainer">
     <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCT_TYPE" EntityType="Self.PRODUCT_TYPE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PURCHASE_BILL" EntityType="Self.PURCHASE_BILL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="STAFF" EntityType="Self.STAFF" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STORAGE" EntityType="Self.STORAGE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PRODUCT].[id_type] AS [id_type], 
+    [PRODUCT].[gender] AS [gender], 
+    [PRODUCT].[age_range] AS [age_range], 
+    [PRODUCT].[product_name] AS [product_name], 
+    [PRODUCT].[price] AS [price], 
+    [PRODUCT].[img_path] AS [img_path], 
+    [PRODUCT].[product_desc] AS [product_desc]
+    FROM [dbo].[PRODUCT] AS [PRODUCT]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="PURCHASE_BILL_DETAIL" EntityType="Self.PURCHASE_BILL_DETAIL" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [PURCHASE_BILL_DETAIL].[id_bill] AS [id_bill], 
@@ -213,19 +206,6 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
     [PURCHASE_BILL_DETAIL].[quantity] AS [quantity], 
     [PURCHASE_BILL_DETAIL].[cost] AS [cost]
     FROM [dbo].[PURCHASE_BILL_DETAIL] AS [PURCHASE_BILL_DETAIL]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="STORAGE" EntityType="Self.STORAGE" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [STORAGE].[id_type] AS [id_type], 
-    [STORAGE].[product_type_name] AS [product_type_name], 
-    [STORAGE].[id_product] AS [id_product], 
-    [STORAGE].[product_name] AS [product_name], 
-    [STORAGE].[gender] AS [gender], 
-    [STORAGE].[age_range] AS [age_range], 
-    [STORAGE].[quantity] AS [quantity], 
-    [STORAGE].[price] AS [price], 
-    [STORAGE].[input_date] AS [input_date]
-    FROM [dbo].[STORAGE] AS [STORAGE]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="fk_account_id_staff" Association="Self.fk_account_id_staff">
       <End Role="STAFF" EntitySet="STAFF" />
@@ -240,7 +220,7 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
       <End Role="PURCHASE_BILL_DETAIL" EntitySet="PURCHASE_BILL_DETAIL" />
     </AssociationSet>
     <AssociationSet Name="fk_purchase_bill_detail_id_product" Association="Self.fk_purchase_bill_detail_id_product">
-      <End Role="PRODUCT" EntitySet="PRODUCT" />
+      <End Role="STORAGE" EntitySet="STORAGE" />
       <End Role="PURCHASE_BILL_DETAIL" EntitySet="PURCHASE_BILL_DETAIL" />
     </AssociationSet>
     <AssociationSet Name="fk_purchase_bill_id_customer" Association="Self.fk_purchase_bill_id_customer">
@@ -250,10 +230,6 @@ warning 6002: The table/view 'CNPM_NHOM_1.dbo.STORAGE' does not have a primary k
     <AssociationSet Name="fk_purchase_bill_id_staff" Association="Self.fk_purchase_bill_id_staff">
       <End Role="STAFF" EntitySet="STAFF" />
       <End Role="PURCHASE_BILL" EntitySet="PURCHASE_BILL" />
-    </AssociationSet>
-    <AssociationSet Name="fk_storage_id_product" Association="Self.fk_storage_id_product">
-      <End Role="PRODUCT" EntitySet="PRODUCT" />
-      <End Role="STORAGE" EntitySet="STORAGE" />
     </AssociationSet>
     <AssociationSet Name="fk_storage_id_type" Association="Self.fk_storage_id_type">
       <End Role="PRODUCT_TYPE" EntitySet="PRODUCT_TYPE" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CNPM_NHOM_1ModelStoreContainer" CdmEntityContainer="CNPM_NHOM_1Entities11">
+  <EntityContainerMapping StorageEntityContainer="CNPM_NHOM_1ModelStoreContainer" CdmEntityContainer="CNPM_NHOM_1Entities">
     <EntitySetMapping Name="ACCOUNTs">
       <EntityTypeMapping TypeName="CNPM_NHOM_1Model.ACCOUNT">
         <MappingFragment StoreEntitySet="ACCOUNT">
@@ -20,20 +20,6 @@
           <ScalarProperty Name="phone_number" ColumnName="phone_number" />
           <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
           <ScalarProperty Name="home_address" ColumnName="home_address" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PRODUCTs">
-      <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PRODUCT">
-        <MappingFragment StoreEntitySet="PRODUCT">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_type" ColumnName="id_type" />
-          <ScalarProperty Name="product_name" ColumnName="product_name" />
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="age_range" ColumnName="age_range" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="img_path" ColumnName="img_path" />
-          <ScalarProperty Name="product_desc" ColumnName="product_desc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -70,6 +56,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="STORAGEs">
+      <EntityTypeMapping TypeName="CNPM_NHOM_1Model.STORAGE">
+        <MappingFragment StoreEntitySet="STORAGE">
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="input_date" ColumnName="input_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="CNPM_NHOM_1Model.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -81,6 +78,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTs">
+      <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="age_range" ColumnName="age_range" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="img_path" ColumnName="img_path" />
+          <ScalarProperty Name="product_desc" ColumnName="product_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PURCHASE_BILL_DETAIL">
       <EntityTypeMapping TypeName="CNPM_NHOM_1Model.PURCHASE_BILL_DETAIL">
         <MappingFragment StoreEntitySet="PURCHASE_BILL_DETAIL">
@@ -88,21 +98,6 @@
           <ScalarProperty Name="id_product" ColumnName="id_product" />
           <ScalarProperty Name="quantity" ColumnName="quantity" />
           <ScalarProperty Name="cost" ColumnName="cost" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="STORAGEs">
-      <EntityTypeMapping TypeName="CNPM_NHOM_1Model.STORAGE">
-        <MappingFragment StoreEntitySet="STORAGE">
-          <ScalarProperty Name="id_type" ColumnName="id_type" />
-          <ScalarProperty Name="product_type_name" ColumnName="product_type_name" />
-          <ScalarProperty Name="id_product" ColumnName="id_product" />
-          <ScalarProperty Name="product_name" ColumnName="product_name" />
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="age_range" ColumnName="age_range" />
-          <ScalarProperty Name="quantity" ColumnName="quantity" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="input_date" ColumnName="input_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

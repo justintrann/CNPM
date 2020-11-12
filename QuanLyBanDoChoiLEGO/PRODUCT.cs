@@ -14,26 +14,14 @@ namespace QuanLyBanDoChoiLEGO
     
     public partial class PRODUCT
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUCT()
-        {
-            this.PURCHASE_BILL_DETAIL = new HashSet<PURCHASE_BILL_DETAIL>();
-            this.STORAGEs = new HashSet<STORAGE>();
-        }
-    
-        public int id { get; set; }
-        public int id_type { get; set; }
+        public decimal id_type { get; set; }
+        public Nullable<int> gender { get; set; }
+        public Nullable<int> age_range { get; set; }
         public string product_name { get; set; }
-        public string gender { get; set; }
-        public string age_range { get; set; }
         public Nullable<double> price { get; set; }
         public string img_path { get; set; }
         public string product_desc { get; set; }
     
         public virtual PRODUCT_TYPE PRODUCT_TYPE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PURCHASE_BILL_DETAIL> PURCHASE_BILL_DETAIL { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<STORAGE> STORAGEs { get; set; }
     }
 }

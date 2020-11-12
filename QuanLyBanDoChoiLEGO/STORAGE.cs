@@ -14,17 +14,20 @@ namespace QuanLyBanDoChoiLEGO
     
     public partial class STORAGE
     {
-        public int id_type { get; set; }
-        public string product_type_name { get; set; }
-        public int id_product { get; set; }
-        public string product_name { get; set; }
-        public string gender { get; set; }
-        public string age_range { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public STORAGE()
+        {
+            this.PURCHASE_BILL_DETAIL = new HashSet<PURCHASE_BILL_DETAIL>();
+        }
+    
+        public decimal id_type { get; set; }
+        public decimal id_product { get; set; }
         public Nullable<int> quantity { get; set; }
         public Nullable<double> price { get; set; }
         public Nullable<System.DateTime> input_date { get; set; }
     
-        public virtual PRODUCT PRODUCT { get; set; }
         public virtual PRODUCT_TYPE PRODUCT_TYPE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PURCHASE_BILL_DETAIL> PURCHASE_BILL_DETAIL { get; set; }
     }
 }

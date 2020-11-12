@@ -21,7 +21,7 @@ namespace QuanLyBanDoChoiLEGO
             this.PURCHASE_BILL = new HashSet<PURCHASE_BILL>();
         }
     
-        public int id { get; set; }
+        public decimal id { get; set; }
         public string staff_name { get; set; }
         public string phone_number { get; set; }
         public Nullable<System.DateTime> date_of_birth { get; set; }

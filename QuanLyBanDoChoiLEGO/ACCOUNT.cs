@@ -14,8 +14,8 @@ namespace QuanLyBanDoChoiLEGO
     
     public partial class ACCOUNT
     {
-        public int id { get; set; }
-        public int id_staff { get; set; }
+        public decimal id { get; set; }
+        public Nullable<decimal> id_staff { get; set; }
         public string username { get; set; }
         public string pass { get; set; }
         public Nullable<byte> is_admin { get; set; }

@@ -20,9 +20,9 @@ namespace QuanLyBanDoChoiLEGO
             this.PURCHASE_BILL_DETAIL = new HashSet<PURCHASE_BILL_DETAIL>();
         }
     
-        public int id { get; set; }
-        public int id_staff { get; set; }
-        public int id_customer { get; set; }
+        public decimal id { get; set; }
+        public decimal id_staff { get; set; }
+        public decimal id_customer { get; set; }
         public Nullable<System.DateTime> date_of_purchase { get; set; }
         public string purchase_bill_desc { get; set; }
         public Nullable<double> total_cost { get; set; }

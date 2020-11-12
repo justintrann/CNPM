@@ -12,7 +12,7 @@ CREATE TABLE STAFF
 	citizen_id VARCHAR(12),
 
 	CONSTRAINT pk_staff_id PRIMARY KEY(id)
-);
+); 
 GO
 
 CREATE TABLE CUSTOMER
@@ -43,8 +43,8 @@ GO
 --id này nên tự nhập tay để đỡ lỗi
 CREATE TABLE PRODUCT_TYPE
 (
-	id INT NOT NULL UNIQUE, 
-	product_type_name NVARCHAR(50),
+	id INT NOT NULL UNIQUE IDENTITY(1,1), 
+	product_type_name NVARCHAR(50) UNIQUE,
 	product_type_desc NVARCHAR(100) ,
 
 	CONSTRAINT pk_product_type_id PRIMARY KEY(id)
@@ -60,11 +60,10 @@ GO
 -- 4: trên 12 tuổi
 CREATE TABLE PRODUCT
 (
-
 	id_type INT NOT NULL,
-	gender INT,
-	age_range INT,
-	product_name NVARCHAR(50),
+	gender TINYINT,
+	age_range TINYINT,
+	product_name NVARCHAR(50) UNIQUE,
 	price FLOAT,
 	img_path VARCHAR(100),
 	product_desc NVARCHAR(100),
@@ -76,7 +75,7 @@ GO
 CREATE TABLE STORAGE
 (
 	id_type INT NOT NULL,
-	id_product INT NOT NULL,
+	id_product INT NOT NULL UNIQUE IDENTITY(1,1),
 	quantity INT,
 	price FLOAT,
 	input_date DATE,
