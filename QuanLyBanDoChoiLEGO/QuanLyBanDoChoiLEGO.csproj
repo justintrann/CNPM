@@ -106,6 +106,7 @@
     <Compile Include="form_nhap_hang.Designer.cs">
       <DependentUpon>form_nhap_hang.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="form_dashboard_lichsu.resx">
