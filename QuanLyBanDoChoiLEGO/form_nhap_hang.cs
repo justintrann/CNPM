@@ -16,5 +16,10 @@ namespace QuanLyBanDoChoiLEGO
         {
             InitializeComponent();
         }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
