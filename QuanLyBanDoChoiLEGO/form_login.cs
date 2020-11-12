@@ -84,7 +84,7 @@ namespace QuanLyBanDoChoiLEGO
 
         private void login_textboxes_TextChanged(object sender, EventArgs e)
         {
-            if(textbox_username.Text == "" && textbox_password.Text != "")
+            if(String.IsNullOrEmpty(textbox_username.Text) && String.IsNullOrEmpty(textbox_password.Text))
             {
                 btn_login.Enabled = false;
             }
