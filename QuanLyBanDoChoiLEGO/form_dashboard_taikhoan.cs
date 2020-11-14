@@ -22,6 +22,8 @@ namespace QuanLyBanDoChoiLEGO
 
         private void form_dashboard_taikhoan_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.ACCOUNT' table. You can move, or remove it, as needed.
+            this.aCCOUNTTableAdapter.Fill(this.cNPM_NHOM_1DataSet.ACCOUNT);
             // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.STAFF' table. You can move, or remove it, as needed.
             this.sTAFFTableAdapter.Fill(this.cNPM_NHOM_1DataSet.STAFF);
             enableStaffEditMode(false);
@@ -45,6 +47,11 @@ namespace QuanLyBanDoChoiLEGO
             //    date_of_birth = p.date_of_birth,
             //    citizen_id = p.citizen_id
             //});
+        }
+
+        private void LoadAccountTableFromDatabase()
+        {
+            this.aCCOUNTTableAdapter.Fill(this.cNPM_NHOM_1DataSet.ACCOUNT);
         }
 
         private bool editStaff()
@@ -287,5 +294,9 @@ namespace QuanLyBanDoChoiLEGO
 
         }
 
+        private void btn_account_refresh_Click(object sender, EventArgs e)
+        {
+            LoadAccountTableFromDatabase();
+        }
     }
 }

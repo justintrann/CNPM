@@ -61,20 +61,50 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_home_address = new System.Windows.Forms.TextBox();
             this.lbl_citizen_id = new System.Windows.Forms.Label();
             this.textbox_citizen_id = new System.Windows.Forms.TextBox();
+            this.dgv_account = new System.Windows.Forms.DataGridView();
+            this.groupbox_account = new System.Windows.Forms.GroupBox();
+            this.checkbox_activate = new System.Windows.Forms.CheckBox();
+            this.checkbox_is_admin = new System.Windows.Forms.CheckBox();
+            this.cbox_account_id = new System.Windows.Forms.ComboBox();
+            this.btn_account_remove = new System.Windows.Forms.Button();
+            this.btn_account_add = new System.Windows.Forms.Button();
+            this.btn_account_edit = new System.Windows.Forms.Button();
+            this.btn_account_save = new System.Windows.Forms.Button();
+            this.btn_account_refresh = new System.Windows.Forms.Button();
+            this.lbl_account_password = new System.Windows.Forms.Label();
+            this.textbox_account_password = new System.Windows.Forms.TextBox();
+            this.text_account_id_staff = new System.Windows.Forms.TextBox();
+            this.textbox_account_username = new System.Windows.Forms.TextBox();
+            this.lbl_account_id_staff = new System.Windows.Forms.Label();
+            this.lbl_account_username = new System.Windows.Forms.Label();
+            this.lbl_account_id = new System.Windows.Forms.Label();
+            this.aCCOUNTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aCCOUNTTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.ACCOUNTTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idstaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isadminDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabpage_account.SuspendLayout();
             this.tabpage_staff.SuspendLayout();
             this.groupbox_staff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sTAFFBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_staff)).BeginInit();
             this.tab_account.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_account)).BeginInit();
+            this.groupbox_account.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aCCOUNTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabpage_account
             // 
+            this.tabpage_account.Controls.Add(this.dgv_account);
+            this.tabpage_account.Controls.Add(this.groupbox_account);
             this.tabpage_account.Location = new System.Drawing.Point(4, 22);
             this.tabpage_account.Name = "tabpage_account";
             this.tabpage_account.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage_account.Size = new System.Drawing.Size(1003, 395);
+            this.tabpage_account.Size = new System.Drawing.Size(960, 472);
             this.tabpage_account.TabIndex = 2;
             this.tabpage_account.Text = "Tài khoản";
             this.tabpage_account.UseVisualStyleBackColor = true;
@@ -86,7 +116,7 @@ namespace QuanLyBanDoChoiLEGO
             this.tabpage_staff.Location = new System.Drawing.Point(4, 22);
             this.tabpage_staff.Name = "tabpage_staff";
             this.tabpage_staff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage_staff.Size = new System.Drawing.Size(1003, 395);
+            this.tabpage_staff.Size = new System.Drawing.Size(960, 472);
             this.tabpage_staff.TabIndex = 1;
             this.tabpage_staff.Text = "Nhân viên";
             this.tabpage_staff.UseVisualStyleBackColor = true;
@@ -114,7 +144,7 @@ namespace QuanLyBanDoChoiLEGO
             this.groupbox_staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupbox_staff.Location = new System.Drawing.Point(3, 3);
             this.groupbox_staff.Name = "groupbox_staff";
-            this.groupbox_staff.Size = new System.Drawing.Size(359, 389);
+            this.groupbox_staff.Size = new System.Drawing.Size(359, 466);
             this.groupbox_staff.TabIndex = 4;
             this.groupbox_staff.TabStop = false;
             this.groupbox_staff.Text = "Thông tin nhân viên";
@@ -286,7 +316,7 @@ namespace QuanLyBanDoChoiLEGO
             this.dgv_staff.Location = new System.Drawing.Point(368, 3);
             this.dgv_staff.Name = "dgv_staff";
             this.dgv_staff.ReadOnly = true;
-            this.dgv_staff.Size = new System.Drawing.Size(632, 389);
+            this.dgv_staff.Size = new System.Drawing.Size(589, 466);
             this.dgv_staff.TabIndex = 3;
             this.dgv_staff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_staff_CellContentClick);
             // 
@@ -298,7 +328,7 @@ namespace QuanLyBanDoChoiLEGO
             this.tab_account.Location = new System.Drawing.Point(0, 0);
             this.tab_account.Name = "tab_account";
             this.tab_account.SelectedIndex = 0;
-            this.tab_account.Size = new System.Drawing.Size(1011, 421);
+            this.tab_account.Size = new System.Drawing.Size(968, 498);
             this.tab_account.TabIndex = 3;
             // 
             // sTAFFTableAdapter
@@ -390,15 +420,272 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_citizen_id.Size = new System.Drawing.Size(219, 22);
             this.textbox_citizen_id.TabIndex = 14;
             // 
+            // dgv_account
+            // 
+            this.dgv_account.AllowUserToAddRows = false;
+            this.dgv_account.AllowUserToDeleteRows = false;
+            this.dgv_account.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_account.AutoGenerateColumns = false;
+            this.dgv_account.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_account.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.idstaffDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.passDataGridViewTextBoxColumn,
+            this.isadminDataGridViewTextBoxColumn});
+            this.dgv_account.DataSource = this.aCCOUNTBindingSource;
+            this.dgv_account.Location = new System.Drawing.Point(343, 0);
+            this.dgv_account.Name = "dgv_account";
+            this.dgv_account.ReadOnly = true;
+            this.dgv_account.Size = new System.Drawing.Size(617, 472);
+            this.dgv_account.TabIndex = 4;
+            // 
+            // groupbox_account
+            // 
+            this.groupbox_account.Controls.Add(this.checkbox_activate);
+            this.groupbox_account.Controls.Add(this.checkbox_is_admin);
+            this.groupbox_account.Controls.Add(this.cbox_account_id);
+            this.groupbox_account.Controls.Add(this.btn_account_remove);
+            this.groupbox_account.Controls.Add(this.btn_account_add);
+            this.groupbox_account.Controls.Add(this.btn_account_edit);
+            this.groupbox_account.Controls.Add(this.btn_account_save);
+            this.groupbox_account.Controls.Add(this.btn_account_refresh);
+            this.groupbox_account.Controls.Add(this.lbl_account_password);
+            this.groupbox_account.Controls.Add(this.textbox_account_password);
+            this.groupbox_account.Controls.Add(this.text_account_id_staff);
+            this.groupbox_account.Controls.Add(this.textbox_account_username);
+            this.groupbox_account.Controls.Add(this.lbl_account_id_staff);
+            this.groupbox_account.Controls.Add(this.lbl_account_username);
+            this.groupbox_account.Controls.Add(this.lbl_account_id);
+            this.groupbox_account.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupbox_account.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupbox_account.Location = new System.Drawing.Point(3, 3);
+            this.groupbox_account.Name = "groupbox_account";
+            this.groupbox_account.Size = new System.Drawing.Size(334, 466);
+            this.groupbox_account.TabIndex = 3;
+            this.groupbox_account.TabStop = false;
+            this.groupbox_account.Text = "Thông tin tài khoản";
+            // 
+            // checkbox_activate
+            // 
+            this.checkbox_activate.AutoSize = true;
+            this.checkbox_activate.Enabled = false;
+            this.checkbox_activate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkbox_activate.Location = new System.Drawing.Point(235, 118);
+            this.checkbox_activate.Name = "checkbox_activate";
+            this.checkbox_activate.Size = new System.Drawing.Size(81, 20);
+            this.checkbox_activate.TabIndex = 11;
+            this.checkbox_activate.Text = "Kích hoạt";
+            this.checkbox_activate.UseVisualStyleBackColor = true;
+            // 
+            // checkbox_is_admin
+            // 
+            this.checkbox_is_admin.AutoSize = true;
+            this.checkbox_is_admin.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.aCCOUNTBindingSource, "is_admin", true));
+            this.checkbox_is_admin.Enabled = false;
+            this.checkbox_is_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkbox_is_admin.Location = new System.Drawing.Point(156, 118);
+            this.checkbox_is_admin.Name = "checkbox_is_admin";
+            this.checkbox_is_admin.Size = new System.Drawing.Size(65, 20);
+            this.checkbox_is_admin.TabIndex = 11;
+            this.checkbox_is_admin.Text = "Admin";
+            this.checkbox_is_admin.UseVisualStyleBackColor = true;
+            // 
+            // cbox_account_id
+            // 
+            this.cbox_account_id.DataSource = this.aCCOUNTBindingSource;
+            this.cbox_account_id.DisplayMember = "id";
+            this.cbox_account_id.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_account_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbox_account_id.FormattingEnabled = true;
+            this.cbox_account_id.Location = new System.Drawing.Point(112, 30);
+            this.cbox_account_id.Name = "cbox_account_id";
+            this.cbox_account_id.Size = new System.Drawing.Size(79, 24);
+            this.cbox_account_id.TabIndex = 0;
+            // 
+            // btn_account_remove
+            // 
+            this.btn_account_remove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_account_remove.Location = new System.Drawing.Point(125, 234);
+            this.btn_account_remove.Name = "btn_account_remove";
+            this.btn_account_remove.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_remove.TabIndex = 10;
+            this.btn_account_remove.Text = "Xóa";
+            this.btn_account_remove.UseVisualStyleBackColor = true;
+            // 
+            // btn_account_add
+            // 
+            this.btn_account_add.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_account_add.Location = new System.Drawing.Point(20, 234);
+            this.btn_account_add.Name = "btn_account_add";
+            this.btn_account_add.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_add.TabIndex = 9;
+            this.btn_account_add.Text = "Thêm mới";
+            this.btn_account_add.UseVisualStyleBackColor = true;
+            // 
+            // btn_account_edit
+            // 
+            this.btn_account_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_account_edit.Location = new System.Drawing.Point(20, 186);
+            this.btn_account_edit.Name = "btn_account_edit";
+            this.btn_account_edit.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_edit.TabIndex = 6;
+            this.btn_account_edit.Text = "Sửa";
+            this.btn_account_edit.UseVisualStyleBackColor = true;
+            // 
+            // btn_account_save
+            // 
+            this.btn_account_save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_account_save.Location = new System.Drawing.Point(125, 186);
+            this.btn_account_save.Name = "btn_account_save";
+            this.btn_account_save.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_save.TabIndex = 7;
+            this.btn_account_save.Text = "Lưu";
+            this.btn_account_save.UseVisualStyleBackColor = true;
+            // 
+            // btn_account_refresh
+            // 
+            this.btn_account_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_account_refresh.Location = new System.Drawing.Point(230, 186);
+            this.btn_account_refresh.Name = "btn_account_refresh";
+            this.btn_account_refresh.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_refresh.TabIndex = 8;
+            this.btn_account_refresh.Text = "Tải lại";
+            this.btn_account_refresh.UseVisualStyleBackColor = true;
+            this.btn_account_refresh.Click += new System.EventHandler(this.btn_account_refresh_Click);
+            // 
+            // lbl_account_password
+            // 
+            this.lbl_account_password.AutoSize = true;
+            this.lbl_account_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_account_password.Location = new System.Drawing.Point(44, 93);
+            this.lbl_account_password.Name = "lbl_account_password";
+            this.lbl_account_password.Size = new System.Drawing.Size(62, 16);
+            this.lbl_account_password.TabIndex = 1;
+            this.lbl_account_password.Text = "Mật khẩu";
+            // 
+            // textbox_account_password
+            // 
+            this.textbox_account_password.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aCCOUNTBindingSource, "pass", true));
+            this.textbox_account_password.Enabled = false;
+            this.textbox_account_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.textbox_account_password.Location = new System.Drawing.Point(112, 90);
+            this.textbox_account_password.Name = "textbox_account_password";
+            this.textbox_account_password.Size = new System.Drawing.Size(198, 22);
+            this.textbox_account_password.TabIndex = 4;
+            // 
+            // text_account_id_staff
+            // 
+            this.text_account_id_staff.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aCCOUNTBindingSource, "id_staff", true));
+            this.text_account_id_staff.Enabled = false;
+            this.text_account_id_staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.text_account_id_staff.Location = new System.Drawing.Point(252, 30);
+            this.text_account_id_staff.Name = "text_account_id_staff";
+            this.text_account_id_staff.Size = new System.Drawing.Size(58, 22);
+            this.text_account_id_staff.TabIndex = 1;
+            // 
+            // textbox_account_username
+            // 
+            this.textbox_account_username.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aCCOUNTBindingSource, "username", true));
+            this.textbox_account_username.Enabled = false;
+            this.textbox_account_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.textbox_account_username.Location = new System.Drawing.Point(112, 60);
+            this.textbox_account_username.Name = "textbox_account_username";
+            this.textbox_account_username.Size = new System.Drawing.Size(198, 22);
+            this.textbox_account_username.TabIndex = 1;
+            // 
+            // lbl_account_id_staff
+            // 
+            this.lbl_account_id_staff.AutoSize = true;
+            this.lbl_account_id_staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_account_id_staff.Location = new System.Drawing.Point(197, 33);
+            this.lbl_account_id_staff.Name = "lbl_account_id_staff";
+            this.lbl_account_id_staff.Size = new System.Drawing.Size(49, 16);
+            this.lbl_account_id_staff.TabIndex = 1;
+            this.lbl_account_id_staff.Text = "Mã NV";
+            // 
+            // lbl_account_username
+            // 
+            this.lbl_account_username.AutoSize = true;
+            this.lbl_account_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_account_username.Location = new System.Drawing.Point(17, 63);
+            this.lbl_account_username.Name = "lbl_account_username";
+            this.lbl_account_username.Size = new System.Drawing.Size(89, 16);
+            this.lbl_account_username.TabIndex = 1;
+            this.lbl_account_username.Text = "Tên tài khoản";
+            // 
+            // lbl_account_id
+            // 
+            this.lbl_account_id.AutoSize = true;
+            this.lbl_account_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lbl_account_id.Location = new System.Drawing.Point(59, 33);
+            this.lbl_account_id.Name = "lbl_account_id";
+            this.lbl_account_id.Size = new System.Drawing.Size(47, 16);
+            this.lbl_account_id.TabIndex = 1;
+            this.lbl_account_id.Text = "Mã TK";
+            // 
+            // aCCOUNTBindingSource
+            // 
+            this.aCCOUNTBindingSource.DataMember = "ACCOUNT";
+            this.aCCOUNTBindingSource.DataSource = this.cNPM_NHOM_1DataSet;
+            // 
+            // aCCOUNTTableAdapter
+            // 
+            this.aCCOUNTTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idstaffDataGridViewTextBoxColumn
+            // 
+            this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.HeaderText = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
+            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passDataGridViewTextBoxColumn
+            // 
+            this.passDataGridViewTextBoxColumn.DataPropertyName = "pass";
+            this.passDataGridViewTextBoxColumn.HeaderText = "pass";
+            this.passDataGridViewTextBoxColumn.Name = "passDataGridViewTextBoxColumn";
+            this.passDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isadminDataGridViewTextBoxColumn
+            // 
+            this.isadminDataGridViewTextBoxColumn.DataPropertyName = "is_admin";
+            this.isadminDataGridViewTextBoxColumn.HeaderText = "is_admin";
+            this.isadminDataGridViewTextBoxColumn.Name = "isadminDataGridViewTextBoxColumn";
+            this.isadminDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // form_dashboard_taikhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 421);
+            this.ClientSize = new System.Drawing.Size(968, 498);
             this.Controls.Add(this.tab_account);
             this.Name = "form_dashboard_taikhoan";
             this.Text = "Quản lí tài khoản";
             this.Load += new System.EventHandler(this.form_dashboard_taikhoan_Load);
+            this.tabpage_account.ResumeLayout(false);
             this.tabpage_staff.ResumeLayout(false);
             this.groupbox_staff.ResumeLayout(false);
             this.groupbox_staff.PerformLayout();
@@ -406,6 +693,10 @@ namespace QuanLyBanDoChoiLEGO
             ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_staff)).EndInit();
             this.tab_account.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_account)).EndInit();
+            this.groupbox_account.ResumeLayout(false);
+            this.groupbox_account.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aCCOUNTBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +734,29 @@ namespace QuanLyBanDoChoiLEGO
         private System.Windows.Forms.TextBox textbox_home_address;
         private System.Windows.Forms.Label lbl_citizen_id;
         private System.Windows.Forms.TextBox textbox_citizen_id;
+        private System.Windows.Forms.DataGridView dgv_account;
+        private System.Windows.Forms.GroupBox groupbox_account;
+        private System.Windows.Forms.CheckBox checkbox_activate;
+        private System.Windows.Forms.CheckBox checkbox_is_admin;
+        private System.Windows.Forms.ComboBox cbox_account_id;
+        private System.Windows.Forms.Button btn_account_remove;
+        private System.Windows.Forms.Button btn_account_add;
+        private System.Windows.Forms.Button btn_account_edit;
+        private System.Windows.Forms.Button btn_account_save;
+        private System.Windows.Forms.Button btn_account_refresh;
+        private System.Windows.Forms.Label lbl_account_password;
+        private System.Windows.Forms.TextBox textbox_account_password;
+        private System.Windows.Forms.TextBox text_account_id_staff;
+        private System.Windows.Forms.TextBox textbox_account_username;
+        private System.Windows.Forms.Label lbl_account_id_staff;
+        private System.Windows.Forms.Label lbl_account_username;
+        private System.Windows.Forms.Label lbl_account_id;
+        private System.Windows.Forms.BindingSource aCCOUNTBindingSource;
+        private CNPM_NHOM_1DataSetTableAdapters.ACCOUNTTableAdapter aCCOUNTTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idstaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isadminDataGridViewTextBoxColumn;
     }
 }
