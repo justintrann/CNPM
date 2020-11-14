@@ -162,6 +162,7 @@ namespace QuanLyBanDoChoiLEGO
             this.btn_delete.TabIndex = 10;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_add
             // 
@@ -180,6 +181,7 @@ namespace QuanLyBanDoChoiLEGO
             this.btn_edit.TabIndex = 6;
             this.btn_edit.Text = "Sửa";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_save
             // 
@@ -189,6 +191,7 @@ namespace QuanLyBanDoChoiLEGO
             this.btn_save.TabIndex = 7;
             this.btn_save.Text = "Lưu";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_refresh
             // 
@@ -198,6 +201,7 @@ namespace QuanLyBanDoChoiLEGO
             this.btn_refresh.TabIndex = 8;
             this.btn_refresh.Text = "Tải lại";
             this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // lbl_phone_number
             // 
