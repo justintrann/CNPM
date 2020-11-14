@@ -172,6 +172,7 @@ namespace QuanLyBanDoChoiLEGO
             this.btn_add.TabIndex = 9;
             this.btn_add.Text = "Thêm mới";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_edit
             // 

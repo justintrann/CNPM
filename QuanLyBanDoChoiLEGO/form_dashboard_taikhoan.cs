@@ -145,13 +145,37 @@ namespace QuanLyBanDoChoiLEGO
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            bool is_saved = editStaff();
+            //bool is_saved = editStaff();
+            //if (is_saved)
+            //{
+            //    staff_mode = MODE.NOTHING;
+            //    enableStaffEditMode(false);
+            //    btn_edit.Text = "Sửa";
+
+            //    LoadStaffTableFromDatabase();
+            //}
+
+            bool is_saved = false;
+            switch (staff_mode)
+            {
+                case MODE.NOTHING:
+                    break;
+                case MODE.EDIT:
+                    is_saved = editStaff();
+                    break;
+                case MODE.ADD:
+                    is_saved = addStaff();
+                    break;
+                default:
+                    break;
+            }
+            
             if (is_saved)
             {
-                staff_mode = MODE.NOTHING;
                 enableStaffEditMode(false);
                 btn_edit.Text = "Sửa";
-
+                btn_add.Text = "Thêm";
+                staff_mode = MODE.NOTHING;
                 LoadStaffTableFromDatabase();
             }
         }
@@ -200,5 +224,68 @@ namespace QuanLyBanDoChoiLEGO
             }
             staff_mode = MODE.NOTHING;
         }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            if (staff_mode != MODE.ADD)
+            {
+                staff_mode = MODE.ADD;
+                enableStaffEditMode(true);
+                btn_add.Text = "Hủy";
+                clearStaffGroupBox();
+            }
+            else
+            {
+                staff_mode = MODE.NOTHING;
+                enableStaffEditMode(false);
+                btn_add.Text = "Thêm";
+                LoadStaffTableFromDatabase();
+            }
+            btn_add.Enabled = true;
+        }
+
+        private bool addStaff()
+        {
+            string caption, title;
+            if (String.IsNullOrEmpty(textbox_staff_name.Text))
+            {
+                caption = "Vui lòng nhập họ và tên";
+                title = "Thông báo";
+                MessageBox.Show(caption, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(textbox_citizen_id.Text))
+            {
+                caption = "Vui lòng nhập CMND";
+                title = "Thông báo";
+                MessageBox.Show(caption, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            
+            STAFF staff = new STAFF();
+            staff.staff_name = textbox_staff_name.Text;
+            staff.date_of_birth = dtp_date_of_birth.Value;
+            staff.phone_number = textbox_phone_number.Text;
+            staff.home_address = textbox_home_address.Text;
+            staff.citizen_id = textbox_citizen_id.Text;
+
+            CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
+            if (db.STAFFs.Where(p => p.id == staff.id).SingleOrDefault() == null)
+            {
+                db.STAFFs.InsertOnSubmit(staff);
+                db.SubmitChanges();
+                return true;
+            }
+            else
+            {
+                caption = "Bị trùng mã nhân viên";
+                title = "Cảnh báo";
+                MessageBox.Show(caption, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+        }
+
     }
 }
