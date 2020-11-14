@@ -23,17 +23,21 @@ namespace QuanLyBanDoChoiLEGO
             // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.PRODUCT' table. You can move, or remove it, as needed.
             //this.pRODUCTTableAdapter.Fill(this.cNPM_NHOM_1DataSet.PRODUCT);
             loadDataFromDatabase();
+            //displayProductInfo();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            form_nhap_hang form = new form_nhap_hang();
-            DialogResult dialog_result = form.ShowDialog();
+            form_san_pham_thong_bao thongbao = new form_san_pham_thong_bao();
+            DialogResult result = thongbao.ShowDialog();
+            loadDataFromDatabase();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("WIP");
+            form_update_sanpham update = new form_update_sanpham();
+            DialogResult result = update.ShowDialog();
+            loadDataFromDatabase();
         }
 
         private void btn_storage_Click(object sender, EventArgs e)
