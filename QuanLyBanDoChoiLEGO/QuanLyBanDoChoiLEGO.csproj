@@ -72,9 +72,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CNPM_DataClasses.dbml</DependentUpon>
     </Compile>
-    <Compile Include="CNPM_NHOM_1DataSet.cs">
-      <DependentUpon>CNPM_NHOM_1DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="CNPM_NHOM_1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +100,12 @@
     </Compile>
     <Compile Include="form_dashboard_sanpham.Designer.cs">
       <DependentUpon>form_dashboard_sanpham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_dashboard_taikhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_dashboard_taikhoan.Designer.cs">
+      <DependentUpon>form_dashboard_taikhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="form_dashboard_thongke.cs">
       <SubType>Form</SubType>
@@ -160,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_dashboard_sanpham.resx">
       <DependentUpon>form_dashboard_sanpham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_dashboard_taikhoan.resx">
+      <DependentUpon>form_dashboard_taikhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_dashboard_thongke.resx">
       <DependentUpon>form_dashboard_thongke.cs</DependentUpon>
