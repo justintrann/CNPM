@@ -58,6 +58,7 @@ INSERT INTO PRODUCT VALUES
 	(4,0,5,N'Dom''s Dodge Charger', 89.99, 200,'resource/domsdodgecharger.png', N'Dom''s Dodge Charger'),
 	(4,0,5,N'Ducati Panigale V4 R', 54.99, 200,'resource/ducatipanigalev4r.png', N'Ducati Panigale V4 R');
 GO
+
 /* SELECT for debugging
 SELECT * FROM STAFF
 SELECT * FROM ACCOUNT

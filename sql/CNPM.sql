@@ -54,7 +54,7 @@ GO
 CREATE TABLE AGE_RANGE
 (
 	id TINYINT NOT NULL UNIQUE IDENTITY(1,1), 
-	age_range_name NVARCHAR(50),
+	age_range_name NVARCHAR(50) UNIQUE,
 
 	CONSTRAINT pk_age_range_id PRIMARY KEY(id)
 );
@@ -72,7 +72,7 @@ CREATE TABLE PRODUCT
 	id_type TINYINT,
 	gender TINYINT DEFAULT(0),
 	id_age_range TINYINT,
-	product_name NVARCHAR(50),
+	product_name NVARCHAR(50) UNIQUE,
 	price FLOAT,
 	quantity INT CHECK (quantity >= 0),
 	img_path VARCHAR(100),
@@ -86,7 +86,7 @@ GO
 
 CREATE TABLE STORAGE_HISTORY
 (
-	id_product INT,
+	id_product INT NOT NULL,
 	input_date DATE,
 	quantity INT,
 
@@ -124,8 +124,8 @@ GO
 
 CREATE TABLE PURCHASE_BILL_DETAIL
 (
-	id_bill INT,
-	id_product INT,
+	id_bill INT NOT NULL,
+	id_product INT NOT NULL,
 	quantity INT,
 	cost FLOAT,
 
