@@ -33,8 +33,9 @@ namespace QuanLyBanDoChoiLEGO
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            addProduct();
-        }
+            bool result = addProduct();
+            if (result) { DialogResult = DialogResult.OK; this.Close(); }
+        } 
 
         private bool addProduct()
         {
@@ -67,24 +68,6 @@ namespace QuanLyBanDoChoiLEGO
                 CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
 
                 PRODUCT new_product = db.PRODUCTs.Where(p => p.product_name == product_name).SingleOrDefault();
-
-
-                //if (new_product == null)
-                //{
-                //    new_product = new PRODUCT();
-                //    new_product.id = 100;
-                //    new_product.product_name = textbox_product_name.Text;
-                //    new_product.id_type = (byte)cbox_product_type.SelectedValue;
-                //    new_product.gender = (byte)cbox_gender.SelectedValue.ToString();
-                //    new_product.id_age_range = (byte)cbox_age_range.SelectedValue;
-                //    new_product.quantity = (int)numud_quantity.Value;
-                //    new_product.price = (double)numud_price.Value;
-                //    new_product.product_desc = textbox_product_desc.Text;
-                //    new_product.img_path = "";
-                //    db.PRODUCTs.InsertOnSubmit(new_product);
-                //    db.SubmitChanges();
-                //    return true;
-                //}
 
                 if (new_product == null)
                 {
