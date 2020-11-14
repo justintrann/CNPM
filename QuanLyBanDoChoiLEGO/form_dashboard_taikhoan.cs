@@ -172,7 +172,18 @@ namespace QuanLyBanDoChoiLEGO
                         ACCOUNT account = db.ACCOUNTs.Where(p => p.id_staff == id).SingleOrDefault();
                         if (account != null)
                         {
-                            db.ACCOUNTs.DeleteOnSubmit(account);
+                            string message = "Khi bạn xóa nhân viên này, tài khoản id = " + account.id.ToString() + "cũng bị xóa\n Bạn có muốn tiếp tục?";
+                            if (DialogResult.Yes == MessageBox.Show(message, "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                            {
+                                db.ACCOUNTs.DeleteOnSubmit(account);
+                            }
+                            else
+                            {
+                                staff_mode = MODE.NOTHING;
+                                return;
+                            }
+                            //khi xóa nhân viên, tài khoản cũng bị xóa
+                            //solution: thêm 1 cột kích hoạt để vô hiệu hóa tài khoản
                         }
 
                         db.STAFFs.DeleteOnSubmit(staff);
