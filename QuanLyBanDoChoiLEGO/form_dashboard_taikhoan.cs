@@ -172,7 +172,7 @@ namespace QuanLyBanDoChoiLEGO
                         ACCOUNT account = db.ACCOUNTs.Where(p => p.id_staff == id).SingleOrDefault();
                         if (account != null)
                         {
-                            account.id_staff = null;
+                            db.ACCOUNTs.DeleteOnSubmit(account);
                         }
 
                         db.STAFFs.DeleteOnSubmit(staff);
