@@ -20,6 +20,8 @@ namespace QuanLyBanDoChoiLEGO
         {
             InitializeComponent();
         }
+        
+        string connectionString = @"Data Source=.;Initial Catalog=CNPM_NHOM_1;Integrated Security=True";
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable data = tableCollection[comboBoxSheet.SelectedItem.ToString()];
@@ -68,7 +70,7 @@ namespace QuanLyBanDoChoiLEGO
                     {
                         STORAGE_HISTORY storage = new STORAGE_HISTORY();
                         storage.id_product = Convert.ToInt32(data.Rows[i]["ID sản phẩm"]);
-                        storage.input_date = Convert.ToDateTime(data.Rows[i]["Ngày nhập"]);
+                        storage.input_date = DateTime.Now;
                         storage.quantity = Convert.ToInt32(data.Rows[i]["Số lượng"]);
 
                         storages.Add(storage);
@@ -80,7 +82,7 @@ namespace QuanLyBanDoChoiLEGO
         DataTableCollection tableCollection;
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel 97-2003 Workbook|*.xls|Excel Workbook|*.xlsx" })
+            using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel Workbook|*.xlsx|Excel 97-2003 Workbook|*.xls" })
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -119,7 +121,7 @@ namespace QuanLyBanDoChoiLEGO
         {
             try
             {
-                string connectionString = @"Data Source=LAPTOP-C7M7T04D\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=True";
+                string connectionString = this.connectionString;
                 switch (comboBoxSheet.Text)
                 {
                     case "NhapLoaiSanPham":

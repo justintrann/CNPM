@@ -1083,6 +1083,7 @@ namespace QuanLyBanDoChoiLEGO {
                 base.Columns.Add(this.columninput_date);
                 this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
+                this.columnid_product.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2984,6 +2985,8 @@ namespace QuanLyBanDoChoiLEGO {
                 base.Columns.Add(this.columnquantity);
                 this.columncost = new global::System.Data.DataColumn("cost", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncost);
+                this.columnid_bill.AllowDBNull = false;
+                this.columnid_product.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3613,12 +3616,7 @@ namespace QuanLyBanDoChoiLEGO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int id_product {
                 get {
-                    try {
-                        return ((int)(this[this.tableSTORAGE_HISTORY.id_productColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_product\' in table \'STORAGE_HISTORY\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableSTORAGE_HISTORY.id_productColumn]));
                 }
                 set {
                     this[this.tableSTORAGE_HISTORY.id_productColumn] = value;
@@ -3666,18 +3664,6 @@ namespace QuanLyBanDoChoiLEGO {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_storage_history_id_product"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isid_productNull() {
-                return this.IsNull(this.tableSTORAGE_HISTORY.id_productColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setid_productNull() {
-                this[this.tableSTORAGE_HISTORY.id_productColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4523,12 +4509,7 @@ namespace QuanLyBanDoChoiLEGO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int id_bill {
                 get {
-                    try {
-                        return ((int)(this[this.tablePURCHASE_BILL_DETAIL.id_billColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_bill\' in table \'PURCHASE_BILL_DETAIL\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePURCHASE_BILL_DETAIL.id_billColumn]));
                 }
                 set {
                     this[this.tablePURCHASE_BILL_DETAIL.id_billColumn] = value;
@@ -4539,12 +4520,7 @@ namespace QuanLyBanDoChoiLEGO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int id_product {
                 get {
-                    try {
-                        return ((int)(this[this.tablePURCHASE_BILL_DETAIL.id_productColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_product\' in table \'PURCHASE_BILL_DETAIL\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePURCHASE_BILL_DETAIL.id_productColumn]));
                 }
                 set {
                     this[this.tablePURCHASE_BILL_DETAIL.id_productColumn] = value;
@@ -4603,30 +4579,6 @@ namespace QuanLyBanDoChoiLEGO {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["fk_purchase_bill_detail_id_product"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isid_billNull() {
-                return this.IsNull(this.tablePURCHASE_BILL_DETAIL.id_billColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setid_billNull() {
-                this[this.tablePURCHASE_BILL_DETAIL.id_billColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isid_productNull() {
-                return this.IsNull(this.tablePURCHASE_BILL_DETAIL.id_productColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setid_productNull() {
-                this[this.tablePURCHASE_BILL_DETAIL.id_productColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5327,7 +5279,7 @@ SELECT id, id_staff, username, pass, is_admin FROM ACCOUNT WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5711,7 +5663,7 @@ SELECT id, id_staff, username, pass, is_admin FROM ACCOUNT WHERE (id = @id)";
                 "ES (@id_product, @input_date, @quantity)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@input_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "input_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@input_date", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "input_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5719,7 +5671,7 @@ SELECT id, id_staff, username, pass, is_admin FROM ACCOUNT WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5789,13 +5741,8 @@ SELECT id, id_staff, username, pass, is_admin FROM ACCOUNT WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> id_product, global::System.Nullable<global::System.DateTime> input_date, global::System.Nullable<int> quantity) {
-            if ((id_product.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_product.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
+        public virtual int Insert(int id_product, global::System.Nullable<global::System.DateTime> input_date, global::System.Nullable<int> quantity) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_product));
             if ((input_date.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(input_date.Value));
             }
@@ -5980,7 +5927,7 @@ SELECT id, age_range_name FROM AGE_RANGE WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6323,7 +6270,7 @@ SELECT id, customer_name, phone_number, date_of_birth, home_address FROM CUSTOME
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6779,7 +6726,7 @@ SELECT id, id_type, gender, id_age_range, product_name, price, quantity, img_pat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7341,7 +7288,7 @@ SELECT id, product_type_name, product_type_desc FROM PRODUCT_TYPE WHERE (id = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7719,7 +7666,7 @@ SELECT id, id_staff, id_customer, date_of_purchase, purchase_bill_desc, total_co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8142,7 +8089,7 @@ SELECT id, id_staff, id_customer, date_of_purchase, purchase_bill_desc, total_co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8212,19 +8159,9 @@ SELECT id, id_staff, id_customer, date_of_purchase, purchase_bill_desc, total_co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> id_bill, global::System.Nullable<int> id_product, global::System.Nullable<int> quantity, global::System.Nullable<double> cost) {
-            if ((id_bill.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_bill.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((id_product.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_product.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+        public virtual int Insert(int id_bill, int id_product, global::System.Nullable<int> quantity, global::System.Nullable<double> cost) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_bill));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_product));
             if ((quantity.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quantity.Value));
             }
@@ -8435,7 +8372,7 @@ SELECT id, staff_name, phone_number, date_of_birth, home_address, citizen_id FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString;
+            this._connection.ConnectionString = global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

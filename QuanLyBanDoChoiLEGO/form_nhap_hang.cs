@@ -68,7 +68,7 @@ namespace QuanLyBanDoChoiLEGO
                 CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
 
                 PRODUCT new_product = db.PRODUCTs.Where(p => p.product_name == product_name).SingleOrDefault();
-
+                
                 if (new_product == null)
                 {
                     new_product = new PRODUCT();
@@ -80,8 +80,17 @@ namespace QuanLyBanDoChoiLEGO
                     new_product.price = (double)numud_price.Value;
                     new_product.product_desc = textbox_product_desc.Text;
                     new_product.img_path = "";
+
+                    //STORAGE_HISTORY new_storage_record = new STORAGE_HISTORY();
+                    //new_storage_record.id_product = new_product.id;
+                    //new_storage_record.quantity = new_product.quantity;
+                    //new_storage_record.input_date = DateTime.Now;
+
                     db.PRODUCTs.InsertOnSubmit(new_product);
                     db.SubmitChanges();
+
+                    db.ExecuteCommand("INSERT INTO dbo.STORAGE_HISTORY VALUES ({0},{1},{2}) ", new_product.id, DateTime.Now, new_product.quantity);
+                    //
                     return true;
                 }
 
