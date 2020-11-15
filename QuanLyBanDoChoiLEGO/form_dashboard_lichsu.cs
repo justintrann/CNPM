@@ -51,32 +51,56 @@ namespace QuanLyBanDoChoiLEGO
 
             CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
             string search_string = textbox_search_product.Text;
-            PRODUCT product = db.PRODUCTs.Where(p => p.product_name == search_string).FirstOrDefault();
-
-            if(product != null)
-            {
-                int id = product.id;
+            if (String.IsNullOrWhiteSpace(search_string))
+            { 
                 if (checkbox_search_by_time.Checked)
                 {
                     //search theo thời điểm
-                    DateTime date_search = dpk_search_by_date.Value;
+                    DateTime date_search = dpk_search_by_date.Value.Date.Date;
                     dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
                     {
                         id_product = x.id_product,
                         product_name = y.product_name,
                         input_date = x.input_date,
                         quantity = x.quantity,
-                    }).Where(p => p.id_product == id && p.input_date == date_search);
+                    }).Where(p => p.input_date.Value.Date == date_search);
+                }
+                else
+                    loadDataFromDatabase();
+            }
+            else
+            {
+                PRODUCT product = db.PRODUCTs.Where(p => p.product_name.StartsWith(search_string)).FirstOrDefault();
+                if (product != null)
+                {
+                    int id = product.id;
+                    if (checkbox_search_by_time.Checked)
+                    {
+                        //search theo thời điểm
+                        //search theo ngay
+                        DateTime date_search = dpk_search_by_date.Value.Date.Date;
+                        dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
+                        {
+                            id_product = x.id_product,
+                            product_name = y.product_name,
+                            input_date = x.input_date,
+                            quantity = x.quantity,
+                        }).Where(p => p.id_product == id && p.input_date.Value.Date == date_search);
+                    }
+                    else
+                    {
+                        dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
+                        {
+                            id_product = x.id_product,
+                            product_name = y.product_name,
+                            input_date = x.input_date,
+                            quantity = x.quantity,
+                        }).Where(p => p.id_product == id);
+                    }
                 }
                 else
                 {
-                    dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
-                    {
-                        id_product = x.id_product,
-                        product_name = y.product_name,
-                        input_date = x.input_date,
-                        quantity = x.quantity,
-                    }).Where(p => p.id_product == id);
+                    MessageBox.Show("Không thấy wtf");
                 }
             }
         }
@@ -100,6 +124,7 @@ namespace QuanLyBanDoChoiLEGO
                 product_name = y.product_name,
                 input_date = x.input_date,
                 quantity = x.quantity,
+                //DATE_TEST = x.input_date.Value.Date
             }) ;
         }
     }
