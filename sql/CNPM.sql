@@ -87,7 +87,7 @@ GO
 CREATE TABLE STORAGE_HISTORY
 (
 	id_product INT NOT NULL,
-	input_date DATE,
+	input_date SMALLDATETIME,
 	quantity INT,
 
 	CONSTRAINT fk_storage_history_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id)
