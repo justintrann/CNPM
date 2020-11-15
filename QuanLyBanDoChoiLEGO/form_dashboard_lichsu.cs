@@ -51,13 +51,20 @@ namespace QuanLyBanDoChoiLEGO
 
             CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
             string search_string = textbox_search_product.Text;
+            var products = db.STORAGE_HISTORies.Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
+            {
+                id_product = x.id_product,
+                product_name = y.product_name,
+                input_date = x.input_date,
+                quantity = x.quantity,
+            }).Where(p => p.product_name.StartsWith(search_string)).ToArray();
             if (String.IsNullOrWhiteSpace(search_string))
-            { 
+            {
                 if (checkbox_search_by_time.Checked)
                 {
                     //search theo thời điểm
                     DateTime date_search = dpk_search_by_date.Value.Date.Date;
-                    dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
+                    dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderByDescending(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
                     {
                         id_product = x.id_product,
                         product_name = y.product_name,
@@ -70,37 +77,17 @@ namespace QuanLyBanDoChoiLEGO
             }
             else
             {
-                PRODUCT product = db.PRODUCTs.Where(p => p.product_name.StartsWith(search_string)).FirstOrDefault();
-                if (product != null)
+                //PRODUCT[] products = db.PRODUCTs.Where(p => p.product_name.StartsWith(search_string)).Select(p => p).ToArray();
+                if (checkbox_search_by_time.Checked)
                 {
-                    int id = product.id;
-                    if (checkbox_search_by_time.Checked)
-                    {
-                        //search theo thời điểm
-                        //search theo ngay
-                        DateTime date_search = dpk_search_by_date.Value.Date.Date;
-                        dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
-                        {
-                            id_product = x.id_product,
-                            product_name = y.product_name,
-                            input_date = x.input_date,
-                            quantity = x.quantity,
-                        }).Where(p => p.id_product == id && p.input_date.Value.Date == date_search);
-                    }
-                    else
-                    {
-                        dataGridViewNhap.DataSource = db.STORAGE_HISTORies.OrderBy(p => p.input_date).Join(db.PRODUCTs, x => x.id_product, y => y.id, (x, y) => new
-                        {
-                            id_product = x.id_product,
-                            product_name = y.product_name,
-                            input_date = x.input_date,
-                            quantity = x.quantity,
-                        }).Where(p => p.id_product == id);
-                    }
+                    //search theo thời điểm
+                    //search theo ngay
+                    DateTime date_search = dpk_search_by_date.Value.Date.Date;
+                    dataGridViewNhap.DataSource = products.Where(p => p.input_date.Value.Date == date_search).ToArray();
                 }
                 else
                 {
-                    MessageBox.Show("Không thấy wtf");
+                    dataGridViewNhap.DataSource = products;
                 }
             }
         }
