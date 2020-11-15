@@ -17,11 +17,27 @@ namespace QuanLyBanDoChoiLEGO
             InitializeComponent();
         }
 
+        public static bool is_admin = false;
+
         public form_mainwindow(ACCOUNT account)
         {
             InitializeComponent();
             //do stuff with account
+            if (account.is_admin == 1)
+            {
+                is_admin = true;
+                enableAdminControl(is_admin);
+            }
+            else is_admin = false;
         }
+
+        private void enableAdminControl(bool is_admin = false)
+        {
+            if(is_admin)
+                btn_board_taikhoan.Enabled = true;
+                btn_board_taikhoan.Visible = true;
+        }
+
         private void btn_board_1_Click(object sender, EventArgs e)
         {
             bool isOpen = false;
@@ -112,6 +128,26 @@ namespace QuanLyBanDoChoiLEGO
             if (MessageBox.Show("Thoát khỏi chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void btn_board_taikhoan_Click(object sender, EventArgs e)
+        {
+            bool isOpen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "Tài khoản")
+                {
+                    isOpen = true;
+                    f.Focus();
+                    break;
+                }
+            }
+            if (isOpen == false)
+            {
+                form_dashboard_taikhoan f2 = new form_dashboard_taikhoan();
+                f2.MdiParent = this;
+                f2.Show();
             }
         }
     }

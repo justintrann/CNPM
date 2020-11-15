@@ -38,6 +38,7 @@
             this.btn_board_lichsu = new System.Windows.Forms.Button();
             this.btn_board_banhang = new System.Windows.Forms.Button();
             this.lbl_dashboard = new System.Windows.Forms.Label();
+            this.btn_board_taikhoan = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel_side.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             // panel_side
             // 
+            this.panel_side.Controls.Add(this.btn_board_taikhoan);
             this.panel_side.Controls.Add(this.btn_board_sanpham);
             this.panel_side.Controls.Add(this.btn_board_thongke);
             this.panel_side.Controls.Add(this.btn_board_lichsu);
@@ -138,6 +140,19 @@
             this.lbl_dashboard.TabIndex = 0;
             this.lbl_dashboard.Text = "Dashboard";
             // 
+            // btn_board_taikhoan
+            // 
+            this.btn_board_taikhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_board_taikhoan.Enabled = false;
+            this.btn_board_taikhoan.Location = new System.Drawing.Point(20, 598);
+            this.btn_board_taikhoan.Name = "btn_board_taikhoan";
+            this.btn_board_taikhoan.Size = new System.Drawing.Size(75, 23);
+            this.btn_board_taikhoan.TabIndex = 5;
+            this.btn_board_taikhoan.Text = "Tài khoản";
+            this.btn_board_taikhoan.UseVisualStyleBackColor = true;
+            this.btn_board_taikhoan.Visible = false;
+            this.btn_board_taikhoan.Click += new System.EventHandler(this.btn_board_taikhoan_Click);
+            // 
             // form_mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +187,7 @@
         private System.Windows.Forms.Button btn_board_lichsu;
         private System.Windows.Forms.Button btn_board_banhang;
         private System.Windows.Forms.Button btn_board_sanpham;
+        private System.Windows.Forms.Button btn_board_taikhoan;
     }
 }
 
