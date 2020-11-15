@@ -28,14 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_lichsu));
             this.textbox_search_product = new System.Windows.Forms.TextBox();
-            this.buttonSearchProduct = new System.Windows.Forms.Button();
-            this.listViewProductOut = new System.Windows.Forms.ListView();
-            this.listViewProductIn = new System.Windows.Forms.ListView();
-            this.domainUpDownTheLoai = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownNam = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDownThang = new System.Windows.Forms.DomainUpDown();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.dataGridViewNhap = new System.Windows.Forms.DataGridView();
+            this.sTORAGEHISTORYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewBan = new System.Windows.Forms.DataGridView();
+            this.cNPMNHOM1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTORAGE_HISTORYTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.STORAGE_HISTORYTableAdapter();
+            this.dpk_search_by_date = new System.Windows.Forms.DateTimePicker();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.cNPMNHOM1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pRODUCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pRODUCTTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.PRODUCTTableAdapter();
+            this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
+            this.checkbox_search_by_time = new System.Windows.Forms.CheckBox();
+            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_input_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTORAGEHISTORYBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUCTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // textbox_search_product
@@ -47,85 +66,161 @@
             this.textbox_search_product.Size = new System.Drawing.Size(349, 30);
             this.textbox_search_product.TabIndex = 3;
             // 
-            // buttonSearchProduct
+            // btn_search
             // 
-            this.buttonSearchProduct.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonSearchProduct.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSearchProduct.BackgroundImage")));
-            this.buttonSearchProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSearchProduct.Location = new System.Drawing.Point(12, 12);
-            this.buttonSearchProduct.MinimumSize = new System.Drawing.Size(30, 30);
-            this.buttonSearchProduct.Name = "buttonSearchProduct";
-            this.buttonSearchProduct.Size = new System.Drawing.Size(30, 30);
-            this.buttonSearchProduct.TabIndex = 2;
-            this.buttonSearchProduct.UseVisualStyleBackColor = false;
+            this.btn_search.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_search.BackgroundImage")));
+            this.btn_search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_search.Location = new System.Drawing.Point(12, 12);
+            this.btn_search.MinimumSize = new System.Drawing.Size(30, 30);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(30, 30);
+            this.btn_search.TabIndex = 2;
+            this.btn_search.UseVisualStyleBackColor = false;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // listViewProductOut
+            // dataGridViewNhap
             // 
-            this.listViewProductOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewProductOut.HideSelection = false;
-            this.listViewProductOut.Location = new System.Drawing.Point(403, 58);
-            this.listViewProductOut.MinimumSize = new System.Drawing.Size(385, 380);
-            this.listViewProductOut.Name = "listViewProductOut";
-            this.listViewProductOut.Size = new System.Drawing.Size(385, 380);
-            this.listViewProductOut.TabIndex = 5;
-            this.listViewProductOut.UseCompatibleStateImageBehavior = false;
+            this.dataGridViewNhap.AllowUserToAddRows = false;
+            this.dataGridViewNhap.AllowUserToDeleteRows = false;
+            this.dataGridViewNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_id,
+            this.col_product_name,
+            this.col_input_date,
+            this.col_quantity});
+            this.dataGridViewNhap.Location = new System.Drawing.Point(403, 58);
+            this.dataGridViewNhap.Name = "dataGridViewNhap";
+            this.dataGridViewNhap.ReadOnly = true;
+            this.dataGridViewNhap.RowHeadersWidth = 51;
+            this.dataGridViewNhap.RowTemplate.Height = 24;
+            this.dataGridViewNhap.Size = new System.Drawing.Size(499, 459);
+            this.dataGridViewNhap.TabIndex = 9;
             // 
-            // listViewProductIn
+            // sTORAGEHISTORYBindingSource
             // 
-            this.listViewProductIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewProductIn.HideSelection = false;
-            this.listViewProductIn.Location = new System.Drawing.Point(12, 58);
-            this.listViewProductIn.MinimumSize = new System.Drawing.Size(385, 380);
-            this.listViewProductIn.Name = "listViewProductIn";
-            this.listViewProductIn.Size = new System.Drawing.Size(385, 380);
-            this.listViewProductIn.TabIndex = 4;
-            this.listViewProductIn.UseCompatibleStateImageBehavior = false;
+            this.sTORAGEHISTORYBindingSource.DataMember = "STORAGE_HISTORY";
             // 
-            // domainUpDownTheLoai
+            // dataGridViewBan
             // 
-            this.domainUpDownTheLoai.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.domainUpDownTheLoai.Location = new System.Drawing.Point(403, 12);
-            this.domainUpDownTheLoai.Name = "domainUpDownTheLoai";
-            this.domainUpDownTheLoai.Size = new System.Drawing.Size(90, 26);
-            this.domainUpDownTheLoai.TabIndex = 6;
-            this.domainUpDownTheLoai.Text = "Ngày";
+            this.dataGridViewBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBan.Location = new System.Drawing.Point(12, 58);
+            this.dataGridViewBan.Name = "dataGridViewBan";
+            this.dataGridViewBan.RowHeadersWidth = 51;
+            this.dataGridViewBan.RowTemplate.Height = 24;
+            this.dataGridViewBan.Size = new System.Drawing.Size(385, 459);
+            this.dataGridViewBan.TabIndex = 10;
             // 
-            // domainUpDownNam
+            // sTORAGE_HISTORYTableAdapter
             // 
-            this.domainUpDownNam.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.domainUpDownNam.Location = new System.Drawing.Point(605, 12);
-            this.domainUpDownNam.Name = "domainUpDownNam";
-            this.domainUpDownNam.Size = new System.Drawing.Size(97, 26);
-            this.domainUpDownNam.TabIndex = 7;
-            this.domainUpDownNam.Text = "Năm";
+            this.sTORAGE_HISTORYTableAdapter.ClearBeforeFill = true;
             // 
-            // domainUpDownThang
+            // dpk_search_by_date
             // 
-            this.domainUpDownThang.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.domainUpDownThang.Location = new System.Drawing.Point(499, 12);
-            this.domainUpDownThang.Name = "domainUpDownThang";
-            this.domainUpDownThang.Size = new System.Drawing.Size(100, 26);
-            this.domainUpDownThang.TabIndex = 8;
-            this.domainUpDownThang.Text = "Tháng";
+            this.dpk_search_by_date.Location = new System.Drawing.Point(531, 19);
+            this.dpk_search_by_date.Name = "dpk_search_by_date";
+            this.dpk_search_by_date.Size = new System.Drawing.Size(280, 22);
+            this.dpk_search_by_date.TabIndex = 11;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(827, 19);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_refresh.TabIndex = 12;
+            this.btn_refresh.Text = "Tải lại";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // cNPMNHOM1DataSetBindingSource1
+            // 
+            this.cNPMNHOM1DataSetBindingSource1.DataSource = this.cNPM_NHOM_1DataSet;
+            this.cNPMNHOM1DataSetBindingSource1.Position = 0;
+            // 
+            // pRODUCTBindingSource
+            // 
+            this.pRODUCTBindingSource.DataSource = this.cNPMNHOM1DataSetBindingSource;
+            // 
+            // pRODUCTTableAdapter
+            // 
+            this.pRODUCTTableAdapter.ClearBeforeFill = true;
+            // 
+            // cNPM_NHOM_1DataSet
+            // 
+            this.cNPM_NHOM_1DataSet.DataSetName = "CNPM_NHOM_1DataSet";
+            this.cNPM_NHOM_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // checkbox_search_by_time
+            // 
+            this.checkbox_search_by_time.AutoSize = true;
+            this.checkbox_search_by_time.Location = new System.Drawing.Point(404, 18);
+            this.checkbox_search_by_time.Name = "checkbox_search_by_time";
+            this.checkbox_search_by_time.Size = new System.Drawing.Size(121, 21);
+            this.checkbox_search_by_time.TabIndex = 13;
+            this.checkbox_search_by_time.Text = "Theo thời gian";
+            this.checkbox_search_by_time.UseVisualStyleBackColor = true;
+            // 
+            // col_id
+            // 
+            this.col_id.DataPropertyName = "id_product";
+            this.col_id.HeaderText = "Mã sản phẩm";
+            this.col_id.MinimumWidth = 6;
+            this.col_id.Name = "col_id";
+            this.col_id.ReadOnly = true;
+            this.col_id.Width = 125;
+            // 
+            // col_product_name
+            // 
+            this.col_product_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_product_name.DataPropertyName = "product_name";
+            this.col_product_name.HeaderText = "Tên sản phẩm";
+            this.col_product_name.MinimumWidth = 50;
+            this.col_product_name.Name = "col_product_name";
+            this.col_product_name.ReadOnly = true;
+            // 
+            // col_input_date
+            // 
+            this.col_input_date.DataPropertyName = "input_date";
+            this.col_input_date.HeaderText = "Ngày nhập";
+            this.col_input_date.MinimumWidth = 6;
+            this.col_input_date.Name = "col_input_date";
+            this.col_input_date.ReadOnly = true;
+            this.col_input_date.Width = 125;
+            // 
+            // col_quantity
+            // 
+            this.col_quantity.DataPropertyName = "quantity";
+            this.col_quantity.HeaderText = "Số lượng";
+            this.col_quantity.MinimumWidth = 6;
+            this.col_quantity.Name = "col_quantity";
+            this.col_quantity.ReadOnly = true;
+            this.col_quantity.Width = 125;
             // 
             // form_dashboard_lichsu
             // 
+            this.AcceptButton = this.btn_search;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(802, 458);
-            this.Controls.Add(this.domainUpDownThang);
-            this.Controls.Add(this.domainUpDownNam);
-            this.Controls.Add(this.domainUpDownTheLoai);
-            this.Controls.Add(this.listViewProductOut);
-            this.Controls.Add(this.listViewProductIn);
+            this.ClientSize = new System.Drawing.Size(914, 529);
+            this.Controls.Add(this.checkbox_search_by_time);
+            this.Controls.Add(this.btn_refresh);
+            this.Controls.Add(this.dpk_search_by_date);
+            this.Controls.Add(this.dataGridViewBan);
+            this.Controls.Add(this.dataGridViewNhap);
             this.Controls.Add(this.textbox_search_product);
-            this.Controls.Add(this.buttonSearchProduct);
+            this.Controls.Add(this.btn_search);
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "form_dashboard_lichsu";
             this.Text = "Lịch sử";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.form_dashboard_lichsu_Load);
             this.Resize += new System.EventHandler(this.form_history_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTORAGEHISTORYBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUCTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,11 +229,22 @@
         #endregion
 
         private System.Windows.Forms.TextBox textbox_search_product;
-        private System.Windows.Forms.Button buttonSearchProduct;
-        private System.Windows.Forms.ListView listViewProductOut;
-        private System.Windows.Forms.ListView listViewProductIn;
-        private System.Windows.Forms.DomainUpDown domainUpDownTheLoai;
-        private System.Windows.Forms.DomainUpDown domainUpDownNam;
-        private System.Windows.Forms.DomainUpDown domainUpDownThang;
+        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.DataGridView dataGridViewNhap;
+        private System.Windows.Forms.DataGridView dataGridViewBan;
+        private System.Windows.Forms.BindingSource cNPMNHOM1DataSetBindingSource;
+        private System.Windows.Forms.BindingSource sTORAGEHISTORYBindingSource;
+        private CNPM_NHOM_1DataSetTableAdapters.STORAGE_HISTORYTableAdapter sTORAGE_HISTORYTableAdapter;
+        private System.Windows.Forms.DateTimePicker dpk_search_by_date;
+        private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.BindingSource cNPMNHOM1DataSetBindingSource1;
+        private System.Windows.Forms.BindingSource pRODUCTBindingSource;
+        private CNPM_NHOM_1DataSetTableAdapters.PRODUCTTableAdapter pRODUCTTableAdapter;
+        private CNPM_NHOM_1DataSet cNPM_NHOM_1DataSet;
+        private System.Windows.Forms.CheckBox checkbox_search_by_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_product_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_input_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_quantity;
     }
 }

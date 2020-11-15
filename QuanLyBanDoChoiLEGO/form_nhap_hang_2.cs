@@ -68,7 +68,7 @@ namespace QuanLyBanDoChoiLEGO
                     {
                         STORAGE_HISTORY storage = new STORAGE_HISTORY();
                         storage.id_product = Convert.ToInt32(data.Rows[i]["ID sản phẩm"]);
-                        storage.input_date = Convert.ToDateTime(data.Rows[i]["Ngày nhập"]);
+                        storage.input_date = DateTime.Now;
                         storage.quantity = Convert.ToInt32(data.Rows[i]["Số lượng"]);
 
                         storages.Add(storage);
