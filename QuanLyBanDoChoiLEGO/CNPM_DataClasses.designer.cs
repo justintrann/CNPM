@@ -54,7 +54,7 @@ namespace QuanLyBanDoChoiLEGO
     #endregion
 		
 		public CNPM_DataClassesDataContext() : 
-				base(global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString, mappingSource)
+				base(global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -359,7 +359,7 @@ namespace QuanLyBanDoChoiLEGO
 	public partial class STORAGE_HISTORY
 	{
 		
-		private System.Nullable<int> _id_product;
+		private int _id_product;
 		
 		private System.Nullable<System.DateTime> _input_date;
 		
@@ -369,8 +369,8 @@ namespace QuanLyBanDoChoiLEGO
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_product", DbType="Int")]
-		public System.Nullable<int> id_product
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_product", DbType="Int NOT NULL")]
+		public int id_product
 		{
 			get
 			{
@@ -385,7 +385,7 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_date", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_date", DbType="SmallDateTime")]
 		public System.Nullable<System.DateTime> input_date
 		{
 			get
@@ -1460,9 +1460,9 @@ namespace QuanLyBanDoChoiLEGO
 	public partial class PURCHASE_BILL_DETAIL
 	{
 		
-		private System.Nullable<int> _id_bill;
+		private int _id_bill;
 		
-		private System.Nullable<int> _id_product;
+		private int _id_product;
 		
 		private System.Nullable<int> _quantity;
 		
@@ -1472,8 +1472,8 @@ namespace QuanLyBanDoChoiLEGO
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bill", DbType="Int")]
-		public System.Nullable<int> id_bill
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bill", DbType="Int NOT NULL")]
+		public int id_bill
 		{
 			get
 			{
@@ -1488,8 +1488,8 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_product", DbType="Int")]
-		public System.Nullable<int> id_product
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_product", DbType="Int NOT NULL")]
+		public int id_product
 		{
 			get
 			{
