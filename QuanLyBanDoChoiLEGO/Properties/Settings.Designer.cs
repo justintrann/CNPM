@@ -26,7 +26,8 @@ namespace QuanLyBanDoChoiLEGO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=CNPM_NHOM_1;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JUSTINPC\\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;User ID=sa;Password=1" +
+            "234")]
         public string CNPM_NHOM_1ConnectionString {
             get {
                 return ((string)(this["CNPM_NHOM_1ConnectionString"]));
@@ -41,6 +42,17 @@ namespace QuanLyBanDoChoiLEGO.Properties {
         public string CNPM_NHOM_1ConnectionString1 {
             get {
                 return ((string)(this["CNPM_NHOM_1ConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JUSTINPC\\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=T" +
+            "rue")]
+        public string CNPM_NHOM_1ConnectionString2 {
+            get {
+                return ((string)(this["CNPM_NHOM_1ConnectionString2"]));
             }
         }
     }
