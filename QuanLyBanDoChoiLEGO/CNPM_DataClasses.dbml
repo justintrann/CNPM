@@ -25,16 +25,6 @@
       <Association Name="AGE_RANGE_PRODUCT" Member="PRODUCTs" ThisKey="id" OtherKey="id_age_range" Type="PRODUCT" />
     </Type>
   </Table>
-  <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
-    <Type Name="CUSTOMER">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="phone_number" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="home_address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="CUSTOMER_PURCHASE_BILL" Member="PURCHASE_BILLs" ThisKey="id" OtherKey="id_customer" Type="PURCHASE_BILL" />
-    </Type>
-  </Table>
   <Table Name="dbo.PRODUCT" Member="PRODUCTs">
     <Type Name="PRODUCT">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -69,8 +59,8 @@
       <Column Name="purchase_bill_desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="total_cost" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="PURCHASE_BILL_PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAILs" ThisKey="id" OtherKey="id_bill" Type="PURCHASE_BILL_DETAIL" />
-      <Association Name="CUSTOMER_PURCHASE_BILL" Member="CUSTOMER" ThisKey="id_customer" OtherKey="id" Type="CUSTOMER" IsForeignKey="true" />
       <Association Name="STAFF_PURCHASE_BILL" Member="STAFF" ThisKey="id_staff" OtherKey="id" Type="STAFF" IsForeignKey="true" />
+      <Association Name="CUSTOMER1_PURCHASE_BILL" Member="CUSTOMER1" ThisKey="id_customer" OtherKey="id" Type="CUSTOMER1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAILs">
@@ -93,6 +83,16 @@
       <Column Name="citizen_id" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
       <Association Name="STAFF_ACCOUNT" Member="ACCOUNTs" ThisKey="id" OtherKey="id_staff" Type="ACCOUNT" />
       <Association Name="STAFF_PURCHASE_BILL" Member="PURCHASE_BILLs" ThisKey="id" OtherKey="id_staff" Type="PURCHASE_BILL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMER" Member="CUSTOMER1s">
+    <Type Name="CUSTOMER1">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="customer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone_number" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="date_of_birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="home_address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="CUSTOMER1_PURCHASE_BILL" Member="PURCHASE_BILLs" ThisKey="id" OtherKey="id_customer" Type="PURCHASE_BILL" />
     </Type>
   </Table>
 </Database>

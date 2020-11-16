@@ -21,7 +21,8 @@ namespace QuanLyBanDoChoiLEGO
             InitializeComponent();
         }
         
-        string connectionString = @"Data Source=.;Initial Catalog=CNPM_NHOM_1;Integrated Security=True";
+        string connectionString = @"Data Source=LAPTOP-C7M7T04D\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=True";
+        //string connectionString = @"Data Source=.;Initial Catalog=CNPM_NHOM_1;Integrated Security=True";
         private void comboBoxSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataTable data = tableCollection[comboBoxSheet.SelectedItem.ToString()];
