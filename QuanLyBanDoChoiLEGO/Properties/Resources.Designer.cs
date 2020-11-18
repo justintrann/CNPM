@@ -63,9 +63,169 @@ namespace QuanLyBanDoChoiLEGO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _15a4f0e618ea274d64fd5da418352fee {
+            get {
+                object obj = ResourceManager.GetObject("15a4f0e618ea274d64fd5da418352fee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _22bc1c0157d727353ee28da7aa6bb8e7 {
+            get {
+                object obj = ResourceManager.GetObject("22bc1c0157d727353ee28da7aa6bb8e7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3f98f5942a1a4c6caa135f907479325d {
+            get {
+                object obj = ResourceManager.GetObject("3f98f5942a1a4c6caa135f907479325d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3f98f5942a1a4c6caa135f907479325d1 {
+            get {
+                object obj = ResourceManager.GetObject("3f98f5942a1a4c6caa135f907479325d1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3f98f5942a1a4c6caa135f907479325d2 {
+            get {
+                object obj = ResourceManager.GetObject("3f98f5942a1a4c6caa135f907479325d2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _851bccec79d04584ceff1c84bf0c5cb5 {
+            get {
+                object obj = ResourceManager.GetObject("851bccec79d04584ceff1c84bf0c5cb5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _851bccec79d04584ceff1c84bf0c5cb51 {
+            get {
+                object obj = ResourceManager.GetObject("851bccec79d04584ceff1c84bf0c5cb51", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _851bccec79d04584ceff1c84bf0c5cb52 {
+            get {
+                object obj = ResourceManager.GetObject("851bccec79d04584ceff1c84bf0c5cb52", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_lego_wallpaper_47311_48834_hd_wallpapers {
+            get {
+                object obj = ResourceManager.GetObject("blue-lego-wallpaper-47311-48834-hd-wallpapers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClipartKey_1645945 {
+            get {
+                object obj = ResourceManager.GetObject("ClipartKey_1645945", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lego_placeholder {
             get {
                 object obj = ResourceManager.GetObject("lego_placeholder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lego_points_circles_yellow_9721_225x300 {
+            get {
+                object obj = ResourceManager.GetObject("lego_points_circles_yellow_9721_225x300", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lego_points_circles_yellow_9721_225x3001 {
+            get {
+                object obj = ResourceManager.GetObject("lego_points_circles_yellow_9721_225x3001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lego_wallpaper_hd_1366x768_129631 {
+            get {
+                object obj = ResourceManager.GetObject("lego-wallpaper-hd-1366x768-129631", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lego_wallpaper_hd_1366x768_1296311 {
+            get {
+                object obj = ResourceManager.GetObject("lego-wallpaper-hd-1366x768-1296311", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lego_wallpaper_hd_1366x768_1296312 {
+            get {
+                object obj = ResourceManager.GetObject("lego-wallpaper-hd-1366x768-1296312", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Red_Studs_Lego_Wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("Red-Studs-Lego-Wallpaper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -118,7 +118,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="15a4f0e618ea274d64fd5da418352fee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\15a4f0e618ea274d64fd5da418352fee.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lego_placeholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lego_placeholder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClipartKey_1645945" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClipartKey_1645945.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Red-Studs-Lego-Wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Red-Studs-Lego-Wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="851bccec79d04584ceff1c84bf0c5cb5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\851bccec79d04584ceff1c84bf0c5cb5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lego-wallpaper-hd-1366x768-129631" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lego-wallpaper-hd-1366x768-129631.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="851bccec79d04584ceff1c84bf0c5cb52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\851bccec79d04584ceff1c84bf0c5cb51.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lego-wallpaper-hd-1366x768-1296311" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lego-wallpaper-hd-1366x768-1296311.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lego_points_circles_yellow_9721_225x300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lego_points_circles_yellow_9721_225x300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="851bccec79d04584ceff1c84bf0c5cb51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\851bccec79d04584ceff1c84bf0c5cb5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lego_points_circles_yellow_9721_225x3001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lego_points_circles_yellow_9721_225x3001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3f98f5942a1a4c6caa135f907479325d1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3f98f5942a1a4c6caa135f907479325d1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue-lego-wallpaper-47311-48834-hd-wallpapers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue-lego-wallpaper-47311-48834-hd-wallpapers.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lego-wallpaper-hd-1366x768-1296312" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lego-wallpaper-hd-1366x768-1296312.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3f98f5942a1a4c6caa135f907479325d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3f98f5942a1a4c6caa135f907479325d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3f98f5942a1a4c6caa135f907479325d2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3f98f5942a1a4c6caa135f907479325d2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="22bc1c0157d727353ee28da7aa6bb8e7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\22bc1c0157d727353ee28da7aa6bb8e7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
