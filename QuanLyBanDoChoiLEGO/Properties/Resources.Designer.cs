@@ -113,29 +113,9 @@ namespace QuanLyBanDoChoiLEGO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _851bccec79d04584ceff1c84bf0c5cb5 {
+        internal static System.Drawing.Bitmap black_bg {
             get {
-                object obj = ResourceManager.GetObject("851bccec79d04584ceff1c84bf0c5cb5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _851bccec79d04584ceff1c84bf0c5cb51 {
-            get {
-                object obj = ResourceManager.GetObject("851bccec79d04584ceff1c84bf0c5cb51", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _851bccec79d04584ceff1c84bf0c5cb52 {
-            get {
-                object obj = ResourceManager.GetObject("851bccec79d04584ceff1c84bf0c5cb52", resourceCulture);
+                object obj = ResourceManager.GetObject("black_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
