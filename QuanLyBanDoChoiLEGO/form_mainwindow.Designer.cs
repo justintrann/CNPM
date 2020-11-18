@@ -70,9 +70,9 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::QuanLyBanDoChoiLEGO.Properties.Resources.ClipartKey_1645945;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 335);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 478);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(159, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(165, 192);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -82,11 +82,13 @@
             this.btn_board_taikhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_board_taikhoan.BackColor = System.Drawing.Color.OrangeRed;
             this.btn_board_taikhoan.Enabled = false;
+            this.btn_board_taikhoan.FlatAppearance.BorderSize = 0;
+            this.btn_board_taikhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_taikhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_taikhoan.Location = new System.Drawing.Point(27, 744);
+            this.btn_board_taikhoan.Location = new System.Drawing.Point(0, 695);
             this.btn_board_taikhoan.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_taikhoan.Name = "btn_board_taikhoan";
-            this.btn_board_taikhoan.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_taikhoan.Size = new System.Drawing.Size(165, 80);
             this.btn_board_taikhoan.TabIndex = 5;
             this.btn_board_taikhoan.Text = "Tài khoản";
             this.btn_board_taikhoan.UseVisualStyleBackColor = false;
@@ -96,12 +98,13 @@
             // btn_board_sanpham
             // 
             this.btn_board_sanpham.BackColor = System.Drawing.Color.Red;
+            this.btn_board_sanpham.FlatAppearance.BorderSize = 0;
             this.btn_board_sanpham.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_sanpham.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_sanpham.Location = new System.Drawing.Point(27, 21);
+            this.btn_board_sanpham.Location = new System.Drawing.Point(0, 30);
             this.btn_board_sanpham.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_sanpham.Name = "btn_board_sanpham";
-            this.btn_board_sanpham.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_sanpham.Size = new System.Drawing.Size(165, 80);
             this.btn_board_sanpham.TabIndex = 4;
             this.btn_board_sanpham.Text = "Sản phẩm";
             this.btn_board_sanpham.UseVisualStyleBackColor = false;
@@ -110,11 +113,13 @@
             // btn_board_thongke
             // 
             this.btn_board_thongke.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_board_thongke.FlatAppearance.BorderSize = 0;
+            this.btn_board_thongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_thongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_thongke.Location = new System.Drawing.Point(27, 128);
+            this.btn_board_thongke.Location = new System.Drawing.Point(0, 270);
             this.btn_board_thongke.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_thongke.Name = "btn_board_thongke";
-            this.btn_board_thongke.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_thongke.Size = new System.Drawing.Size(165, 80);
             this.btn_board_thongke.TabIndex = 3;
             this.btn_board_thongke.Text = "Thống kê";
             this.btn_board_thongke.UseVisualStyleBackColor = false;
@@ -122,12 +127,14 @@
             // 
             // btn_board_lichsu
             // 
-            this.btn_board_lichsu.BackColor = System.Drawing.Color.Gold;
+            this.btn_board_lichsu.BackColor = System.Drawing.Color.DarkViolet;
+            this.btn_board_lichsu.FlatAppearance.BorderSize = 0;
+            this.btn_board_lichsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_lichsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_lichsu.Location = new System.Drawing.Point(27, 92);
+            this.btn_board_lichsu.Location = new System.Drawing.Point(0, 190);
             this.btn_board_lichsu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_lichsu.Name = "btn_board_lichsu";
-            this.btn_board_lichsu.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_lichsu.Size = new System.Drawing.Size(165, 80);
             this.btn_board_lichsu.TabIndex = 2;
             this.btn_board_lichsu.Text = "Lịch sử";
             this.btn_board_lichsu.UseVisualStyleBackColor = false;
@@ -136,11 +143,13 @@
             // btn_board_banhang
             // 
             this.btn_board_banhang.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_board_banhang.FlatAppearance.BorderSize = 0;
+            this.btn_board_banhang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_banhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_banhang.Location = new System.Drawing.Point(27, 57);
+            this.btn_board_banhang.Location = new System.Drawing.Point(0, 110);
             this.btn_board_banhang.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_banhang.Name = "btn_board_banhang";
-            this.btn_board_banhang.Size = new System.Drawing.Size(100, 28);
+            this.btn_board_banhang.Size = new System.Drawing.Size(165, 80);
             this.btn_board_banhang.TabIndex = 1;
             this.btn_board_banhang.Text = "Bán hàng";
             this.btn_board_banhang.UseVisualStyleBackColor = false;
@@ -149,6 +158,7 @@
             // lbl_dashboard
             // 
             this.lbl_dashboard.AutoSize = true;
+            this.lbl_dashboard.ForeColor = System.Drawing.Color.Black;
             this.lbl_dashboard.Location = new System.Drawing.Point(23, 0);
             this.lbl_dashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_dashboard.Name = "lbl_dashboard";
@@ -173,6 +183,7 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -182,7 +193,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
