@@ -86,6 +86,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "form_dashboard_thongke";
+            this.ShowIcon = false;
             this.Text = "Thống kê";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.chartThongKe)).EndInit();
