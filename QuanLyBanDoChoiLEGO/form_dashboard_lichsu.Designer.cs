@@ -223,7 +223,7 @@
             // 
             this.btn_refresh.BackColor = System.Drawing.Color.Red;
             this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_refresh.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_refresh.ForeColor = System.Drawing.Color.White;
             this.btn_refresh.Location = new System.Drawing.Point(817, 14);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(75, 33);
@@ -283,7 +283,7 @@
             // 
             this.buttonXoa.BackColor = System.Drawing.Color.Blue;
             this.buttonXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonXoa.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonXoa.ForeColor = System.Drawing.Color.White;
             this.buttonXoa.Location = new System.Drawing.Point(898, 14);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(75, 33);
@@ -306,6 +306,7 @@
             this.Controls.Add(this.dataGridViewNhap);
             this.Controls.Add(this.textbox_search_product);
             this.Controls.Add(this.btn_search);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 497);
             this.Name = "form_dashboard_lichsu";
