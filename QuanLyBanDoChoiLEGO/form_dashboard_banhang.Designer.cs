@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_banhang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDOB = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -52,8 +53,6 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.lblRate = new System.Windows.Forms.Label();
             this.lblProductSearch = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtReturnAmount = new System.Windows.Forms.TextBox();
@@ -68,15 +67,18 @@
             this.lblDiscount = new System.Windows.Forms.Label();
             this.txtVat = new System.Windows.Forms.TextBox();
             this.lblSubTotal = new System.Windows.Forms.Label();
+            this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.txtDOB);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtContact);
@@ -87,6 +89,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1171, 195);
@@ -189,6 +192,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtRate);
@@ -201,6 +205,7 @@
             this.groupBox2.Controls.Add(this.lblQuantity);
             this.groupBox2.Controls.Add(this.lblRate);
             this.groupBox2.Controls.Add(this.lblProductSearch);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(12, 257);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1193, 127);
@@ -337,28 +342,9 @@
             this.lblProductSearch.TabIndex = 12;
             this.lblProductSearch.Text = "Search";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dgvAddedProducts);
-            this.groupBox3.Location = new System.Drawing.Point(12, 390);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(624, 370);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Thông tin đơn hàng";
-            // 
-            // dgvAddedProducts
-            // 
-            this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAddedProducts.Location = new System.Drawing.Point(11, 38);
-            this.dgvAddedProducts.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvAddedProducts.Name = "dgvAddedProducts";
-            this.dgvAddedProducts.RowHeadersWidth = 51;
-            this.dgvAddedProducts.Size = new System.Drawing.Size(590, 325);
-            this.dgvAddedProducts.TabIndex = 2;
-            // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
             this.groupBox4.Controls.Add(this.btnSave);
             this.groupBox4.Controls.Add(this.txtReturnAmount);
             this.groupBox4.Controls.Add(this.lblReturnAmount);
@@ -372,6 +358,7 @@
             this.groupBox4.Controls.Add(this.lblDiscount);
             this.groupBox4.Controls.Add(this.txtVat);
             this.groupBox4.Controls.Add(this.lblSubTotal);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
             this.groupBox4.Location = new System.Drawing.Point(663, 390);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(542, 370);
@@ -521,16 +508,42 @@
             this.lblSubTotal.TabIndex = 7;
             this.lblSubTotal.Text = "Tạm tính";
             // 
+            // dgvAddedProducts
+            // 
+            this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAddedProducts.Location = new System.Drawing.Point(11, 38);
+            this.dgvAddedProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvAddedProducts.Name = "dgvAddedProducts";
+            this.dgvAddedProducts.RowHeadersWidth = 51;
+            this.dgvAddedProducts.Size = new System.Drawing.Size(590, 325);
+            this.dgvAddedProducts.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.dgvAddedProducts);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(12, 390);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(624, 370);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Thông tin đơn hàng";
+            // 
             // form_dashboard_banhang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackgroundImage = global::QuanLyBanDoChoiLEGO.Properties.Resources._15a4f0e618ea274d64fd5da418352fee;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1217, 772);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "form_dashboard_banhang";
+            this.ShowIcon = false;
             this.Text = "Bán Hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_Loading);
@@ -538,10 +551,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -572,8 +585,6 @@
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Label lblRate;
         private System.Windows.Forms.Label lblProductSearch;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvAddedProducts;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtReturnAmount;
@@ -588,5 +599,7 @@
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.TextBox txtVat;
         private System.Windows.Forms.Label lblSubTotal;
+        private System.Windows.Forms.DataGridView dgvAddedProducts;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

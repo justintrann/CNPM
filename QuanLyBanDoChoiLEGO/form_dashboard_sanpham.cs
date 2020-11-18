@@ -40,11 +40,6 @@ namespace QuanLyBanDoChoiLEGO
             loadDataFromDatabase();
         }
 
-        private void btn_storage_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("WIP");
-        }
-
         private void dgv_product_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             int indexRow = e.RowIndex;
@@ -107,6 +102,13 @@ namespace QuanLyBanDoChoiLEGO
                 //throw;
             }
             return image;
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            form_delete_sanpham delete = new form_delete_sanpham();
+            DialogResult result = delete.ShowDialog();
+            loadDataFromDatabase();
         }
     }
 }

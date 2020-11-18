@@ -66,6 +66,7 @@ namespace QuanLyBanDoChoiLEGO
                 else if (data.TableName == "NhapKho")
                 {
                     dataGridViewSanPham.DataSource = sTORAGEHISTORYBindingSource;
+                    CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
                     List<STORAGE_HISTORY> storages = new List<STORAGE_HISTORY>();
                     for (int i = 0; i < data.Rows.Count; i++)
                     {
@@ -74,6 +75,12 @@ namespace QuanLyBanDoChoiLEGO
                         storage.input_date = DateTime.Now;
                         storage.quantity = Convert.ToInt32(data.Rows[i]["Số lượng"]);
 
+                        PRODUCT product = db.PRODUCTs.SingleOrDefault(p => p.id == storage.id_product);
+                        if (product != null)
+                        {
+                            product.quantity += storage.quantity;
+                            db.SubmitChanges();
+                        }
                         storages.Add(storage);
                     }
                     sTORAGEHISTORYBindingSource.DataSource = storages;

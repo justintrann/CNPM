@@ -53,12 +53,15 @@
             // 
             // buttonImport
             // 
-            this.buttonImport.Location = new System.Drawing.Point(405, 456);
+            this.buttonImport.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImport.ForeColor = System.Drawing.Color.White;
+            this.buttonImport.Location = new System.Drawing.Point(404, 456);
             this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(75, 23);
+            this.buttonImport.Size = new System.Drawing.Size(94, 35);
             this.buttonImport.TabIndex = 15;
             this.buttonImport.Text = "Import";
-            this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImport.UseVisualStyleBackColor = false;
             this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // comboBoxSheet
@@ -72,12 +75,15 @@
             // 
             // buttonBrowse
             // 
-            this.buttonBrowse.Location = new System.Drawing.Point(1029, 428);
+            this.buttonBrowse.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBrowse.ForeColor = System.Drawing.Color.White;
+            this.buttonBrowse.Location = new System.Drawing.Point(1029, 425);
             this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(75, 23);
+            this.buttonBrowse.Size = new System.Drawing.Size(75, 35);
             this.buttonBrowse.TabIndex = 13;
             this.buttonBrowse.Text = "...";
-            this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.UseVisualStyleBackColor = false;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // textBoxDiaChi
@@ -91,6 +97,8 @@
             // labelTenFile
             // 
             this.labelTenFile.AutoSize = true;
+            this.labelTenFile.BackColor = System.Drawing.Color.Transparent;
+            this.labelTenFile.ForeColor = System.Drawing.Color.White;
             this.labelTenFile.Location = new System.Drawing.Point(9, 428);
             this.labelTenFile.Name = "labelTenFile";
             this.labelTenFile.Size = new System.Drawing.Size(59, 17);
@@ -100,6 +108,8 @@
             // labelSheet
             // 
             this.labelSheet.AutoSize = true;
+            this.labelSheet.BackColor = System.Drawing.Color.Transparent;
+            this.labelSheet.ForeColor = System.Drawing.Color.White;
             this.labelSheet.Location = new System.Drawing.Point(23, 456);
             this.labelSheet.Name = "labelSheet";
             this.labelSheet.Size = new System.Drawing.Size(45, 17);
@@ -120,6 +130,7 @@
             // labelNhapKho
             // 
             this.labelNhapKho.AutoSize = true;
+            this.labelNhapKho.BackColor = System.Drawing.Color.Transparent;
             this.labelNhapKho.Font = new System.Drawing.Font("Ravie", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNhapKho.Location = new System.Drawing.Point(403, 24);
             this.labelNhapKho.Name = "labelNhapKho";
@@ -163,6 +174,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_wallpaper_hd_1366x768_1296312;
             this.ClientSize = new System.Drawing.Size(1114, 493);
             this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.comboBoxSheet);

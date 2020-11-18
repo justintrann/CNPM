@@ -30,6 +30,7 @@ namespace QuanLyBanDoChoiLEGO
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_taikhoan));
             this.tabpage_account = new System.Windows.Forms.TabPage();
             this.dgv_account = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,10 +102,11 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.tabpage_account.Controls.Add(this.dgv_account);
             this.tabpage_account.Controls.Add(this.groupbox_account);
-            this.tabpage_account.Location = new System.Drawing.Point(4, 22);
+            this.tabpage_account.Location = new System.Drawing.Point(4, 25);
+            this.tabpage_account.Margin = new System.Windows.Forms.Padding(4);
             this.tabpage_account.Name = "tabpage_account";
-            this.tabpage_account.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage_account.Size = new System.Drawing.Size(960, 472);
+            this.tabpage_account.Padding = new System.Windows.Forms.Padding(4);
+            this.tabpage_account.Size = new System.Drawing.Size(1283, 584);
             this.tabpage_account.TabIndex = 2;
             this.tabpage_account.Text = "Tài khoản";
             this.tabpage_account.UseVisualStyleBackColor = true;
@@ -125,31 +127,38 @@ namespace QuanLyBanDoChoiLEGO
             this.passDataGridViewTextBoxColumn,
             this.isadminDataGridViewTextBoxColumn});
             this.dgv_account.DataSource = this.aCCOUNTBindingSource;
-            this.dgv_account.Location = new System.Drawing.Point(343, 0);
+            this.dgv_account.Location = new System.Drawing.Point(457, 0);
+            this.dgv_account.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_account.Name = "dgv_account";
             this.dgv_account.ReadOnly = true;
-            this.dgv_account.Size = new System.Drawing.Size(617, 472);
+            this.dgv_account.RowHeadersWidth = 51;
+            this.dgv_account.Size = new System.Drawing.Size(823, 581);
             this.dgv_account.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
             // idstaffDataGridViewTextBoxColumn
             // 
             this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
             this.idstaffDataGridViewTextBoxColumn.HeaderText = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
             this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idstaffDataGridViewTextBoxColumn.Width = 125;
             // 
             // usernameDataGridViewTextBoxColumn
             // 
             this.usernameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
             this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
+            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
             this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -157,15 +166,19 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.passDataGridViewTextBoxColumn.DataPropertyName = "pass";
             this.passDataGridViewTextBoxColumn.HeaderText = "pass";
+            this.passDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.passDataGridViewTextBoxColumn.Name = "passDataGridViewTextBoxColumn";
             this.passDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passDataGridViewTextBoxColumn.Width = 125;
             // 
             // isadminDataGridViewTextBoxColumn
             // 
             this.isadminDataGridViewTextBoxColumn.DataPropertyName = "is_admin";
             this.isadminDataGridViewTextBoxColumn.HeaderText = "is_admin";
+            this.isadminDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.isadminDataGridViewTextBoxColumn.Name = "isadminDataGridViewTextBoxColumn";
             this.isadminDataGridViewTextBoxColumn.ReadOnly = true;
+            this.isadminDataGridViewTextBoxColumn.Width = 125;
             // 
             // aCCOUNTBindingSource
             // 
@@ -196,9 +209,11 @@ namespace QuanLyBanDoChoiLEGO
             this.groupbox_account.Controls.Add(this.lbl_account_id);
             this.groupbox_account.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupbox_account.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupbox_account.Location = new System.Drawing.Point(3, 3);
+            this.groupbox_account.Location = new System.Drawing.Point(4, 4);
+            this.groupbox_account.Margin = new System.Windows.Forms.Padding(4);
             this.groupbox_account.Name = "groupbox_account";
-            this.groupbox_account.Size = new System.Drawing.Size(334, 466);
+            this.groupbox_account.Padding = new System.Windows.Forms.Padding(4);
+            this.groupbox_account.Size = new System.Drawing.Size(445, 576);
             this.groupbox_account.TabIndex = 0;
             this.groupbox_account.TabStop = false;
             this.groupbox_account.Text = "Thông tin tài khoản";
@@ -211,9 +226,10 @@ namespace QuanLyBanDoChoiLEGO
             this.cbox_account_id_staff.Enabled = false;
             this.cbox_account_id_staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_account_id_staff.FormattingEnabled = true;
-            this.cbox_account_id_staff.Location = new System.Drawing.Point(249, 30);
+            this.cbox_account_id_staff.Location = new System.Drawing.Point(332, 37);
+            this.cbox_account_id_staff.Margin = new System.Windows.Forms.Padding(4);
             this.cbox_account_id_staff.Name = "cbox_account_id_staff";
-            this.cbox_account_id_staff.Size = new System.Drawing.Size(61, 24);
+            this.cbox_account_id_staff.Size = new System.Drawing.Size(80, 28);
             this.cbox_account_id_staff.TabIndex = 3;
             this.cbox_account_id_staff.ValueMember = "id_staff";
             // 
@@ -222,9 +238,10 @@ namespace QuanLyBanDoChoiLEGO
             this.checkbox_activate.AutoSize = true;
             this.checkbox_activate.Enabled = false;
             this.checkbox_activate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkbox_activate.Location = new System.Drawing.Point(235, 118);
+            this.checkbox_activate.Location = new System.Drawing.Point(313, 145);
+            this.checkbox_activate.Margin = new System.Windows.Forms.Padding(4);
             this.checkbox_activate.Name = "checkbox_activate";
-            this.checkbox_activate.Size = new System.Drawing.Size(81, 20);
+            this.checkbox_activate.Size = new System.Drawing.Size(101, 24);
             this.checkbox_activate.TabIndex = 9;
             this.checkbox_activate.Text = "Kích hoạt";
             this.checkbox_activate.UseVisualStyleBackColor = true;
@@ -235,9 +252,10 @@ namespace QuanLyBanDoChoiLEGO
             this.checkbox_is_admin.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.aCCOUNTBindingSource, "is_admin", true));
             this.checkbox_is_admin.Enabled = false;
             this.checkbox_is_admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkbox_is_admin.Location = new System.Drawing.Point(156, 118);
+            this.checkbox_is_admin.Location = new System.Drawing.Point(208, 145);
+            this.checkbox_is_admin.Margin = new System.Windows.Forms.Padding(4);
             this.checkbox_is_admin.Name = "checkbox_is_admin";
-            this.checkbox_is_admin.Size = new System.Drawing.Size(65, 20);
+            this.checkbox_is_admin.Size = new System.Drawing.Size(78, 24);
             this.checkbox_is_admin.TabIndex = 8;
             this.checkbox_is_admin.Text = "Admin";
             this.checkbox_is_admin.UseVisualStyleBackColor = true;
@@ -249,9 +267,10 @@ namespace QuanLyBanDoChoiLEGO
             this.cbox_account_id.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbox_account_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_account_id.FormattingEnabled = true;
-            this.cbox_account_id.Location = new System.Drawing.Point(112, 30);
+            this.cbox_account_id.Location = new System.Drawing.Point(149, 37);
+            this.cbox_account_id.Margin = new System.Windows.Forms.Padding(4);
             this.cbox_account_id.Name = "cbox_account_id";
-            this.cbox_account_id.Size = new System.Drawing.Size(79, 24);
+            this.cbox_account_id.Size = new System.Drawing.Size(104, 28);
             this.cbox_account_id.TabIndex = 1;
             this.cbox_account_id.ValueMember = "id";
             // 
@@ -259,9 +278,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.btn_account_remove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_account_remove.Location = new System.Drawing.Point(125, 234);
+            this.btn_account_remove.Location = new System.Drawing.Point(167, 288);
+            this.btn_account_remove.Margin = new System.Windows.Forms.Padding(4);
             this.btn_account_remove.Name = "btn_account_remove";
-            this.btn_account_remove.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_remove.Size = new System.Drawing.Size(131, 37);
             this.btn_account_remove.TabIndex = 14;
             this.btn_account_remove.Text = "Xóa";
             this.btn_account_remove.UseVisualStyleBackColor = true;
@@ -271,9 +291,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.btn_account_add.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_account_add.Location = new System.Drawing.Point(20, 186);
+            this.btn_account_add.Location = new System.Drawing.Point(27, 229);
+            this.btn_account_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_account_add.Name = "btn_account_add";
-            this.btn_account_add.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_add.Size = new System.Drawing.Size(131, 37);
             this.btn_account_add.TabIndex = 10;
             this.btn_account_add.Text = "Thêm";
             this.btn_account_add.UseVisualStyleBackColor = true;
@@ -283,9 +304,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.btn_account_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_account_edit.Location = new System.Drawing.Point(20, 234);
+            this.btn_account_edit.Location = new System.Drawing.Point(27, 288);
+            this.btn_account_edit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_account_edit.Name = "btn_account_edit";
-            this.btn_account_edit.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_edit.Size = new System.Drawing.Size(131, 37);
             this.btn_account_edit.TabIndex = 13;
             this.btn_account_edit.Text = "Sửa";
             this.btn_account_edit.UseVisualStyleBackColor = true;
@@ -296,9 +318,10 @@ namespace QuanLyBanDoChoiLEGO
             this.btn_account_save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_account_save.Enabled = false;
-            this.btn_account_save.Location = new System.Drawing.Point(125, 186);
+            this.btn_account_save.Location = new System.Drawing.Point(167, 229);
+            this.btn_account_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_account_save.Name = "btn_account_save";
-            this.btn_account_save.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_save.Size = new System.Drawing.Size(131, 37);
             this.btn_account_save.TabIndex = 11;
             this.btn_account_save.Text = "Lưu";
             this.btn_account_save.UseVisualStyleBackColor = true;
@@ -308,9 +331,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.btn_account_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_account_refresh.Location = new System.Drawing.Point(230, 186);
+            this.btn_account_refresh.Location = new System.Drawing.Point(307, 229);
+            this.btn_account_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_account_refresh.Name = "btn_account_refresh";
-            this.btn_account_refresh.Size = new System.Drawing.Size(98, 30);
+            this.btn_account_refresh.Size = new System.Drawing.Size(131, 37);
             this.btn_account_refresh.TabIndex = 12;
             this.btn_account_refresh.Text = "Tải lại";
             this.btn_account_refresh.UseVisualStyleBackColor = true;
@@ -320,9 +344,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_account_password.AutoSize = true;
             this.lbl_account_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_account_password.Location = new System.Drawing.Point(44, 93);
+            this.lbl_account_password.Location = new System.Drawing.Point(59, 114);
+            this.lbl_account_password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_account_password.Name = "lbl_account_password";
-            this.lbl_account_password.Size = new System.Drawing.Size(62, 16);
+            this.lbl_account_password.Size = new System.Drawing.Size(77, 20);
             this.lbl_account_password.TabIndex = 6;
             this.lbl_account_password.Text = "Mật khẩu";
             // 
@@ -331,9 +356,10 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_account_password.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aCCOUNTBindingSource, "pass", true));
             this.textbox_account_password.Enabled = false;
             this.textbox_account_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textbox_account_password.Location = new System.Drawing.Point(112, 90);
+            this.textbox_account_password.Location = new System.Drawing.Point(149, 111);
+            this.textbox_account_password.Margin = new System.Windows.Forms.Padding(4);
             this.textbox_account_password.Name = "textbox_account_password";
-            this.textbox_account_password.Size = new System.Drawing.Size(198, 22);
+            this.textbox_account_password.Size = new System.Drawing.Size(263, 26);
             this.textbox_account_password.TabIndex = 7;
             // 
             // textbox_account_username
@@ -341,18 +367,20 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_account_username.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.aCCOUNTBindingSource, "username", true));
             this.textbox_account_username.Enabled = false;
             this.textbox_account_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textbox_account_username.Location = new System.Drawing.Point(112, 60);
+            this.textbox_account_username.Location = new System.Drawing.Point(149, 74);
+            this.textbox_account_username.Margin = new System.Windows.Forms.Padding(4);
             this.textbox_account_username.Name = "textbox_account_username";
-            this.textbox_account_username.Size = new System.Drawing.Size(198, 22);
+            this.textbox_account_username.Size = new System.Drawing.Size(263, 26);
             this.textbox_account_username.TabIndex = 5;
             // 
             // lbl_account_id_staff
             // 
             this.lbl_account_id_staff.AutoSize = true;
             this.lbl_account_id_staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_account_id_staff.Location = new System.Drawing.Point(197, 33);
+            this.lbl_account_id_staff.Location = new System.Drawing.Point(263, 41);
+            this.lbl_account_id_staff.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_account_id_staff.Name = "lbl_account_id_staff";
-            this.lbl_account_id_staff.Size = new System.Drawing.Size(49, 16);
+            this.lbl_account_id_staff.Size = new System.Drawing.Size(60, 20);
             this.lbl_account_id_staff.TabIndex = 2;
             this.lbl_account_id_staff.Text = "Mã NV";
             // 
@@ -360,9 +388,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_account_username.AutoSize = true;
             this.lbl_account_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_account_username.Location = new System.Drawing.Point(17, 63);
+            this.lbl_account_username.Location = new System.Drawing.Point(23, 78);
+            this.lbl_account_username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_account_username.Name = "lbl_account_username";
-            this.lbl_account_username.Size = new System.Drawing.Size(89, 16);
+            this.lbl_account_username.Size = new System.Drawing.Size(109, 20);
             this.lbl_account_username.TabIndex = 4;
             this.lbl_account_username.Text = "Tên tài khoản";
             // 
@@ -370,9 +399,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_account_id.AutoSize = true;
             this.lbl_account_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_account_id.Location = new System.Drawing.Point(59, 33);
+            this.lbl_account_id.Location = new System.Drawing.Point(79, 41);
+            this.lbl_account_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_account_id.Name = "lbl_account_id";
-            this.lbl_account_id.Size = new System.Drawing.Size(47, 16);
+            this.lbl_account_id.Size = new System.Drawing.Size(58, 20);
             this.lbl_account_id.TabIndex = 0;
             this.lbl_account_id.Text = "Mã TK";
             // 
@@ -380,10 +410,11 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.tabpage_staff.Controls.Add(this.groupbox_staff);
             this.tabpage_staff.Controls.Add(this.dgv_staff);
-            this.tabpage_staff.Location = new System.Drawing.Point(4, 22);
+            this.tabpage_staff.Location = new System.Drawing.Point(4, 25);
+            this.tabpage_staff.Margin = new System.Windows.Forms.Padding(4);
             this.tabpage_staff.Name = "tabpage_staff";
-            this.tabpage_staff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabpage_staff.Size = new System.Drawing.Size(960, 472);
+            this.tabpage_staff.Padding = new System.Windows.Forms.Padding(4);
+            this.tabpage_staff.Size = new System.Drawing.Size(1283, 584);
             this.tabpage_staff.TabIndex = 1;
             this.tabpage_staff.Text = "Nhân viên";
             this.tabpage_staff.UseVisualStyleBackColor = true;
@@ -409,9 +440,11 @@ namespace QuanLyBanDoChoiLEGO
             this.groupbox_staff.Controls.Add(this.lbl_id);
             this.groupbox_staff.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupbox_staff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupbox_staff.Location = new System.Drawing.Point(3, 3);
+            this.groupbox_staff.Location = new System.Drawing.Point(4, 4);
+            this.groupbox_staff.Margin = new System.Windows.Forms.Padding(4);
             this.groupbox_staff.Name = "groupbox_staff";
-            this.groupbox_staff.Size = new System.Drawing.Size(359, 466);
+            this.groupbox_staff.Padding = new System.Windows.Forms.Padding(4);
+            this.groupbox_staff.Size = new System.Drawing.Size(479, 576);
             this.groupbox_staff.TabIndex = 0;
             this.groupbox_staff.TabStop = false;
             this.groupbox_staff.Text = "Thông tin nhân viên";
@@ -420,9 +453,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_citizen_id.AutoSize = true;
             this.lbl_citizen_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_citizen_id.Location = new System.Drawing.Point(37, 148);
+            this.lbl_citizen_id.Location = new System.Drawing.Point(49, 182);
+            this.lbl_citizen_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_citizen_id.Name = "lbl_citizen_id";
-            this.lbl_citizen_id.Size = new System.Drawing.Size(48, 16);
+            this.lbl_citizen_id.Size = new System.Drawing.Size(60, 20);
             this.lbl_citizen_id.TabIndex = 8;
             this.lbl_citizen_id.Text = "CMND";
             // 
@@ -431,10 +465,11 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_citizen_id.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sTAFFBindingSource, "citizen_id", true));
             this.textbox_citizen_id.Enabled = false;
             this.textbox_citizen_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textbox_citizen_id.Location = new System.Drawing.Point(91, 145);
+            this.textbox_citizen_id.Location = new System.Drawing.Point(121, 178);
+            this.textbox_citizen_id.Margin = new System.Windows.Forms.Padding(4);
             this.textbox_citizen_id.MaxLength = 11;
             this.textbox_citizen_id.Name = "textbox_citizen_id";
-            this.textbox_citizen_id.Size = new System.Drawing.Size(219, 22);
+            this.textbox_citizen_id.Size = new System.Drawing.Size(291, 26);
             this.textbox_citizen_id.TabIndex = 9;
             // 
             // sTAFFBindingSource
@@ -446,9 +481,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_home_address.AutoSize = true;
             this.lbl_home_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_home_address.Location = new System.Drawing.Point(17, 181);
+            this.lbl_home_address.Location = new System.Drawing.Point(23, 223);
+            this.lbl_home_address.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_home_address.Name = "lbl_home_address";
-            this.lbl_home_address.Size = new System.Drawing.Size(73, 16);
+            this.lbl_home_address.Size = new System.Drawing.Size(93, 20);
             this.lbl_home_address.TabIndex = 10;
             this.lbl_home_address.Text = "Địa chỉ nhà";
             // 
@@ -457,11 +493,12 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_home_address.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sTAFFBindingSource, "home_address", true));
             this.textbox_home_address.Enabled = false;
             this.textbox_home_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textbox_home_address.Location = new System.Drawing.Point(20, 200);
+            this.textbox_home_address.Location = new System.Drawing.Point(27, 246);
+            this.textbox_home_address.Margin = new System.Windows.Forms.Padding(4);
             this.textbox_home_address.MaxLength = 100;
             this.textbox_home_address.Multiline = true;
             this.textbox_home_address.Name = "textbox_home_address";
-            this.textbox_home_address.Size = new System.Drawing.Size(294, 65);
+            this.textbox_home_address.Size = new System.Drawing.Size(391, 79);
             this.textbox_home_address.TabIndex = 11;
             // 
             // dtp_date_of_birth
@@ -471,9 +508,10 @@ namespace QuanLyBanDoChoiLEGO
             this.dtp_date_of_birth.Enabled = false;
             this.dtp_date_of_birth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_date_of_birth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_date_of_birth.Location = new System.Drawing.Point(92, 88);
+            this.dtp_date_of_birth.Location = new System.Drawing.Point(123, 108);
+            this.dtp_date_of_birth.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_date_of_birth.Name = "dtp_date_of_birth";
-            this.dtp_date_of_birth.Size = new System.Drawing.Size(218, 22);
+            this.dtp_date_of_birth.Size = new System.Drawing.Size(289, 26);
             this.dtp_date_of_birth.TabIndex = 5;
             // 
             // cbox_id
@@ -483,17 +521,19 @@ namespace QuanLyBanDoChoiLEGO
             this.cbox_id.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbox_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_id.FormattingEnabled = true;
-            this.cbox_id.Location = new System.Drawing.Point(92, 30);
+            this.cbox_id.Location = new System.Drawing.Point(123, 37);
+            this.cbox_id.Margin = new System.Windows.Forms.Padding(4);
             this.cbox_id.Name = "cbox_id";
-            this.cbox_id.Size = new System.Drawing.Size(218, 24);
+            this.cbox_id.Size = new System.Drawing.Size(289, 28);
             this.cbox_id.TabIndex = 1;
             this.cbox_id.ValueMember = "id";
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(247, 295);
+            this.btn_delete.Location = new System.Drawing.Point(329, 363);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(100, 30);
+            this.btn_delete.Size = new System.Drawing.Size(133, 37);
             this.btn_delete.TabIndex = 14;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -501,9 +541,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(20, 295);
+            this.btn_add.Location = new System.Drawing.Point(27, 363);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(100, 30);
+            this.btn_add.Size = new System.Drawing.Size(133, 37);
             this.btn_add.TabIndex = 12;
             this.btn_add.Text = "Thêm";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -511,9 +552,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(20, 331);
+            this.btn_edit.Location = new System.Drawing.Point(27, 407);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(100, 30);
+            this.btn_edit.Size = new System.Drawing.Size(133, 37);
             this.btn_edit.TabIndex = 15;
             this.btn_edit.Text = "Sửa";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -521,9 +563,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(131, 295);
+            this.btn_save.Location = new System.Drawing.Point(175, 363);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(100, 30);
+            this.btn_save.Size = new System.Drawing.Size(133, 37);
             this.btn_save.TabIndex = 13;
             this.btn_save.Text = "Lưu";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -531,9 +574,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // btn_refresh
             // 
-            this.btn_refresh.Location = new System.Drawing.Point(131, 331);
+            this.btn_refresh.Location = new System.Drawing.Point(175, 407);
+            this.btn_refresh.Margin = new System.Windows.Forms.Padding(4);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(100, 30);
+            this.btn_refresh.Size = new System.Drawing.Size(133, 37);
             this.btn_refresh.TabIndex = 16;
             this.btn_refresh.Text = "Tải lại";
             this.btn_refresh.UseVisualStyleBackColor = true;
@@ -543,9 +587,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_phone_number.AutoSize = true;
             this.lbl_phone_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_phone_number.Location = new System.Drawing.Point(50, 119);
+            this.lbl_phone_number.Location = new System.Drawing.Point(67, 146);
+            this.lbl_phone_number.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_phone_number.Name = "lbl_phone_number";
-            this.lbl_phone_number.Size = new System.Drawing.Size(35, 16);
+            this.lbl_phone_number.Size = new System.Drawing.Size(42, 20);
             this.lbl_phone_number.TabIndex = 6;
             this.lbl_phone_number.Text = "SĐT";
             // 
@@ -554,19 +599,21 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_phone_number.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sTAFFBindingSource, "phone_number", true));
             this.textbox_phone_number.Enabled = false;
             this.textbox_phone_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textbox_phone_number.Location = new System.Drawing.Point(91, 116);
+            this.textbox_phone_number.Location = new System.Drawing.Point(121, 143);
+            this.textbox_phone_number.Margin = new System.Windows.Forms.Padding(4);
             this.textbox_phone_number.MaxLength = 11;
             this.textbox_phone_number.Name = "textbox_phone_number";
-            this.textbox_phone_number.Size = new System.Drawing.Size(219, 22);
+            this.textbox_phone_number.Size = new System.Drawing.Size(291, 26);
             this.textbox_phone_number.TabIndex = 7;
             // 
             // lbl_date_of_birth
             // 
             this.lbl_date_of_birth.AutoSize = true;
             this.lbl_date_of_birth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_date_of_birth.Location = new System.Drawing.Point(17, 92);
+            this.lbl_date_of_birth.Location = new System.Drawing.Point(23, 113);
+            this.lbl_date_of_birth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_date_of_birth.Name = "lbl_date_of_birth";
-            this.lbl_date_of_birth.Size = new System.Drawing.Size(68, 16);
+            this.lbl_date_of_birth.Size = new System.Drawing.Size(83, 20);
             this.lbl_date_of_birth.TabIndex = 4;
             this.lbl_date_of_birth.Text = "Ngày sinh";
             // 
@@ -575,19 +622,21 @@ namespace QuanLyBanDoChoiLEGO
             this.textbox_staff_name.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sTAFFBindingSource, "staff_name", true));
             this.textbox_staff_name.Enabled = false;
             this.textbox_staff_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.textbox_staff_name.Location = new System.Drawing.Point(92, 60);
+            this.textbox_staff_name.Location = new System.Drawing.Point(123, 74);
+            this.textbox_staff_name.Margin = new System.Windows.Forms.Padding(4);
             this.textbox_staff_name.MaxLength = 50;
             this.textbox_staff_name.Name = "textbox_staff_name";
-            this.textbox_staff_name.Size = new System.Drawing.Size(218, 22);
+            this.textbox_staff_name.Size = new System.Drawing.Size(289, 26);
             this.textbox_staff_name.TabIndex = 3;
             // 
             // lbl_staff_name
             // 
             this.lbl_staff_name.AutoSize = true;
             this.lbl_staff_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_staff_name.Location = new System.Drawing.Point(17, 63);
+            this.lbl_staff_name.Location = new System.Drawing.Point(23, 78);
+            this.lbl_staff_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_staff_name.Name = "lbl_staff_name";
-            this.lbl_staff_name.Size = new System.Drawing.Size(69, 16);
+            this.lbl_staff_name.Size = new System.Drawing.Size(87, 20);
             this.lbl_staff_name.TabIndex = 2;
             this.lbl_staff_name.Text = "Họ tên NV";
             // 
@@ -595,9 +644,10 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.lbl_id.AutoSize = true;
             this.lbl_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.lbl_id.Location = new System.Drawing.Point(36, 33);
+            this.lbl_id.Location = new System.Drawing.Point(48, 41);
+            this.lbl_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(49, 16);
+            this.lbl_id.Size = new System.Drawing.Size(60, 20);
             this.lbl_id.TabIndex = 0;
             this.lbl_id.Text = "Mã NV";
             // 
@@ -618,10 +668,12 @@ namespace QuanLyBanDoChoiLEGO
             this.col_home_address,
             this.col_citizen_id});
             this.dgv_staff.DataSource = this.sTAFFBindingSource;
-            this.dgv_staff.Location = new System.Drawing.Point(368, 3);
+            this.dgv_staff.Location = new System.Drawing.Point(491, 4);
+            this.dgv_staff.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_staff.Name = "dgv_staff";
             this.dgv_staff.ReadOnly = true;
-            this.dgv_staff.Size = new System.Drawing.Size(589, 466);
+            this.dgv_staff.RowHeadersWidth = 51;
+            this.dgv_staff.Size = new System.Drawing.Size(785, 574);
             this.dgv_staff.TabIndex = 1;
             this.dgv_staff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_staff_CellContentClick);
             // 
@@ -629,43 +681,55 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.col_id.DataPropertyName = "id";
             this.col_id.HeaderText = "Mã nhân viên";
+            this.col_id.MinimumWidth = 6;
             this.col_id.Name = "col_id";
             this.col_id.ReadOnly = true;
+            this.col_id.Width = 125;
             // 
             // col_staff_name
             // 
             this.col_staff_name.DataPropertyName = "staff_name";
             this.col_staff_name.HeaderText = "Họ và tên";
+            this.col_staff_name.MinimumWidth = 6;
             this.col_staff_name.Name = "col_staff_name";
             this.col_staff_name.ReadOnly = true;
+            this.col_staff_name.Width = 125;
             // 
             // col_phone_number
             // 
             this.col_phone_number.DataPropertyName = "phone_number";
             this.col_phone_number.HeaderText = "Số điện thoại";
+            this.col_phone_number.MinimumWidth = 6;
             this.col_phone_number.Name = "col_phone_number";
             this.col_phone_number.ReadOnly = true;
+            this.col_phone_number.Width = 125;
             // 
             // col_date_of_birth
             // 
             this.col_date_of_birth.DataPropertyName = "date_of_birth";
             this.col_date_of_birth.HeaderText = "Ngày sinh";
+            this.col_date_of_birth.MinimumWidth = 6;
             this.col_date_of_birth.Name = "col_date_of_birth";
             this.col_date_of_birth.ReadOnly = true;
+            this.col_date_of_birth.Width = 125;
             // 
             // col_home_address
             // 
             this.col_home_address.DataPropertyName = "home_address";
             this.col_home_address.HeaderText = "Địa chỉ nhà";
+            this.col_home_address.MinimumWidth = 6;
             this.col_home_address.Name = "col_home_address";
             this.col_home_address.ReadOnly = true;
+            this.col_home_address.Width = 125;
             // 
             // col_citizen_id
             // 
             this.col_citizen_id.DataPropertyName = "citizen_id";
             this.col_citizen_id.HeaderText = "CMND";
+            this.col_citizen_id.MinimumWidth = 6;
             this.col_citizen_id.Name = "col_citizen_id";
             this.col_citizen_id.ReadOnly = true;
+            this.col_citizen_id.Width = 125;
             // 
             // tab_account
             // 
@@ -673,9 +737,10 @@ namespace QuanLyBanDoChoiLEGO
             this.tab_account.Controls.Add(this.tabpage_account);
             this.tab_account.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab_account.Location = new System.Drawing.Point(0, 0);
+            this.tab_account.Margin = new System.Windows.Forms.Padding(4);
             this.tab_account.Name = "tab_account";
             this.tab_account.SelectedIndex = 0;
-            this.tab_account.Size = new System.Drawing.Size(968, 498);
+            this.tab_account.Size = new System.Drawing.Size(1291, 613);
             this.tab_account.TabIndex = 0;
             // 
             // sTAFFTableAdapter
@@ -688,11 +753,14 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // form_dashboard_taikhoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 498);
+            this.ClientSize = new System.Drawing.Size(1291, 613);
             this.Controls.Add(this.tab_account);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "form_dashboard_taikhoan";
+            this.ShowIcon = false;
             this.Text = "Quản lí tài khoản";
             this.Load += new System.EventHandler(this.form_dashboard_taikhoan_Load);
             this.tabpage_account.ResumeLayout(false);

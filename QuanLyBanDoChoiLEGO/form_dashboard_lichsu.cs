@@ -43,6 +43,8 @@ namespace QuanLyBanDoChoiLEGO
 
         private void form_dashboard_lichsu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.PURCHASE_BILL' table. You can move, or remove it, as needed.
+            this.pURCHASE_BILLTableAdapter.Fill(this.cNPM_NHOM_1DataSet.PURCHASE_BILL);
             loadDataFromDatabase();            
         }
 
@@ -113,6 +115,14 @@ namespace QuanLyBanDoChoiLEGO
                 quantity = x.quantity,
                 //DATE_TEST = x.input_date.Value.Date
             }) ;
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+
+            form_delete_sanpham_2 delete = new form_delete_sanpham_2();
+            DialogResult result = delete.ShowDialog();
+            loadDataFromDatabase();
         }
     }
 }

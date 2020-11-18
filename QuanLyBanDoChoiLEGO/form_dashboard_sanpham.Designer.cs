@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_sanpham));
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
-            this.btn_storage = new System.Windows.Forms.Button();
             this.dgv_product = new System.Windows.Forms.DataGridView();
             this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,6 @@
             this.pRODUCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cNPMNHOM1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
-            this.picbox_product = new System.Windows.Forms.PictureBox();
             this.lbl_product_name = new System.Windows.Forms.Label();
             this.lbl_product_type = new System.Windows.Forms.Label();
             this.lbl_product_gender = new System.Windows.Forms.Label();
@@ -59,6 +58,8 @@
             this.pRODUCTTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.PRODUCTTableAdapter();
             this.textbox_product_name = new System.Windows.Forms.TextBox();
             this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.picbox_product = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource)).BeginInit();
@@ -68,39 +69,31 @@
             // 
             // btn_add
             // 
+            this.btn_add.BackColor = System.Drawing.Color.Aquamarine;
             this.btn_add.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.Black;
             this.btn_add.Location = new System.Drawing.Point(13, 12);
             this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(108, 37);
             this.btn_add.TabIndex = 0;
             this.btn_add.Text = "Nhập kho";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_update
             // 
+            this.btn_update.BackColor = System.Drawing.Color.Yellow;
             this.btn_update.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update.ForeColor = System.Drawing.Color.Black;
             this.btn_update.Location = new System.Drawing.Point(127, 12);
             this.btn_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(147, 37);
             this.btn_update.TabIndex = 1;
             this.btn_update.Text = "Cập nhật kho";
-            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.UseVisualStyleBackColor = false;
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
-            // 
-            // btn_storage
-            // 
-            this.btn_storage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_storage.Location = new System.Drawing.Point(279, 12);
-            this.btn_storage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_storage.Name = "btn_storage";
-            this.btn_storage.Size = new System.Drawing.Size(135, 37);
-            this.btn_storage.TabIndex = 2;
-            this.btn_storage.Text = "Xem tồn kho";
-            this.btn_storage.UseVisualStyleBackColor = true;
-            this.btn_storage.Click += new System.EventHandler(this.btn_storage_Click);
             // 
             // dgv_product
             // 
@@ -219,24 +212,14 @@
             this.cNPM_NHOM_1DataSet.DataSetName = "CNPM_NHOM_1DataSet";
             this.cNPM_NHOM_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // picbox_product
-            // 
-            this.picbox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picbox_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbox_product.Image = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_placeholder;
-            this.picbox_product.Location = new System.Drawing.Point(576, 55);
-            this.picbox_product.Margin = new System.Windows.Forms.Padding(4);
-            this.picbox_product.MinimumSize = new System.Drawing.Size(240, 222);
-            this.picbox_product.Name = "picbox_product";
-            this.picbox_product.Size = new System.Drawing.Size(240, 222);
-            this.picbox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picbox_product.TabIndex = 5;
-            this.picbox_product.TabStop = false;
-            // 
             // lbl_product_name
             // 
             this.lbl_product_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_product_name.AutoSize = true;
+            this.lbl_product_name.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_product_name.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_product_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_product_name.ForeColor = System.Drawing.Color.Black;
             this.lbl_product_name.Location = new System.Drawing.Point(577, 288);
             this.lbl_product_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_product_name.Name = "lbl_product_name";
@@ -248,6 +231,10 @@
             // 
             this.lbl_product_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_product_type.AutoSize = true;
+            this.lbl_product_type.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_product_type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_product_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_product_type.ForeColor = System.Drawing.Color.Black;
             this.lbl_product_type.Location = new System.Drawing.Point(577, 318);
             this.lbl_product_type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_product_type.Name = "lbl_product_type";
@@ -259,6 +246,10 @@
             // 
             this.lbl_product_gender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_product_gender.AutoSize = true;
+            this.lbl_product_gender.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_product_gender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_product_gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_product_gender.ForeColor = System.Drawing.Color.Black;
             this.lbl_product_gender.Location = new System.Drawing.Point(577, 347);
             this.lbl_product_gender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_product_gender.Name = "lbl_product_gender";
@@ -270,6 +261,10 @@
             // 
             this.lbl_product_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_product_quantity.AutoSize = true;
+            this.lbl_product_quantity.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_product_quantity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_product_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_product_quantity.ForeColor = System.Drawing.Color.Black;
             this.lbl_product_quantity.Location = new System.Drawing.Point(577, 406);
             this.lbl_product_quantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_product_quantity.Name = "lbl_product_quantity";
@@ -281,6 +276,10 @@
             // 
             this.lbl_product_age_range.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_product_age_range.AutoSize = true;
+            this.lbl_product_age_range.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_product_age_range.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_product_age_range.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_product_age_range.ForeColor = System.Drawing.Color.Black;
             this.lbl_product_age_range.Location = new System.Drawing.Point(577, 377);
             this.lbl_product_age_range.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_product_age_range.Name = "lbl_product_age_range";
@@ -292,6 +291,10 @@
             // 
             this.lbl_product_price.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_product_price.AutoSize = true;
+            this.lbl_product_price.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_product_price.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_product_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_product_price.ForeColor = System.Drawing.Color.Black;
             this.lbl_product_price.Location = new System.Drawing.Point(577, 436);
             this.lbl_product_price.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_product_price.Name = "lbl_product_price";
@@ -366,20 +369,51 @@
             // btn_refresh
             // 
             this.btn_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_refresh.BackColor = System.Drawing.Color.LawnGreen;
             this.btn_refresh.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
             this.btn_refresh.Location = new System.Drawing.Point(576, 463);
             this.btn_refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(240, 37);
             this.btn_refresh.TabIndex = 16;
             this.btn_refresh.Text = "Tải lại";
-            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.UseVisualStyleBackColor = false;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.BackColor = System.Drawing.Color.Thistle;
+            this.btn_delete.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete.Location = new System.Drawing.Point(279, 12);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(135, 37);
+            this.btn_delete.TabIndex = 2;
+            this.btn_delete.Text = "Xóa";
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // picbox_product
+            // 
+            this.picbox_product.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picbox_product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbox_product.Image = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_placeholder;
+            this.picbox_product.Location = new System.Drawing.Point(576, 55);
+            this.picbox_product.Margin = new System.Windows.Forms.Padding(4);
+            this.picbox_product.MinimumSize = new System.Drawing.Size(240, 222);
+            this.picbox_product.Name = "picbox_product";
+            this.picbox_product.Size = new System.Drawing.Size(240, 222);
+            this.picbox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picbox_product.TabIndex = 5;
+            this.picbox_product.TabStop = false;
             // 
             // form_dashboard_sanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(832, 543);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.textbox_product_name);
@@ -396,12 +430,14 @@
             this.Controls.Add(this.lbl_product_name);
             this.Controls.Add(this.picbox_product);
             this.Controls.Add(this.dgv_product);
-            this.Controls.Add(this.btn_storage);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_add);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(847, 580);
             this.Name = "form_dashboard_sanpham";
+            this.ShowIcon = false;
             this.Text = "Sản phẩm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.form_dashboard_sanpham_Load);
@@ -419,7 +455,6 @@
 
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.Button btn_storage;
         private System.Windows.Forms.BindingSource cNPMNHOM1DataSetBindingSource;
         private CNPM_NHOM_1DataSet cNPM_NHOM_1DataSet;
         private CNPM_NHOM_1DataSetTableAdapters.PRODUCTTableAdapter pRODUCTTableAdapter;
@@ -447,5 +482,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_product_desc;
         public System.Windows.Forms.DataGridView dgv_product;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

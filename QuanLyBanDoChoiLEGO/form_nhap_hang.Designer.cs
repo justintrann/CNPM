@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_nhap_hang));
             this.pRODUCTTYPEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
             this.aGERANGEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -98,6 +99,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lbl_product_desc);
             this.groupBox1.Controls.Add(this.textbox_product_desc);
             this.groupBox1.Controls.Add(this.btn_cancel);
@@ -114,6 +116,8 @@
             this.groupBox1.Controls.Add(this.btn_add);
             this.groupBox1.Controls.Add(this.textbox_product_name);
             this.groupBox1.Controls.Add(this.lbl_product_name);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(383, 403);
@@ -144,6 +148,7 @@
             // btn_cancel
             // 
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cancel.ForeColor = System.Drawing.Color.Black;
             this.btn_cancel.Location = new System.Drawing.Point(142, 337);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_cancel.Name = "btn_cancel";
@@ -271,6 +276,7 @@
             // 
             // btn_add
             // 
+            this.btn_add.ForeColor = System.Drawing.Color.Black;
             this.btn_add.Location = new System.Drawing.Point(250, 337);
             this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
@@ -302,9 +308,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_wallpaper_hd_1366x768_1296312;
             this.ClientSize = new System.Drawing.Size(407, 427);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "form_nhap_hang";

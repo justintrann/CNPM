@@ -30,6 +30,7 @@ namespace QuanLyBanDoChoiLEGO
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_update_sanpham));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbl_product_desc = new System.Windows.Forms.Label();
             this.textbox_product_desc = new System.Windows.Forms.TextBox();
@@ -64,6 +65,7 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lbl_product_desc);
             this.groupBox1.Controls.Add(this.textbox_product_desc);
             this.groupBox1.Controls.Add(this.btn_cancel);
@@ -82,6 +84,7 @@ namespace QuanLyBanDoChoiLEGO
             this.groupBox1.Controls.Add(this.lbl_product_name);
             this.groupBox1.Controls.Add(this.textbox_product_id);
             this.groupBox1.Controls.Add(this.lbl_product_id);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(383, 417);
@@ -111,14 +114,16 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // btn_cancel
             // 
+            this.btn_cancel.BackColor = System.Drawing.Color.Red;
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Location = new System.Drawing.Point(140, 365);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(100, 28);
             this.btn_cancel.TabIndex = 64;
             this.btn_cancel.Text = "Hủy";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // numud_price
@@ -254,13 +259,15 @@ namespace QuanLyBanDoChoiLEGO
             // 
             // btn_add
             // 
+            this.btn_add.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Location = new System.Drawing.Point(248, 365);
             this.btn_add.Margin = new System.Windows.Forms.Padding(4);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(100, 28);
             this.btn_add.TabIndex = 63;
             this.btn_add.Text = "Lưu";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // textbox_product_name
@@ -307,14 +314,17 @@ namespace QuanLyBanDoChoiLEGO
             // 
             this.aGE_RANGETableAdapter.ClearBeforeFill = true;
             // 
-            // form_update
+            // form_update_sanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackgroundImage = global::QuanLyBanDoChoiLEGO.Properties.Resources.lego_wallpaper_hd_1366x768_1296312;
             this.ClientSize = new System.Drawing.Size(407, 440);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "form_update";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "form_update_sanpham";
             this.Text = "Cập nhật sản phẩm";
             this.Load += new System.EventHandler(this.form_update_Load);
             this.groupBox1.ResumeLayout(false);

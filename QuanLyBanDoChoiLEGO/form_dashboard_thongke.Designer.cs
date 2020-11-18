@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_thongke));
             this.domainUpDownThang = new System.Windows.Forms.DomainUpDown();
             this.domainUpDownNam = new System.Windows.Forms.DomainUpDown();
             this.chartThongKe = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -60,17 +61,17 @@
             this.chartThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chartThongKe.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartThongKe.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartThongKe.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartThongKe.Legends.Add(legend1);
             this.chartThongKe.Location = new System.Drawing.Point(12, 48);
             this.chartThongKe.Name = "chartThongKe";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartThongKe.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartThongKe.Series.Add(series1);
             this.chartThongKe.Size = new System.Drawing.Size(776, 390);
             this.chartThongKe.TabIndex = 11;
             this.chartThongKe.Text = "chart1";
@@ -82,6 +83,7 @@
             this.Controls.Add(this.chartThongKe);
             this.Controls.Add(this.domainUpDownThang);
             this.Controls.Add(this.domainUpDownNam);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "form_dashboard_thongke";
             this.Text = "Thống kê";
