@@ -124,11 +124,11 @@ GO
 
 CREATE TABLE PURCHASE_BILL_DETAIL
 (
-	id_bill INT NOT NULL,
+	id_bill INT,
 	id_product INT NOT NULL,
-	quantity INT,
 	cost FLOAT,
-
+	quantity INT,
+	tt_cost float,
 	CONSTRAINT fk_purchase_bill_detail_id_bill FOREIGN KEY(id_bill) REFERENCES PURCHASE_BILL(id),
 	CONSTRAINT fk_purchase_bill_detail_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id),
 );

@@ -36,6 +36,9 @@ namespace QuanLyBanDoChoiLEGO
     partial void InsertAGE_RANGE(AGE_RANGE instance);
     partial void UpdateAGE_RANGE(AGE_RANGE instance);
     partial void DeleteAGE_RANGE(AGE_RANGE instance);
+    partial void InsertCUSTOMER(CUSTOMER instance);
+    partial void UpdateCUSTOMER(CUSTOMER instance);
+    partial void DeleteCUSTOMER(CUSTOMER instance);
     partial void InsertPRODUCT(PRODUCT instance);
     partial void UpdatePRODUCT(PRODUCT instance);
     partial void DeletePRODUCT(PRODUCT instance);
@@ -45,16 +48,16 @@ namespace QuanLyBanDoChoiLEGO
     partial void InsertPURCHASE_BILL(PURCHASE_BILL instance);
     partial void UpdatePURCHASE_BILL(PURCHASE_BILL instance);
     partial void DeletePURCHASE_BILL(PURCHASE_BILL instance);
+    partial void InsertPURCHASE_BILL_DETAIL(PURCHASE_BILL_DETAIL instance);
+    partial void UpdatePURCHASE_BILL_DETAIL(PURCHASE_BILL_DETAIL instance);
+    partial void DeletePURCHASE_BILL_DETAIL(PURCHASE_BILL_DETAIL instance);
     partial void InsertSTAFF(STAFF instance);
     partial void UpdateSTAFF(STAFF instance);
     partial void DeleteSTAFF(STAFF instance);
-    partial void InsertCUSTOMER1(CUSTOMER1 instance);
-    partial void UpdateCUSTOMER1(CUSTOMER1 instance);
-    partial void DeleteCUSTOMER1(CUSTOMER1 instance);
     #endregion
 		
 		public CNPM_DataClassesDataContext() : 
-				base(global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1, mappingSource)
+				base(global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -107,6 +110,14 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
+		public System.Data.Linq.Table<CUSTOMER> CUSTOMERs
+		{
+			get
+			{
+				return this.GetTable<CUSTOMER>();
+			}
+		}
+		
 		public System.Data.Linq.Table<PRODUCT> PRODUCTs
 		{
 			get
@@ -144,14 +155,6 @@ namespace QuanLyBanDoChoiLEGO
 			get
 			{
 				return this.GetTable<STAFF>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CUSTOMER1> CUSTOMER1s
-		{
-			get
-			{
-				return this.GetTable<CUSTOMER1>();
 			}
 		}
 	}
@@ -532,6 +535,192 @@ namespace QuanLyBanDoChoiLEGO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CUSTOMER")]
+	public partial class CUSTOMER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _customer_name;
+		
+		private string _phone_number;
+		
+		private System.Nullable<System.DateTime> _date_of_birth;
+		
+		private string _home_address;
+		
+		private EntitySet<PURCHASE_BILL> _PURCHASE_BILLs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Oncustomer_nameChanging(string value);
+    partial void Oncustomer_nameChanged();
+    partial void Onphone_numberChanging(string value);
+    partial void Onphone_numberChanged();
+    partial void Ondate_of_birthChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_of_birthChanged();
+    partial void Onhome_addressChanging(string value);
+    partial void Onhome_addressChanged();
+    #endregion
+		
+		public CUSTOMER()
+		{
+			this._PURCHASE_BILLs = new EntitySet<PURCHASE_BILL>(new Action<PURCHASE_BILL>(this.attach_PURCHASE_BILLs), new Action<PURCHASE_BILL>(this.detach_PURCHASE_BILLs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer_name", DbType="NVarChar(50)")]
+		public string customer_name
+		{
+			get
+			{
+				return this._customer_name;
+			}
+			set
+			{
+				if ((this._customer_name != value))
+				{
+					this.Oncustomer_nameChanging(value);
+					this.SendPropertyChanging();
+					this._customer_name = value;
+					this.SendPropertyChanged("customer_name");
+					this.Oncustomer_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="VarChar(12)")]
+		public string phone_number
+		{
+			get
+			{
+				return this._phone_number;
+			}
+			set
+			{
+				if ((this._phone_number != value))
+				{
+					this.Onphone_numberChanging(value);
+					this.SendPropertyChanging();
+					this._phone_number = value;
+					this.SendPropertyChanged("phone_number");
+					this.Onphone_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_of_birth", DbType="Date")]
+		public System.Nullable<System.DateTime> date_of_birth
+		{
+			get
+			{
+				return this._date_of_birth;
+			}
+			set
+			{
+				if ((this._date_of_birth != value))
+				{
+					this.Ondate_of_birthChanging(value);
+					this.SendPropertyChanging();
+					this._date_of_birth = value;
+					this.SendPropertyChanged("date_of_birth");
+					this.Ondate_of_birthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_home_address", DbType="NVarChar(100)")]
+		public string home_address
+		{
+			get
+			{
+				return this._home_address;
+			}
+			set
+			{
+				if ((this._home_address != value))
+				{
+					this.Onhome_addressChanging(value);
+					this.SendPropertyChanging();
+					this._home_address = value;
+					this.SendPropertyChanged("home_address");
+					this.Onhome_addressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CUSTOMER_PURCHASE_BILL", Storage="_PURCHASE_BILLs", ThisKey="id", OtherKey="id_customer")]
+		public EntitySet<PURCHASE_BILL> PURCHASE_BILLs
+		{
+			get
+			{
+				return this._PURCHASE_BILLs;
+			}
+			set
+			{
+				this._PURCHASE_BILLs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PURCHASE_BILLs(PURCHASE_BILL entity)
+		{
+			this.SendPropertyChanging();
+			entity.CUSTOMER = this;
+		}
+		
+		private void detach_PURCHASE_BILLs(PURCHASE_BILL entity)
+		{
+			this.SendPropertyChanging();
+			entity.CUSTOMER = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PRODUCT")]
 	public partial class PRODUCT : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -555,6 +744,8 @@ namespace QuanLyBanDoChoiLEGO
 		private string _img_path;
 		
 		private string _product_desc;
+		
+		private EntitySet<PURCHASE_BILL_DETAIL> _PURCHASE_BILL_DETAILs;
 		
 		private EntityRef<AGE_RANGE> _AGE_RANGE;
 		
@@ -586,6 +777,7 @@ namespace QuanLyBanDoChoiLEGO
 		
 		public PRODUCT()
 		{
+			this._PURCHASE_BILL_DETAILs = new EntitySet<PURCHASE_BILL_DETAIL>(new Action<PURCHASE_BILL_DETAIL>(this.attach_PURCHASE_BILL_DETAILs), new Action<PURCHASE_BILL_DETAIL>(this.detach_PURCHASE_BILL_DETAILs));
 			this._AGE_RANGE = default(EntityRef<AGE_RANGE>);
 			this._PRODUCT_TYPE = default(EntityRef<PRODUCT_TYPE>);
 			OnCreated();
@@ -779,6 +971,19 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRODUCT_PURCHASE_BILL_DETAIL", Storage="_PURCHASE_BILL_DETAILs", ThisKey="id", OtherKey="id_product")]
+		public EntitySet<PURCHASE_BILL_DETAIL> PURCHASE_BILL_DETAILs
+		{
+			get
+			{
+				return this._PURCHASE_BILL_DETAILs;
+			}
+			set
+			{
+				this._PURCHASE_BILL_DETAILs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGE_RANGE_PRODUCT", Storage="_AGE_RANGE", ThisKey="id_age_range", OtherKey="id", IsForeignKey=true)]
 		public AGE_RANGE AGE_RANGE
 		{
@@ -865,6 +1070,18 @@ namespace QuanLyBanDoChoiLEGO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_PURCHASE_BILL_DETAILs(PURCHASE_BILL_DETAIL entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRODUCT = this;
+		}
+		
+		private void detach_PURCHASE_BILL_DETAILs(PURCHASE_BILL_DETAIL entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRODUCT = null;
 		}
 	}
 	
@@ -1024,9 +1241,11 @@ namespace QuanLyBanDoChoiLEGO
 		
 		private System.Nullable<double> _total_cost;
 		
-		private EntityRef<STAFF> _STAFF;
+		private EntityRef<PURCHASE_BILL_DETAIL> _PURCHASE_BILL_DETAIL;
 		
-		private EntityRef<CUSTOMER1> _CUSTOMER1;
+		private EntityRef<CUSTOMER> _CUSTOMER;
+		
+		private EntityRef<STAFF> _STAFF;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1048,8 +1267,9 @@ namespace QuanLyBanDoChoiLEGO
 		
 		public PURCHASE_BILL()
 		{
+			this._PURCHASE_BILL_DETAIL = default(EntityRef<PURCHASE_BILL_DETAIL>);
+			this._CUSTOMER = default(EntityRef<CUSTOMER>);
 			this._STAFF = default(EntityRef<STAFF>);
-			this._CUSTOMER1 = default(EntityRef<CUSTOMER1>);
 			OnCreated();
 		}
 		
@@ -1108,7 +1328,7 @@ namespace QuanLyBanDoChoiLEGO
 			{
 				if ((this._id_customer != value))
 				{
-					if (this._CUSTOMER1.HasLoadedOrAssignedValue)
+					if (this._CUSTOMER.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -1181,6 +1401,69 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PURCHASE_BILL_PURCHASE_BILL_DETAIL", Storage="_PURCHASE_BILL_DETAIL", ThisKey="id", OtherKey="id_bill", IsUnique=true, IsForeignKey=false)]
+		public PURCHASE_BILL_DETAIL PURCHASE_BILL_DETAIL
+		{
+			get
+			{
+				return this._PURCHASE_BILL_DETAIL.Entity;
+			}
+			set
+			{
+				PURCHASE_BILL_DETAIL previousValue = this._PURCHASE_BILL_DETAIL.Entity;
+				if (((previousValue != value) 
+							|| (this._PURCHASE_BILL_DETAIL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PURCHASE_BILL_DETAIL.Entity = null;
+						previousValue.PURCHASE_BILL = null;
+					}
+					this._PURCHASE_BILL_DETAIL.Entity = value;
+					if ((value != null))
+					{
+						value.PURCHASE_BILL = this;
+					}
+					this.SendPropertyChanged("PURCHASE_BILL_DETAIL");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CUSTOMER_PURCHASE_BILL", Storage="_CUSTOMER", ThisKey="id_customer", OtherKey="id", IsForeignKey=true)]
+		public CUSTOMER CUSTOMER
+		{
+			get
+			{
+				return this._CUSTOMER.Entity;
+			}
+			set
+			{
+				CUSTOMER previousValue = this._CUSTOMER.Entity;
+				if (((previousValue != value) 
+							|| (this._CUSTOMER.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CUSTOMER.Entity = null;
+						previousValue.PURCHASE_BILLs.Remove(this);
+					}
+					this._CUSTOMER.Entity = value;
+					if ((value != null))
+					{
+						value.PURCHASE_BILLs.Add(this);
+						this._id_customer = value.id;
+					}
+					else
+					{
+						this._id_customer = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("CUSTOMER");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="STAFF_PURCHASE_BILL", Storage="_STAFF", ThisKey="id_staff", OtherKey="id", IsForeignKey=true)]
 		public STAFF STAFF
 		{
@@ -1215,40 +1498,6 @@ namespace QuanLyBanDoChoiLEGO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CUSTOMER1_PURCHASE_BILL", Storage="_CUSTOMER1", ThisKey="id_customer", OtherKey="id", IsForeignKey=true)]
-		public CUSTOMER1 CUSTOMER1
-		{
-			get
-			{
-				return this._CUSTOMER1.Entity;
-			}
-			set
-			{
-				CUSTOMER1 previousValue = this._CUSTOMER1.Entity;
-				if (((previousValue != value) 
-							|| (this._CUSTOMER1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CUSTOMER1.Entity = null;
-						previousValue.PURCHASE_BILLs.Remove(this);
-					}
-					this._CUSTOMER1.Entity = value;
-					if ((value != null))
-					{
-						value.PURCHASE_BILLs.Add(this);
-						this._id_customer = value.id;
-					}
-					else
-					{
-						this._id_customer = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("CUSTOMER1");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1271,8 +1520,10 @@ namespace QuanLyBanDoChoiLEGO
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PURCHASE_BILL_DETAIL")]
-	public partial class PURCHASE_BILL_DETAIL
+	public partial class PURCHASE_BILL_DETAIL : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id_bill;
 		
@@ -1282,11 +1533,36 @@ namespace QuanLyBanDoChoiLEGO
 		
 		private System.Nullable<double> _cost;
 		
+		private System.Nullable<double> _tt_cost;
+		
+		private EntityRef<PURCHASE_BILL> _PURCHASE_BILL;
+		
+		private EntityRef<PRODUCT> _PRODUCT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_billChanging(int value);
+    partial void Onid_billChanged();
+    partial void Onid_productChanging(int value);
+    partial void Onid_productChanged();
+    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanged();
+    partial void OncostChanging(System.Nullable<double> value);
+    partial void OncostChanged();
+    partial void Ontt_costChanging(System.Nullable<double> value);
+    partial void Ontt_costChanged();
+    #endregion
+		
 		public PURCHASE_BILL_DETAIL()
 		{
+			this._PURCHASE_BILL = default(EntityRef<PURCHASE_BILL>);
+			this._PRODUCT = default(EntityRef<PRODUCT>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bill", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bill", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int id_bill
 		{
 			get
@@ -1297,7 +1573,15 @@ namespace QuanLyBanDoChoiLEGO
 			{
 				if ((this._id_bill != value))
 				{
+					if (this._PURCHASE_BILL.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_billChanging(value);
+					this.SendPropertyChanging();
 					this._id_bill = value;
+					this.SendPropertyChanged("id_bill");
+					this.Onid_billChanged();
 				}
 			}
 		}
@@ -1313,7 +1597,15 @@ namespace QuanLyBanDoChoiLEGO
 			{
 				if ((this._id_product != value))
 				{
+					if (this._PRODUCT.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_productChanging(value);
+					this.SendPropertyChanging();
 					this._id_product = value;
+					this.SendPropertyChanged("id_product");
+					this.Onid_productChanged();
 				}
 			}
 		}
@@ -1329,7 +1621,11 @@ namespace QuanLyBanDoChoiLEGO
 			{
 				if ((this._quantity != value))
 				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
 					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
 				}
 			}
 		}
@@ -1345,8 +1641,120 @@ namespace QuanLyBanDoChoiLEGO
 			{
 				if ((this._cost != value))
 				{
+					this.OncostChanging(value);
+					this.SendPropertyChanging();
 					this._cost = value;
+					this.SendPropertyChanged("cost");
+					this.OncostChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tt_cost", DbType="Float")]
+		public System.Nullable<double> tt_cost
+		{
+			get
+			{
+				return this._tt_cost;
+			}
+			set
+			{
+				if ((this._tt_cost != value))
+				{
+					this.Ontt_costChanging(value);
+					this.SendPropertyChanging();
+					this._tt_cost = value;
+					this.SendPropertyChanged("tt_cost");
+					this.Ontt_costChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PURCHASE_BILL_PURCHASE_BILL_DETAIL", Storage="_PURCHASE_BILL", ThisKey="id_bill", OtherKey="id", IsForeignKey=true)]
+		public PURCHASE_BILL PURCHASE_BILL
+		{
+			get
+			{
+				return this._PURCHASE_BILL.Entity;
+			}
+			set
+			{
+				PURCHASE_BILL previousValue = this._PURCHASE_BILL.Entity;
+				if (((previousValue != value) 
+							|| (this._PURCHASE_BILL.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PURCHASE_BILL.Entity = null;
+						previousValue.PURCHASE_BILL_DETAIL = null;
+					}
+					this._PURCHASE_BILL.Entity = value;
+					if ((value != null))
+					{
+						value.PURCHASE_BILL_DETAIL = this;
+						this._id_bill = value.id;
+					}
+					else
+					{
+						this._id_bill = default(int);
+					}
+					this.SendPropertyChanged("PURCHASE_BILL");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRODUCT_PURCHASE_BILL_DETAIL", Storage="_PRODUCT", ThisKey="id_product", OtherKey="id", IsForeignKey=true)]
+		public PRODUCT PRODUCT
+		{
+			get
+			{
+				return this._PRODUCT.Entity;
+			}
+			set
+			{
+				PRODUCT previousValue = this._PRODUCT.Entity;
+				if (((previousValue != value) 
+							|| (this._PRODUCT.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PRODUCT.Entity = null;
+						previousValue.PURCHASE_BILL_DETAILs.Remove(this);
+					}
+					this._PRODUCT.Entity = value;
+					if ((value != null))
+					{
+						value.PURCHASE_BILL_DETAILs.Add(this);
+						this._id_product = value.id;
+					}
+					else
+					{
+						this._id_product = default(int);
+					}
+					this.SendPropertyChanged("PRODUCT");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1586,192 +1994,6 @@ namespace QuanLyBanDoChoiLEGO
 		{
 			this.SendPropertyChanging();
 			entity.STAFF = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CUSTOMER")]
-	public partial class CUSTOMER1 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _customer_name;
-		
-		private string _phone_number;
-		
-		private System.Nullable<System.DateTime> _date_of_birth;
-		
-		private string _home_address;
-		
-		private EntitySet<PURCHASE_BILL> _PURCHASE_BILLs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void Oncustomer_nameChanging(string value);
-    partial void Oncustomer_nameChanged();
-    partial void Onphone_numberChanging(string value);
-    partial void Onphone_numberChanged();
-    partial void Ondate_of_birthChanging(System.Nullable<System.DateTime> value);
-    partial void Ondate_of_birthChanged();
-    partial void Onhome_addressChanging(string value);
-    partial void Onhome_addressChanged();
-    #endregion
-		
-		public CUSTOMER1()
-		{
-			this._PURCHASE_BILLs = new EntitySet<PURCHASE_BILL>(new Action<PURCHASE_BILL>(this.attach_PURCHASE_BILLs), new Action<PURCHASE_BILL>(this.detach_PURCHASE_BILLs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer_name", DbType="NVarChar(50)")]
-		public string customer_name
-		{
-			get
-			{
-				return this._customer_name;
-			}
-			set
-			{
-				if ((this._customer_name != value))
-				{
-					this.Oncustomer_nameChanging(value);
-					this.SendPropertyChanging();
-					this._customer_name = value;
-					this.SendPropertyChanged("customer_name");
-					this.Oncustomer_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="VarChar(12)")]
-		public string phone_number
-		{
-			get
-			{
-				return this._phone_number;
-			}
-			set
-			{
-				if ((this._phone_number != value))
-				{
-					this.Onphone_numberChanging(value);
-					this.SendPropertyChanging();
-					this._phone_number = value;
-					this.SendPropertyChanged("phone_number");
-					this.Onphone_numberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_of_birth", DbType="Date")]
-		public System.Nullable<System.DateTime> date_of_birth
-		{
-			get
-			{
-				return this._date_of_birth;
-			}
-			set
-			{
-				if ((this._date_of_birth != value))
-				{
-					this.Ondate_of_birthChanging(value);
-					this.SendPropertyChanging();
-					this._date_of_birth = value;
-					this.SendPropertyChanged("date_of_birth");
-					this.Ondate_of_birthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_home_address", DbType="NVarChar(100)")]
-		public string home_address
-		{
-			get
-			{
-				return this._home_address;
-			}
-			set
-			{
-				if ((this._home_address != value))
-				{
-					this.Onhome_addressChanging(value);
-					this.SendPropertyChanging();
-					this._home_address = value;
-					this.SendPropertyChanged("home_address");
-					this.Onhome_addressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CUSTOMER1_PURCHASE_BILL", Storage="_PURCHASE_BILLs", ThisKey="id", OtherKey="id_customer")]
-		public EntitySet<PURCHASE_BILL> PURCHASE_BILLs
-		{
-			get
-			{
-				return this._PURCHASE_BILLs;
-			}
-			set
-			{
-				this._PURCHASE_BILLs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PURCHASE_BILLs(PURCHASE_BILL entity)
-		{
-			this.SendPropertyChanging();
-			entity.CUSTOMER1 = this;
-		}
-		
-		private void detach_PURCHASE_BILLs(PURCHASE_BILL entity)
-		{
-			this.SendPropertyChanging();
-			entity.CUSTOMER1 = null;
 		}
 	}
 }

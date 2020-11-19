@@ -12,9 +12,10 @@ namespace QuanLyBanDoChoiLEGO.BLL
 
         public int id_product { get; set; }
 
+        public double cost { get; set; }
+
         public int quantity { get; set; }
 
-        public decimal cost { get; set; }
-
+        public double tt_cost { get; set; }
     }
 }

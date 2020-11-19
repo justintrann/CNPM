@@ -63,7 +63,7 @@ namespace QuanLyBanDoChoiLEGO.DAL
             try
             {
                 //Write a SQL Query to Search Dealer or Customer Based on Keywords
-                string sql = "SELECT customer_name, phone_number, date_of_birth, home_address from CUSTOMER WHERE id LIKE '%" + keyword + "%' OR customer_name LIKE '%" + keyword + "%'";
+                string sql = "SELECT customer_name, phone_number, date_of_birth, home_address from CUSTOMER WHERE id LIKE '%" + keyword + "%' OR customer_name LIKE N'%" + keyword + "%'";
 
                 //Create a Sql Data Adapter to Execute the Query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
@@ -77,6 +77,7 @@ namespace QuanLyBanDoChoiLEGO.DAL
                 //If we have values on dt we need to save it in dealerCustomer BLL
                 if (dt.Rows.Count > 0)
                 {
+                    //dc.id = int.Parse(dt.Rows[0]["id"].ToString());
                     dc.customer_name = dt.Rows[0]["customer_name"].ToString();
                     dc.phone_number = dt.Rows[0]["phone_number"].ToString();
                     dc.date_of_birth = dt.Rows[0]["date_of_birth"].ToString();
@@ -110,7 +111,7 @@ namespace QuanLyBanDoChoiLEGO.DAL
             try
             {
                 //SQL Query to Get id based on Name
-                string sql = "SELECT id FROM customer WHERE customer_name='" + Name + "'";
+                string sql = "SELECT id FROM customer WHERE customer_name=N'" + Name + "'";
                 //Create the SQL Data Adapter to Execute the Query
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
 

@@ -10,7 +10,7 @@ namespace QuanLyBanDoChoiLEGO.BLL
     {
         public int id { get; set; }
 
-        public string id_type { get; set; }
+        public int id_type { get; set; }
 
         public int gender { get; set; }
 
@@ -18,9 +18,9 @@ namespace QuanLyBanDoChoiLEGO.BLL
 
         public string product_name { get; set; }
 
-        public decimal price { get; set; }
+        public float price { get; set; }
 
-        public decimal quantity { get; set; }
+        public int quantity { get; set; }
 
         public string img_path { get; set; }
 

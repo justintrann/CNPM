@@ -26,15 +26,15 @@ namespace QuanLyBanDoChoiLEGO.DAL
             try
             {
                 //Sql Query to Insert Transaction detais
-                string sql = "INSERT INTO purchase_bill_detail (id_product, quantity, cost) VALUES (@id_product, @quantity, @cost)";
+                string sql = "INSERT INTO purchase_bill_detail (id_product, cost, quantity,tt_cost) VALUES (@id_product, @cost, @quantity, @tt_cost)";
 
                 //Passing the value to the SQL Query
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 //Passing the values using cmd
                 cmd.Parameters.AddWithValue("@id_product", td.id_product);
-                cmd.Parameters.AddWithValue("@quantity", td.quantity);
                 cmd.Parameters.AddWithValue("@cost", td.cost);
-
+                cmd.Parameters.AddWithValue("@quantity", td.quantity);
+                cmd.Parameters.AddWithValue("@tt_cost", td.tt_cost);
 
                 //Open Database connection
                 conn.Open();
@@ -63,8 +63,8 @@ namespace QuanLyBanDoChoiLEGO.DAL
                 conn.Close();
             }
             return isSuccess;
-
         }
+
 
     }
 }

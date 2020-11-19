@@ -10,7 +10,7 @@ namespace QuanLyBanDoChoiLEGO.BLL
     {
         public int id { get; set; }
 
-        public string id_staff { get; set; }
+        public int id_staff { get; set; }
 
         public string username { get; set; }
 

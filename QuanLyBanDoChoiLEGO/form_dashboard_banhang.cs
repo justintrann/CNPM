@@ -64,6 +64,7 @@ namespace QuanLyBanDoChoiLEGO
         private void Form_Loading(object sender, EventArgs e)
         {
             //Specify Columns for our TransactionDataTable
+            //  transactionDT.Columns.Add("ID");
             transactionDT.Columns.Add("Product Name");
             transactionDT.Columns.Add("Price");
             transactionDT.Columns.Add("Quantity");
@@ -76,6 +77,7 @@ namespace QuanLyBanDoChoiLEGO
             if (keyword == "")
             {
                 //Clear all the textboxes
+                //  txtID.Text = "";
                 txtName.Text = "";
                 txtDOB.Text = "";
                 txtContact.Text = "";
@@ -121,14 +123,14 @@ namespace QuanLyBanDoChoiLEGO
         {
             //Get Product Name, Rate and Qty customer wants to buy
             string productName = txtProductName.Text;
-            decimal Rate = decimal.Parse(txtRate.Text);
-            decimal Qty = decimal.Parse(TxtQty.Text);
+            float Rate = float.Parse(txtRate.Text);
+            int Qty = int.Parse(TxtQty.Text);
 
-            decimal Total = Rate * Qty; //Total=RatexQty
+            float Total = Rate * Qty; //Total=RatexQty
 
             //Display the Subtotal in textbox
             //Get the subtotal value from textbox
-            decimal subTotal = decimal.Parse(txtSubTotal.Text);
+            float subTotal = float.Parse(txtSubTotal.Text);
             subTotal = subTotal + Total;
 
             //Check whether the product is selected or not
@@ -158,10 +160,165 @@ namespace QuanLyBanDoChoiLEGO
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
-            //Get the value fro discount textbox
-            string value = txtDiscount.Text;
 
-            if (value == "")
+        }
+
+        private void txtVat_TextChanged(object sender, EventArgs e)
+        {
+            /*  //Check if the grandTotal has value or not if it has not value then calculate the discount first
+              string check = txtGrandTotal.Text;
+              if (check == "")
+              {
+                  //Deisplay the error message to calcuate discount
+                  MessageBox.Show("Calculate the discount and set the Grand Total First.");
+              }
+              else
+              {
+                  //Calculate VAT
+                  //Getting the VAT Percent first
+                  decimal previousGT = decimal.Parse(txtGrandTotal.Text);
+                  decimal vat = decimal.Parse(txtVat.Text);
+                  decimal grandTotalWithVAT = ((100 + vat) / 100) * previousGT;
+
+                  //Displaying new grand total with vat
+                  txtGrandTotal.Text = grandTotalWithVAT.ToString();
+              }*/
+        }
+
+        private void txtPaidAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPaidAmount.Text == "")
+            {
+                int x = 0;
+                txtPaidAmount.Text = x.ToString();
+            }
+            else
+            {
+                //Get the paid amount and grand total
+                float subTotal = float.Parse(txtSubTotal.Text);
+                float paidAmount = float.Parse(txtPaidAmount.Text);
+
+                float returnAmount = paidAmount - subTotal;
+
+                //Display the return amount as well
+                txtReturnAmount.Text = returnAmount.ToString();
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            TransactionsBLL transaction = new TransactionsBLL();
+            transaction.purchase_bill_desc = "LEGO";
+
+            //Get the ID of Dealer or Customer Here
+            //Lets get name of the dealer or customer first
+            string deaCustName = txtName.Text;
+            DeaCustBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
+
+            transaction.id_customer = dc.id;
+            transaction.total_cost = Math.Round(float.Parse(txtSubTotal.Text), 2);
+            transaction.date_of_purchase = DateTime.Now;
+
+            /*  //Get the Username of Logged in user
+              string username = frmLogin.loggedIn;
+              userBLL u = uDAL.GetIDFromUsername(username);*/
+
+            transaction.id_staff = 1;
+            transaction.transactionDetails = transactionDT;
+
+            //Lets Create a Boolean Variable and set its value to false
+            bool success = false;
+
+            //Actual Code to Insert Transaction And Transaction Details
+            using (TransactionScope scope = new TransactionScope())
+            {
+                int transactionID = -1;
+                //Create aboolean value and insert transaction 
+                bool w = tDAL.Insert_Transaction(transaction, out transactionID);
+
+                //Use for loop to insert Transaction Details
+                for (int i = 0; i < transactionDT.Rows.Count; i++)
+                {
+                    //Get all the details of the product
+                    TransactionDetailBLL transactionDetail = new TransactionDetailBLL();
+                    //Get the Product name and convert it to id
+                    string ProductName = transactionDT.Rows[i][0].ToString();
+                    ProductsBLL p = pDAL.GetProductIDFromName(ProductName);
+
+                    transactionDetail.id_product = p.id;
+                    transactionDetail.cost = double.Parse(transactionDT.Rows[i][1].ToString());
+                    transactionDetail.quantity = int.Parse(transactionDT.Rows[i][2].ToString());
+                    transactionDetail.tt_cost = Math.Round(double.Parse(transactionDT.Rows[i][3].ToString()), 2);
+
+                    bool x = false;
+                    //Decrease the Product Quntiyt
+                    x = pDAL.DecreaseProduct(transactionDetail.id_product, transactionDetail.quantity);
+
+                    //Insert Transaction Details inside the database
+                    bool y = tdDAL.InsertTransactionDetail(transactionDetail);
+                    success = w && y&&x;
+                }
+
+                if (success == true)
+                {
+                    //Transaction Complete
+                    scope.Complete();
+
+                    //Code to Print Bill
+                    
+
+                    MessageBox.Show("Transaction Completed Sucessfully");
+                    //Celar the Data Grid View and Clear all the TExtboxes
+                    dgvAddedProducts.DataSource = null;
+                    dgvAddedProducts.Rows.Clear();
+
+                    txtSearch.Text = "";
+                    txtName.Text = "";
+                    txtContact.Text = "";
+                    txtAddress.Text = "";
+                    txtSearchProduct.Text = "";
+                    txtProductName.Text = "";
+                    txtInventory.Text = "0";
+                    txtRate.Text = "0";
+                    TxtQty.Text = "0";
+                    txtSubTotal.Text = "0";
+                    txtPaidAmount.Text = "0";
+                    txtReturnAmount.Text = "0";
+                }
+                else
+                {
+                    //Transaction Failed
+                    MessageBox.Show("Transaction Failed");
+                    dgvAddedProducts.DataSource = null;
+                    dgvAddedProducts.Rows.Clear();
+
+                    txtSearch.Text = "";
+                    txtName.Text = "";
+                    txtContact.Text = "";
+                    txtAddress.Text = "";
+                    txtSearchProduct.Text = "";
+                    txtProductName.Text = "";
+                    txtInventory.Text = "0";
+                    txtRate.Text = "0";
+                    TxtQty.Text = "0";
+                    txtSubTotal.Text = "0";
+                    txtPaidAmount.Text = "0";
+                    txtReturnAmount.Text = "0";
+                }
+            }
+
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiscount_enter(object sender, EventArgs e)
+        {
+            //Get the value fro discount textbox
+            // string value = txtDiscount.Text;
+
+            /*if (value == "")
             {
                 //Display Error Message
                 MessageBox.Show("Please Add Discount First");
@@ -177,76 +334,65 @@ namespace QuanLyBanDoChoiLEGO
 
                 //Display the GrandTotla in TextBox
                 txtGrandTotal.Text = grandTotal.ToString();
-            }
-        }
-
-        private void txtVat_TextChanged(object sender, EventArgs e)
-        {
-            //Check if the grandTotal has value or not if it has not value then calculate the discount first
-            string check = txtGrandTotal.Text;
-            if (check == "")
-            {
-                //Deisplay the error message to calcuate discount
-                MessageBox.Show("Calculate the discount and set the Grand Total First.");
-            }
-            else
-            {
-                //Calculate VAT
-                //Getting the VAT Percent first
-                decimal previousGT = decimal.Parse(txtGrandTotal.Text);
-                decimal vat = decimal.Parse(txtVat.Text);
-                decimal grandTotalWithVAT = ((100 + vat) / 100) * previousGT;
-
-                //Displaying new grand total with vat
-                txtGrandTotal.Text = grandTotalWithVAT.ToString();
-            }
-        }
-
-        private void txtPaidAmount_TextChanged(object sender, EventArgs e)
-        {
-            //Get the paid amount and grand total
-            decimal grandTotal = decimal.Parse(txtGrandTotal.Text);
-            decimal paidAmount = decimal.Parse(txtPaidAmount.Text);
-
-            decimal returnAmount = paidAmount - grandTotal;
-
-            //Display the return amount as well
-            txtReturnAmount.Text = returnAmount.ToString();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            /*
-            //Get the Values from PurchaseSales Form First
-            TransactionsBLL transaction = new TransactionsBLL();
-
-            //  transaction.type = label1.Text;
-
-            //Get the ID of Dealer or Customer Here
-            //Lets get name of the dealer or customer first
-            string deaCustName = txtName.Text;
-            DeaCustBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
-
-            transaction.dea_cust_id = dc.id;
-            transaction.grandTotal = Math.Round(decimal.Parse(txtGrandTotal.Text), 2);
-            transaction.transaction_date = DateTime.Now;
-            transaction.tax = decimal.Parse(txtVat.Text);
-            transaction.discount = decimal.Parse(txtDiscount.Text);
-
-            //Get the Username of Logged in user
-            string username = frmLogin.loggedIn;
-            userBLL u = uDAL.GetIDFromUsername(username);
-
-            transaction.added_by = u.id;
-            transaction.transactionDetails = transactionDT;
             */
-
-
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            txtPaidAmount.Text = txtSubTotal.Text;
+            return;
+        }
 
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtQty.Text == "")
+            {
+                int x = 0;
+                TxtQty.Text = x.ToString();
+            }
+            return;
         }
     }
 }
+/*
+            TransactionsBLL transaction = new TransactionsBLL();
+            string deaCustName = txtName.Text;
+            DeaCustBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
+
+            transaction.id_customer = dc.id.ToString();
+            transaction.total_cost = Math.Round(decimal.Parse(txtSubTotal.Text), 2);
+            transaction.date_of_purchase = DateTime.Now;
+
+           // string username = form_login.loggedIn;
+           // UserBLL u = uDAL.GetIDFromUsername(username);
+
+            transaction.id_staff = 3;
+            transaction.purchase_bill_desc = "LEGO";
+            //transaction.transactionDetails = transactionDT;
+
+            bool success = false;
+
+            using (TransactionScope scope = new TransactionScope())
+            {
+                int transactionID = -1;
+                //Create aboolean value and insert transaction 
+                tDAL.Insert_Transaction(transaction, out transactionID);
+
+                //Use for loop to insert Transaction Details
+                for (int i = 0; i < transactionDT.Rows.Count; i++)
+                {
+                    //Get all the details of the product
+                    TransactionDetailBLL transactionDetail = new TransactionDetailBLL();
+                    //Get the Product name and convert it to id
+                    string ProductName = transactionDT.Rows[i][0].ToString();
+                    ProductsBLL p = pDAL.GetProductIDFromName(ProductName);
+
+                    transactionDetail.id_product = p.id;
+                  //  transactionDetail.qu = decimal.Parse(transactionDT.Rows[i][1].ToString());
+                    transactionDetail.quantity = int.Parse(transactionDT.Rows[i][1].ToString());
+                    transactionDetail.cost = Math.Round(decimal.Parse(transactionDT.Rows[i][2].ToString()), 2);
+
+                    tdDAL.InsertTransactionDetail(transactionDetail);
+
+                }
+            }*/
