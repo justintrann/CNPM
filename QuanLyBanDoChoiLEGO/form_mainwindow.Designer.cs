@@ -116,7 +116,7 @@
             this.btn_board_thongke.FlatAppearance.BorderSize = 0;
             this.btn_board_thongke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_thongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_thongke.Location = new System.Drawing.Point(0, 270);
+            this.btn_board_thongke.Location = new System.Drawing.Point(0, 190);
             this.btn_board_thongke.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_thongke.Name = "btn_board_thongke";
             this.btn_board_thongke.Size = new System.Drawing.Size(165, 80);
@@ -131,7 +131,7 @@
             this.btn_board_lichsu.FlatAppearance.BorderSize = 0;
             this.btn_board_lichsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_lichsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_lichsu.Location = new System.Drawing.Point(0, 190);
+            this.btn_board_lichsu.Location = new System.Drawing.Point(0, 110);
             this.btn_board_lichsu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_lichsu.Name = "btn_board_lichsu";
             this.btn_board_lichsu.Size = new System.Drawing.Size(165, 80);
@@ -146,7 +146,7 @@
             this.btn_board_banhang.FlatAppearance.BorderSize = 0;
             this.btn_board_banhang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_board_banhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_board_banhang.Location = new System.Drawing.Point(0, 110);
+            this.btn_board_banhang.Location = new System.Drawing.Point(0, 270);
             this.btn_board_banhang.Margin = new System.Windows.Forms.Padding(4);
             this.btn_board_banhang.Name = "btn_board_banhang";
             this.btn_board_banhang.Size = new System.Drawing.Size(165, 80);

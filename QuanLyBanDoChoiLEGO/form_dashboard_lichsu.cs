@@ -18,20 +18,7 @@ namespace QuanLyBanDoChoiLEGO
         {
             InitializeComponent();
         }
-        public form_dashboard_lichsu(ACCOUNT account)
-        {
-            InitializeComponent();
-            gridViewOffset = 24;
-            //do stuff with account
-            if (account.is_admin == 1)
-            {
-                is_admin = true;
-                enableAdminControl(is_admin);
-            }
-            else { is_admin = false; }
-
-        }
-
+      
         public form_dashboard_lichsu(bool admin = false)
         {
             InitializeComponent();

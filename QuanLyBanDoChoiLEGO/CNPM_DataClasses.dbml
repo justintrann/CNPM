@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CNPM_NHOM_1" Class="CNPM_DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-C7M7T04D\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=True" SettingsObjectName="QuanLyBanDoChoiLEGO.Properties.Settings" SettingsPropertyName="CNPM_NHOM_1ConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JUSTINPC\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=True" SettingsObjectName="QuanLyBanDoChoiLEGO.Properties.Settings" SettingsPropertyName="CNPM_NHOM_1ConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

@@ -54,7 +54,7 @@ namespace QuanLyBanDoChoiLEGO
     #endregion
 		
 		public CNPM_DataClassesDataContext() : 
-				base(global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString1, mappingSource)
+				base(global::QuanLyBanDoChoiLEGO.Properties.Settings.Default.CNPM_NHOM_1ConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}

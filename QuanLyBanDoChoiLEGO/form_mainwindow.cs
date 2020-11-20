@@ -38,6 +38,9 @@ namespace QuanLyBanDoChoiLEGO
             {
                 btn_board_taikhoan.Enabled = true;
                 btn_board_taikhoan.Visible = true;
+
+                btn_board_banhang.Enabled = false;
+                btn_board_banhang.Visible = false;
             }
         }
 

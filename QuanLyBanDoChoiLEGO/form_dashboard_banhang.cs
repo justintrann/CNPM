@@ -17,7 +17,7 @@ namespace QuanLyBanDoChoiLEGO
     public partial class form_dashboard_banhang : Form
     {
         int listViewOffset;
-
+        public static bool is_admin = false;
         public form_dashboard_banhang()
         {
             InitializeComponent();
@@ -254,7 +254,8 @@ namespace QuanLyBanDoChoiLEGO
                   string username = frmLogin.loggedIn;
                   userBLL u = uDAL.GetIDFromUsername(username);*/
 
-                transaction.id_staff = 1;
+                int userName = form_login.loggedIn;
+                transaction.id_staff = userName;
                 transaction.transactionDetails = transactionDT;
 
                 //Lets Create a Boolean Variable and set its value to false
@@ -312,6 +313,17 @@ namespace QuanLyBanDoChoiLEGO
                     txtSubTotal.Text = "0";
                     txtPaidAmount.Text = "0";
                     txtReturnAmount.Text = "0";
+
+                    for (int i = 0; i < transactionDT.Rows.Count; i++)
+                    {
+                        DataRow dr = transactionDT.Rows[i];
+                        transactionDT.Rows.Remove(dr);
+                    }
+                    transactionDT.RejectChanges();
+
+                    this.Controls.Clear();
+                    this.InitializeComponent();
+
                 }
             }
             catch
@@ -333,10 +345,21 @@ namespace QuanLyBanDoChoiLEGO
                 txtSubTotal.Text = "0";
                 txtPaidAmount.Text = "0";
                 txtReturnAmount.Text = "0";
+
+                for (int i = 0; i < transactionDT.Rows.Count; i++)
+                {
+                    DataRow dr = transactionDT.Rows[i];
+                    transactionDT.Rows.Remove(dr);
+                }
+                transactionDT.RejectChanges();
+
+                this.Controls.Clear();
+                this.InitializeComponent();
             }
         }
 
-  
+
+
         private void label3_Click(object sender, EventArgs e)
         {
 

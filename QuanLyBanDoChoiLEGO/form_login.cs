@@ -16,7 +16,7 @@ namespace QuanLyBanDoChoiLEGO
         {
             InitializeComponent();
         }
-
+        public static int loggedIn;
         public ACCOUNT account = new ACCOUNT();
         private bool is_valid = false;
         private void btn_login_Click(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace QuanLyBanDoChoiLEGO
 
             //truy vấn tài khoản trong CSDL
             account = db.ACCOUNTs.Where(p => p.username == textbox_username.Text && p.pass == textbox_password.Text).SingleOrDefault();
-
+            
             if (account == null)
             {
                 MessageBox.Show("Sai tài khoản/mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,12 +60,14 @@ namespace QuanLyBanDoChoiLEGO
                 //quyền bình thường
                 if (account.is_admin == 0)
                 {
+                    loggedIn = (int)db.ACCOUNTs.Where(t => t.username == textbox_username.Text).Select(z => z.id_staff).SingleOrDefault();
                     MessageBox.Show("Xin chào " + account.username, "Đăng nhập thành công", MessageBoxButtons.OK);
                     DialogResult = DialogResult.OK;
                 }
                 //quyền admin
                 if (account.is_admin == 1)
                 {
+                   // loggedIn = (byte)db.ACCOUNTs.Where(t => t.username == textbox_username.Text).Select(t => t.id).SingleOrDefault();
                     MessageBox.Show("Xin chào " + account.username + "\nbạn đang đăng nhập bằng quyền admin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
                     DialogResult = DialogResult.OK;
                 }
