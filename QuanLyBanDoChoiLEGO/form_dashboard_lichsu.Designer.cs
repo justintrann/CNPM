@@ -132,6 +132,8 @@
             // 
             // dataGridViewBan
             // 
+            this.dataGridViewBan.AllowUserToAddRows = false;
+            this.dataGridViewBan.AllowUserToDeleteRows = false;
             this.dataGridViewBan.AutoGenerateColumns = false;
             this.dataGridViewBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -144,6 +146,7 @@
             this.dataGridViewBan.DataSource = this.pURCHASEBILLBindingSource;
             this.dataGridViewBan.Location = new System.Drawing.Point(12, 58);
             this.dataGridViewBan.Name = "dataGridViewBan";
+            this.dataGridViewBan.ReadOnly = true;
             this.dataGridViewBan.RowHeadersWidth = 51;
             this.dataGridViewBan.RowTemplate.Height = 24;
             this.dataGridViewBan.Size = new System.Drawing.Size(385, 459);
@@ -165,6 +168,7 @@
             this.idstaffDataGridViewTextBoxColumn.HeaderText = "ID nhân viên";
             this.idstaffDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
+            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idcustomerDataGridViewTextBoxColumn
             // 
@@ -173,6 +177,7 @@
             this.idcustomerDataGridViewTextBoxColumn.HeaderText = "ID khách hàng";
             this.idcustomerDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idcustomerDataGridViewTextBoxColumn.Name = "idcustomerDataGridViewTextBoxColumn";
+            this.idcustomerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateofpurchaseDataGridViewTextBoxColumn
             // 
@@ -181,6 +186,7 @@
             this.dateofpurchaseDataGridViewTextBoxColumn.HeaderText = "Ngày mua hàng";
             this.dateofpurchaseDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateofpurchaseDataGridViewTextBoxColumn.Name = "dateofpurchaseDataGridViewTextBoxColumn";
+            this.dateofpurchaseDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // purchasebilldescDataGridViewTextBoxColumn
             // 
@@ -189,6 +195,7 @@
             this.purchasebilldescDataGridViewTextBoxColumn.HeaderText = "Mô tả";
             this.purchasebilldescDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.purchasebilldescDataGridViewTextBoxColumn.Name = "purchasebilldescDataGridViewTextBoxColumn";
+            this.purchasebilldescDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalcostDataGridViewTextBoxColumn
             // 
@@ -197,6 +204,7 @@
             this.totalcostDataGridViewTextBoxColumn.HeaderText = "Tổng số tiền";
             this.totalcostDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            this.totalcostDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pURCHASEBILLBindingSource
             // 
