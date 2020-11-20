@@ -63,6 +63,8 @@ namespace QuanLyBanDoChoiLEGO
         DataTable transactionDT = new DataTable();
         private void Form_Loading(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.PURCHASE_BILL_DETAIL' table. You can move, or remove it, as needed.
+            this.pURCHASE_BILL_DETAILTableAdapter.Fill(this.cNPM_NHOM_1DataSet.PURCHASE_BILL_DETAIL);
             //Specify Columns for our TransactionDataTable
             //  transactionDT.Columns.Add("ID");
             transactionDT.Columns.Add("Product Name");
@@ -121,35 +123,49 @@ namespace QuanLyBanDoChoiLEGO
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //Get Product Name, Rate and Qty customer wants to buy
-            string productName = txtProductName.Text;
-            float Rate = float.Parse(txtRate.Text);
-            int Qty = int.Parse(TxtQty.Text);
-
-            float Total = Rate * Qty; //Total=RatexQty
-
-            //Display the Subtotal in textbox
-            //Get the subtotal value from textbox
-            float subTotal = float.Parse(txtSubTotal.Text);
-            subTotal = subTotal + Total;
-
-            //Check whether the product is selected or not
-            if (productName == "")
+            try
             {
-                //Display error MEssage
-                MessageBox.Show("Select the product first. Try Again.");
-            }
-            else
-            {
-                //Add product to the dAta Grid View
-                transactionDT.Rows.Add(productName, Rate, Qty, Total);
+                //Get Product Name, Rate and Qty customer wants to buy
+                string productName = txtProductName.Text;
+                float Rate = float.Parse(txtRate.Text);
+                int Qty = int.Parse(TxtQty.Text);
 
-                //Show in DAta Grid View
-                dgvAddedProducts.DataSource = transactionDT;
+                float Total = Rate * Qty; //Total=RatexQty
+
                 //Display the Subtotal in textbox
-                txtSubTotal.Text = subTotal.ToString();
+                //Get the subtotal value from textbox
+                float subTotal = float.Parse(txtSubTotal.Text);
+                subTotal = subTotal + Total;
 
-                //Clear the Textboxes
+                //Check whether the product is selected or not
+                if (productName == "")
+                {
+                    //Display error MEssage
+                    MessageBox.Show("Select the product first. Try Again.");
+                }
+                else
+                {
+                    //Add product to the dAta Grid View
+                    transactionDT.Rows.Add(productName, Rate, Qty, Total);
+
+                    //Show in DAta Grid View
+                    dgvAddedProducts.DataSource = transactionDT;
+                    //Display the Subtotal in textbox
+                    txtSubTotal.Text = subTotal.ToString();
+
+                    //Clear the Textboxes
+                    txtSearchProduct.Text = "";
+                    txtProductName.Text = "";
+                    txtInventory.Text = "0.00";
+                    txtRate.Text = "0.00";
+                    TxtQty.Text = "";
+                }
+            }
+            catch
+            {
+                string title = "Thông báo";
+                string message = "Không thể thực hiện. Lỗi nhập.";
+                MessageBox.Show(message, title);
                 txtSearchProduct.Text = "";
                 txtProductName.Text = "";
                 txtInventory.Text = "0.00";
@@ -157,6 +173,7 @@ namespace QuanLyBanDoChoiLEGO
                 TxtQty.Text = "";
             }
         }
+
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
@@ -187,85 +204,96 @@ namespace QuanLyBanDoChoiLEGO
 
         private void txtPaidAmount_TextChanged(object sender, EventArgs e)
         {
-            if (txtPaidAmount.Text == "")
+            try
             {
-                int x = 0;
-                txtPaidAmount.Text = x.ToString();
+                if (txtPaidAmount.Text == "")
+                {
+                    int x = 0;
+                    txtPaidAmount.Text = x.ToString();
+                }
+                else
+                {
+                    //Get the paid amount and grand total
+                    float subTotal = float.Parse(txtSubTotal.Text);
+                    float paidAmount = float.Parse(txtPaidAmount.Text);
+
+                    float returnAmount = paidAmount - subTotal;
+
+                    //Display the return amount as well
+                    txtReturnAmount.Text = returnAmount.ToString();
+                }
             }
-            else
+            catch
             {
-                //Get the paid amount and grand total
-                float subTotal = float.Parse(txtSubTotal.Text);
-                float paidAmount = float.Parse(txtPaidAmount.Text);
+                string title = "Thông báo";
+                string message = "Không thể thực hiện. Lỗi nhập.";
+                MessageBox.Show(message, title);
+                txtPaidAmount.Text = "0";
+                txtReturnAmount.Text = "0";
 
-                float returnAmount = paidAmount - subTotal;
-
-                //Display the return amount as well
-                txtReturnAmount.Text = returnAmount.ToString();
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            TransactionsBLL transaction = new TransactionsBLL();
-            transaction.purchase_bill_desc = "LEGO";
-
-            //Get the ID of Dealer or Customer Here
-            //Lets get name of the dealer or customer first
-            string deaCustName = txtName.Text;
-            DeaCustBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
-
-            transaction.id_customer = dc.id;
-            transaction.total_cost = Math.Round(float.Parse(txtSubTotal.Text), 2);
-            transaction.date_of_purchase = DateTime.Now;
-
-            /*  //Get the Username of Logged in user
-              string username = frmLogin.loggedIn;
-              userBLL u = uDAL.GetIDFromUsername(username);*/
-
-            transaction.id_staff = 1;
-            transaction.transactionDetails = transactionDT;
-
-            //Lets Create a Boolean Variable and set its value to false
-            bool success = false;
-
-            //Actual Code to Insert Transaction And Transaction Details
-            using (TransactionScope scope = new TransactionScope())
+            try
             {
-                int transactionID = -1;
-                //Create aboolean value and insert transaction 
-                bool w = tDAL.Insert_Transaction(transaction, out transactionID);
+                TransactionsBLL transaction = new TransactionsBLL();
+                transaction.purchase_bill_desc = "LEGO";
 
-                //Use for loop to insert Transaction Details
-                for (int i = 0; i < transactionDT.Rows.Count; i++)
+                //Get the ID of Dealer or Customer Here
+                //Lets get name of the dealer or customer first
+                string deaCustName = txtName.Text;
+                DeaCustBLL dc = dcDAL.GetDeaCustIDFromName(deaCustName);
+
+                transaction.id_customer = dc.id;
+                transaction.total_cost = Math.Round(float.Parse(txtSubTotal.Text), 2);
+                transaction.date_of_purchase = DateTime.Now;
+
+                /*  //Get the Username of Logged in user
+                  string username = frmLogin.loggedIn;
+                  userBLL u = uDAL.GetIDFromUsername(username);*/
+
+                transaction.id_staff = 1;
+                transaction.transactionDetails = transactionDT;
+
+                //Lets Create a Boolean Variable and set its value to false
+                bool success = false;
+
+                //Actual Code to Insert Transaction And Transaction Details
+                using (TransactionScope scope = new TransactionScope())
                 {
-                    //Get all the details of the product
-                    TransactionDetailBLL transactionDetail = new TransactionDetailBLL();
-                    //Get the Product name and convert it to id
-                    string ProductName = transactionDT.Rows[i][0].ToString();
-                    ProductsBLL p = pDAL.GetProductIDFromName(ProductName);
+                    int transactionID = -1;
+                    //Create aboolean value and insert transaction 
+                    bool w = tDAL.Insert_Transaction(transaction, out transactionID);
 
-                    transactionDetail.id_product = p.id;
-                    transactionDetail.cost = double.Parse(transactionDT.Rows[i][1].ToString());
-                    transactionDetail.quantity = int.Parse(transactionDT.Rows[i][2].ToString());
-                    transactionDetail.tt_cost = Math.Round(double.Parse(transactionDT.Rows[i][3].ToString()), 2);
+                    //Use for loop to insert Transaction Details
+                    for (int i = 0; i < transactionDT.Rows.Count; i++)
+                    {
+                        //Get all the details of the product
+                        TransactionDetailBLL transactionDetail = new TransactionDetailBLL();
+                        //Get the Product name and convert it to id
+                        string ProductName = transactionDT.Rows[i][0].ToString();
+                        ProductsBLL p = pDAL.GetProductIDFromName(ProductName);
 
-                    bool x = false;
-                    //Decrease the Product Quntiyt
-                    x = pDAL.DecreaseProduct(transactionDetail.id_product, transactionDetail.quantity);
+                        transactionDetail.id_product = p.id;
+                        transactionDetail.cost = double.Parse(transactionDT.Rows[i][1].ToString());
+                        transactionDetail.quantity = int.Parse(transactionDT.Rows[i][2].ToString());
+                        transactionDetail.tt_cost = Math.Round(double.Parse(transactionDT.Rows[i][3].ToString()), 2);
 
-                    //Insert Transaction Details inside the database
-                    bool y = tdDAL.InsertTransactionDetail(transactionDetail);
-                    success = w && y&&x;
-                }
+                        bool x = false;
+                        //Decrease the Product Quntiyt
+                        x = pDAL.DecreaseProduct(transactionDetail.id_product, transactionDetail.quantity);
 
-                if (success == true)
-                {
+                        //Insert Transaction Details inside the database
+                        bool y = tdDAL.InsertTransactionDetail(transactionDetail);
+                        success = w && y && x;
+                    }
                     //Transaction Complete
                     scope.Complete();
 
                     //Code to Print Bill
-                    
+
 
                     MessageBox.Show("Transaction Completed Sucessfully");
                     //Celar the Data Grid View and Clear all the TExtboxes
@@ -285,29 +313,30 @@ namespace QuanLyBanDoChoiLEGO
                     txtPaidAmount.Text = "0";
                     txtReturnAmount.Text = "0";
                 }
-                else
-                {
-                    //Transaction Failed
-                    MessageBox.Show("Transaction Failed");
-                    dgvAddedProducts.DataSource = null;
-                    dgvAddedProducts.Rows.Clear();
-
-                    txtSearch.Text = "";
-                    txtName.Text = "";
-                    txtContact.Text = "";
-                    txtAddress.Text = "";
-                    txtSearchProduct.Text = "";
-                    txtProductName.Text = "";
-                    txtInventory.Text = "0";
-                    txtRate.Text = "0";
-                    TxtQty.Text = "0";
-                    txtSubTotal.Text = "0";
-                    txtPaidAmount.Text = "0";
-                    txtReturnAmount.Text = "0";
-                }
             }
+            catch
+            {
+                //Transaction Failed
+                MessageBox.Show("Transaction Failed");
+                dgvAddedProducts.DataSource = null;
+                dgvAddedProducts.Rows.Clear();
 
+                txtSearch.Text = "";
+                txtName.Text = "";
+                txtContact.Text = "";
+                txtAddress.Text = "";
+                txtSearchProduct.Text = "";
+                txtProductName.Text = "";
+                txtInventory.Text = "0";
+                txtRate.Text = "0";
+                TxtQty.Text = "0";
+                txtSubTotal.Text = "0";
+                txtPaidAmount.Text = "0";
+                txtReturnAmount.Text = "0";
+            }
         }
+
+  
         private void label3_Click(object sender, EventArgs e)
         {
 

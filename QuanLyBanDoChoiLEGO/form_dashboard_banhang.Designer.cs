@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_dashboard_banhang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDOB = new System.Windows.Forms.TextBox();
@@ -54,6 +59,7 @@
             this.lblRate = new System.Windows.Forms.Label();
             this.lblProductSearch = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtReturnAmount = new System.Windows.Forms.TextBox();
             this.lblReturnAmount = new System.Windows.Forms.Label();
@@ -63,12 +69,16 @@
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.dgvAddedProducts = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
+            this.pURCHASEBILLDETAILBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pURCHASE_BILL_DETAILTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.PURCHASE_BILL_DETAILTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pURCHASEBILLDETAILBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -362,6 +372,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tính tiền";
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(429, 80);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 43);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "VỪA ĐỦ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Cyan;
@@ -443,11 +464,40 @@
             // 
             // dgvAddedProducts
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAddedProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAddedProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAddedProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAddedProducts.GridColor = System.Drawing.Color.Black;
             this.dgvAddedProducts.Location = new System.Drawing.Point(11, 38);
             this.dgvAddedProducts.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAddedProducts.Name = "dgvAddedProducts";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAddedProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAddedProducts.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvAddedProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAddedProducts.Size = new System.Drawing.Size(590, 325);
             this.dgvAddedProducts.TabIndex = 2;
             // 
@@ -463,16 +513,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin đơn hàng";
             // 
-            // button1
+            // cNPM_NHOM_1DataSet
             // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(429, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 43);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "VỪA ĐỦ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cNPM_NHOM_1DataSet.DataSetName = "CNPM_NHOM_1DataSet";
+            this.cNPM_NHOM_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pURCHASEBILLDETAILBindingSource
+            // 
+            this.pURCHASEBILLDETAILBindingSource.DataMember = "PURCHASE_BILL_DETAIL";
+            this.pURCHASEBILLDETAILBindingSource.DataSource = this.cNPM_NHOM_1DataSet;
+            // 
+            // pURCHASE_BILL_DETAILTableAdapter
+            // 
+            this.pURCHASE_BILL_DETAILTableAdapter.ClearBeforeFill = true;
             // 
             // form_dashboard_banhang
             // 
@@ -484,6 +537,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1235, 820);
             this.Name = "form_dashboard_banhang";
@@ -499,6 +553,8 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddedProducts)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pURCHASEBILLDETAILBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -540,5 +596,8 @@
         private System.Windows.Forms.DataGridView dgvAddedProducts;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button1;
+        private CNPM_NHOM_1DataSet cNPM_NHOM_1DataSet;
+        private System.Windows.Forms.BindingSource pURCHASEBILLDETAILBindingSource;
+        private CNPM_NHOM_1DataSetTableAdapters.PURCHASE_BILL_DETAILTableAdapter pURCHASE_BILL_DETAILTableAdapter;
     }
 }
