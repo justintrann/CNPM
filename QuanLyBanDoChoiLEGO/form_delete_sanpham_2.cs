@@ -31,7 +31,7 @@ namespace QuanLyBanDoChoiLEGO
             e.Handled = true;
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private void btn_product_delete_Click(object sender, EventArgs e)
         {
             string search_string = textbox_product_id.Text;
             if (string.IsNullOrEmpty(search_string))
@@ -44,6 +44,28 @@ namespace QuanLyBanDoChoiLEGO
 
                 con.Open();
                 string query = "delete from STORAGE_HISTORY where id_product = @id";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(search_string);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Hoàn thành");
+                this.Close();
+            }
+        }
+
+        private void btn_bill_delete_Click(object sender, EventArgs e)
+        {
+            string search_string = textbox_bill_id.Text;
+            if (string.IsNullOrEmpty(search_string))
+            {
+                MessageBox.Show("Hóa đơn không tồn tại.");
+            }
+            else
+            {
+                CNPM_DataClassesDataContext db = new CNPM_DataClassesDataContext();
+
+                con.Open();
+                string query = "delete from PURCHASE_BILL where id = @id";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(search_string);
                 cmd.ExecuteNonQuery();
