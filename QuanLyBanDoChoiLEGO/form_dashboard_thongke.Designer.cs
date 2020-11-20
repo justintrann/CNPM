@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,8 +43,19 @@
             this.thgke_button = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BieuDo = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
+            this.pURCHASEBILLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pURCHASE_BILLTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.PURCHASE_BILLTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idstaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcustomerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofpurchaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchasebilldescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalcostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BieuDo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pURCHASEBILLBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // NamTextBox
@@ -86,6 +98,9 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -95,6 +110,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.idstaffDataGridViewTextBoxColumn,
+            this.idcustomerDataGridViewTextBoxColumn,
+            this.dateofpurchaseDataGridViewTextBoxColumn,
+            this.purchasebilldescDataGridViewTextBoxColumn,
+            this.totalcostDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.pURCHASEBILLBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -120,6 +143,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(980, 110);
             this.dataGridView1.TabIndex = 4;
             // 
@@ -147,6 +171,74 @@
             this.BieuDo.TabIndex = 5;
             this.BieuDo.Text = "BieuDo";
             // 
+            // cNPM_NHOM_1DataSet
+            // 
+            this.cNPM_NHOM_1DataSet.DataSetName = "CNPM_NHOM_1DataSet";
+            this.cNPM_NHOM_1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pURCHASEBILLBindingSource
+            // 
+            this.pURCHASEBILLBindingSource.DataMember = "PURCHASE_BILL";
+            this.pURCHASEBILLBindingSource.DataSource = this.cNPM_NHOM_1DataSet;
+            // 
+            // pURCHASE_BILLTableAdapter
+            // 
+            this.pURCHASE_BILLTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ID hóa đơn";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idstaffDataGridViewTextBoxColumn
+            // 
+            this.idstaffDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.HeaderText = "ID nhân viên";
+            this.idstaffDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
+            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idcustomerDataGridViewTextBoxColumn
+            // 
+            this.idcustomerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idcustomerDataGridViewTextBoxColumn.DataPropertyName = "id_customer";
+            this.idcustomerDataGridViewTextBoxColumn.HeaderText = "ID khách hàng";
+            this.idcustomerDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idcustomerDataGridViewTextBoxColumn.Name = "idcustomerDataGridViewTextBoxColumn";
+            this.idcustomerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateofpurchaseDataGridViewTextBoxColumn
+            // 
+            this.dateofpurchaseDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateofpurchaseDataGridViewTextBoxColumn.DataPropertyName = "date_of_purchase";
+            this.dateofpurchaseDataGridViewTextBoxColumn.HeaderText = "Ngày mua";
+            this.dateofpurchaseDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateofpurchaseDataGridViewTextBoxColumn.Name = "dateofpurchaseDataGridViewTextBoxColumn";
+            this.dateofpurchaseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // purchasebilldescDataGridViewTextBoxColumn
+            // 
+            this.purchasebilldescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.purchasebilldescDataGridViewTextBoxColumn.DataPropertyName = "purchase_bill_desc";
+            this.purchasebilldescDataGridViewTextBoxColumn.HeaderText = "Mô tả";
+            this.purchasebilldescDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.purchasebilldescDataGridViewTextBoxColumn.Name = "purchasebilldescDataGridViewTextBoxColumn";
+            this.purchasebilldescDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalcostDataGridViewTextBoxColumn
+            // 
+            this.totalcostDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalcostDataGridViewTextBoxColumn.DataPropertyName = "total_cost";
+            this.totalcostDataGridViewTextBoxColumn.HeaderText = "Tổng chi phí";
+            this.totalcostDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalcostDataGridViewTextBoxColumn.Name = "totalcostDataGridViewTextBoxColumn";
+            this.totalcostDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // form_dashboard_thongke
             // 
             this.AcceptButton = this.thgke_button;
@@ -166,6 +258,8 @@
             this.Load += new System.EventHandler(this.form_dashboard_thongke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BieuDo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pURCHASEBILLBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,6 +272,14 @@
         private System.Windows.Forms.Button thgke_button;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataVisualization.Charting.Chart BieuDo;
-   
+        private CNPM_NHOM_1DataSet cNPM_NHOM_1DataSet;
+        private System.Windows.Forms.BindingSource pURCHASEBILLBindingSource;
+        private CNPM_NHOM_1DataSetTableAdapters.PURCHASE_BILLTableAdapter pURCHASE_BILLTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idstaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcustomerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateofpurchaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchasebilldescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalcostDataGridViewTextBoxColumn;
     }
 }

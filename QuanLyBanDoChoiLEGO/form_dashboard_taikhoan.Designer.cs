@@ -765,6 +765,7 @@ namespace QuanLyBanDoChoiLEGO
             this.Name = "form_dashboard_taikhoan";
             this.ShowIcon = false;
             this.Text = "Quản lí tài khoản";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.form_dashboard_taikhoan_Load);
             this.tabpage_account.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_account)).EndInit();

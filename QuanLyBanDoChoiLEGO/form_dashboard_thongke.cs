@@ -142,6 +142,8 @@ namespace QuanLyBanDoChoiLEGO
 
         private void form_dashboard_thongke_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'cNPM_NHOM_1DataSet.PURCHASE_BILL' table. You can move, or remove it, as needed.
+            this.pURCHASE_BILLTableAdapter.Fill(this.cNPM_NHOM_1DataSet.PURCHASE_BILL);
 
         }
     }
