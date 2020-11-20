@@ -50,7 +50,7 @@
             // 
             this.NamTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NamTextBox.ForeColor = System.Drawing.Color.Black;
-            this.NamTextBox.Location = new System.Drawing.Point(77, 5);
+            this.NamTextBox.Location = new System.Drawing.Point(101, 5);
             this.NamTextBox.Multiline = true;
             this.NamTextBox.Name = "NamTextBox";
             this.NamTextBox.Size = new System.Drawing.Size(158, 30);
@@ -71,7 +71,7 @@
             // thgke_button
             // 
             this.thgke_button.ForeColor = System.Drawing.Color.Black;
-            this.thgke_button.Location = new System.Drawing.Point(241, 5);
+            this.thgke_button.Location = new System.Drawing.Point(265, 6);
             this.thgke_button.Name = "thgke_button";
             this.thgke_button.Size = new System.Drawing.Size(125, 32);
             this.thgke_button.TabIndex = 2;
@@ -83,6 +83,9 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -122,6 +125,9 @@
             // 
             // BieuDo
             // 
+            this.BieuDo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.Name = "ChartArea1";
             this.BieuDo.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
