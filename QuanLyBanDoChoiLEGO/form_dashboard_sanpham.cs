@@ -13,9 +13,34 @@ namespace QuanLyBanDoChoiLEGO
 {
     public partial class form_dashboard_sanpham : Form
     {
+        public static bool is_admin = false;
         public form_dashboard_sanpham()
         {
             InitializeComponent();
+        }
+        public form_dashboard_sanpham(ACCOUNT account)
+        {
+            InitializeComponent();
+            //do stuff with account
+            if (account.is_admin == 1)
+            {
+                is_admin = true;
+                enableAdminControl(is_admin);
+            }
+            else { is_admin = false; }
+        }
+
+        public form_dashboard_sanpham(bool admin = false)
+        {
+            InitializeComponent();
+            //do stuff with account
+            if (admin)
+            {
+                is_admin = true;
+                enableAdminControl(is_admin);
+            }
+            else { is_admin = false; }
+
         }
 
         private void form_dashboard_sanpham_Load(object sender, EventArgs e)
@@ -109,6 +134,14 @@ namespace QuanLyBanDoChoiLEGO
             form_delete_sanpham delete = new form_delete_sanpham();
             DialogResult result = delete.ShowDialog();
             loadDataFromDatabase();
+        }
+        private void enableAdminControl(bool is_admin = false)
+        {
+            if (is_admin)
+            {
+                btn_delete.Enabled = true;
+                btn_delete.Visible = true;
+            }
         }
     }
 }

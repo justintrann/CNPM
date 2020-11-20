@@ -33,6 +33,14 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.dgv_product = new System.Windows.Forms.DataGridView();
+            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_age_range = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRODUCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cNPMNHOM1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
@@ -52,14 +60,6 @@
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.picbox_product = new System.Windows.Forms.PictureBox();
-            this.col_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_age_range = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_product_desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cNPMNHOM1DataSetBindingSource)).BeginInit();
@@ -126,6 +126,81 @@
             this.dgv_product.Size = new System.Drawing.Size(559, 487);
             this.dgv_product.TabIndex = 3;
             this.dgv_product.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellEnter);
+            // 
+            // col_id
+            // 
+            this.col_id.DataPropertyName = "id";
+            this.col_id.HeaderText = "Mã sản phẩm";
+            this.col_id.MinimumWidth = 50;
+            this.col_id.Name = "col_id";
+            this.col_id.ReadOnly = true;
+            this.col_id.Width = 50;
+            // 
+            // col_product_name
+            // 
+            this.col_product_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.col_product_name.DataPropertyName = "product_name";
+            this.col_product_name.HeaderText = "Tên sản phẩm";
+            this.col_product_name.MinimumWidth = 50;
+            this.col_product_name.Name = "col_product_name";
+            this.col_product_name.ReadOnly = true;
+            this.col_product_name.Width = 128;
+            // 
+            // col_id_type
+            // 
+            this.col_id_type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_id_type.DataPropertyName = "id_type";
+            this.col_id_type.HeaderText = "Loại sản phẩm";
+            this.col_id_type.MinimumWidth = 100;
+            this.col_id_type.Name = "col_id_type";
+            this.col_id_type.ReadOnly = true;
+            // 
+            // col_gender
+            // 
+            this.col_gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.col_gender.DataPropertyName = "gender";
+            this.col_gender.HeaderText = "Loại giới tính";
+            this.col_gender.MinimumWidth = 50;
+            this.col_gender.Name = "col_gender";
+            this.col_gender.ReadOnly = true;
+            this.col_gender.Width = 117;
+            // 
+            // col_age_range
+            // 
+            this.col_age_range.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.col_age_range.DataPropertyName = "id_age_range";
+            this.col_age_range.HeaderText = "Độ tuổi";
+            this.col_age_range.MinimumWidth = 75;
+            this.col_age_range.Name = "col_age_range";
+            this.col_age_range.ReadOnly = true;
+            this.col_age_range.Width = 82;
+            // 
+            // col_price
+            // 
+            this.col_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.col_price.DataPropertyName = "price";
+            this.col_price.HeaderText = "Giá tiền";
+            this.col_price.MinimumWidth = 100;
+            this.col_price.Name = "col_price";
+            this.col_price.ReadOnly = true;
+            // 
+            // col_quantity
+            // 
+            this.col_quantity.DataPropertyName = "quantity";
+            this.col_quantity.HeaderText = "Số lượng";
+            this.col_quantity.MinimumWidth = 75;
+            this.col_quantity.Name = "col_quantity";
+            this.col_quantity.ReadOnly = true;
+            this.col_quantity.Width = 75;
+            // 
+            // col_product_desc
+            // 
+            this.col_product_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.col_product_desc.DataPropertyName = "product_desc";
+            this.col_product_desc.HeaderText = "Mô tả";
+            this.col_product_desc.MinimumWidth = 100;
+            this.col_product_desc.Name = "col_product_desc";
+            this.col_product_desc.ReadOnly = true;
             // 
             // pRODUCTBindingSource
             // 
@@ -316,6 +391,7 @@
             // btn_delete
             // 
             this.btn_delete.BackColor = System.Drawing.Color.Thistle;
+            this.btn_delete.Enabled = false;
             this.btn_delete.FlatAppearance.BorderSize = 0;
             this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -327,6 +403,7 @@
             this.btn_delete.TabIndex = 2;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Visible = false;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // picbox_product
@@ -342,81 +419,6 @@
             this.picbox_product.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picbox_product.TabIndex = 5;
             this.picbox_product.TabStop = false;
-            // 
-            // col_id
-            // 
-            this.col_id.DataPropertyName = "id";
-            this.col_id.HeaderText = "Mã sản phẩm";
-            this.col_id.MinimumWidth = 50;
-            this.col_id.Name = "col_id";
-            this.col_id.ReadOnly = true;
-            this.col_id.Width = 50;
-            // 
-            // col_product_name
-            // 
-            this.col_product_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.col_product_name.DataPropertyName = "product_name";
-            this.col_product_name.HeaderText = "Tên sản phẩm";
-            this.col_product_name.MinimumWidth = 50;
-            this.col_product_name.Name = "col_product_name";
-            this.col_product_name.ReadOnly = true;
-            this.col_product_name.Width = 86;
-            // 
-            // col_id_type
-            // 
-            this.col_id_type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.col_id_type.DataPropertyName = "id_type";
-            this.col_id_type.HeaderText = "Loại sản phẩm";
-            this.col_id_type.MinimumWidth = 100;
-            this.col_id_type.Name = "col_id_type";
-            this.col_id_type.ReadOnly = true;
-            // 
-            // col_gender
-            // 
-            this.col_gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.col_gender.DataPropertyName = "gender";
-            this.col_gender.HeaderText = "Loại giới tính";
-            this.col_gender.MinimumWidth = 50;
-            this.col_gender.Name = "col_gender";
-            this.col_gender.ReadOnly = true;
-            this.col_gender.Width = 64;
-            // 
-            // col_age_range
-            // 
-            this.col_age_range.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.col_age_range.DataPropertyName = "id_age_range";
-            this.col_age_range.HeaderText = "Độ tuổi";
-            this.col_age_range.MinimumWidth = 75;
-            this.col_age_range.Name = "col_age_range";
-            this.col_age_range.ReadOnly = true;
-            this.col_age_range.Width = 76;
-            // 
-            // col_price
-            // 
-            this.col_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.col_price.DataPropertyName = "price";
-            this.col_price.HeaderText = "Giá tiền";
-            this.col_price.MinimumWidth = 100;
-            this.col_price.Name = "col_price";
-            this.col_price.ReadOnly = true;
-            // 
-            // col_quantity
-            // 
-            this.col_quantity.DataPropertyName = "quantity";
-            this.col_quantity.HeaderText = "Số lượng";
-            this.col_quantity.MinimumWidth = 75;
-            this.col_quantity.Name = "col_quantity";
-            this.col_quantity.ReadOnly = true;
-            this.col_quantity.Width = 75;
-            // 
-            // col_product_desc
-            // 
-            this.col_product_desc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.col_product_desc.DataPropertyName = "product_desc";
-            this.col_product_desc.HeaderText = "Mô tả";
-            this.col_product_desc.MinimumWidth = 100;
-            this.col_product_desc.Name = "col_product_desc";
-            this.col_product_desc.ReadOnly = true;
             // 
             // form_dashboard_sanpham
             // 
