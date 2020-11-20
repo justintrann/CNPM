@@ -290,6 +290,7 @@
             // buttonXoa
             // 
             this.buttonXoa.BackColor = System.Drawing.Color.Blue;
+            this.buttonXoa.Enabled = false;
             this.buttonXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonXoa.ForeColor = System.Drawing.Color.White;
             this.buttonXoa.Location = new System.Drawing.Point(898, 14);
@@ -298,6 +299,7 @@
             this.buttonXoa.TabIndex = 14;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = false;
+            this.buttonXoa.Visible = false;
             this.buttonXoa.Click += new System.EventHandler(this.buttonXoa_Click);
             // 
             // form_dashboard_lichsu
