@@ -44,7 +44,7 @@ GO
 CREATE TABLE PRODUCT_TYPE
 (
 	id TINYINT NOT NULL UNIQUE IDENTITY(1,1), 
-	product_type_name NVARCHAR(50),
+	product_type_name NVARCHAR(50) UNIQUE,
 	product_type_desc NVARCHAR(100),
 
 	CONSTRAINT pk_product_type_id PRIMARY KEY(id)
@@ -129,6 +129,7 @@ CREATE TABLE PURCHASE_BILL_DETAIL
 	cost FLOAT,
 	quantity INT,
 	tt_cost float,
+
 	CONSTRAINT fk_purchase_bill_detail_id_bill FOREIGN KEY(id_bill) REFERENCES PURCHASE_BILL(id),
 	CONSTRAINT fk_purchase_bill_detail_id_product FOREIGN KEY(id_product) REFERENCES PRODUCT(id),
 );
