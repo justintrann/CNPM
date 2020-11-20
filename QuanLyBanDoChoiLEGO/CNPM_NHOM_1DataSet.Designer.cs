@@ -2827,9 +2827,11 @@ namespace QuanLyBanDoChoiLEGO {
             
             private global::System.Data.DataColumn columnid_product;
             
+            private global::System.Data.DataColumn columncost;
+            
             private global::System.Data.DataColumn columnquantity;
             
-            private global::System.Data.DataColumn columncost;
+            private global::System.Data.DataColumn columntt_cost;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2882,6 +2884,14 @@ namespace QuanLyBanDoChoiLEGO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn costColumn {
+                get {
+                    return this.columncost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn quantityColumn {
                 get {
                     return this.columnquantity;
@@ -2890,9 +2900,9 @@ namespace QuanLyBanDoChoiLEGO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn costColumn {
+            public global::System.Data.DataColumn tt_costColumn {
                 get {
-                    return this.columncost;
+                    return this.columntt_cost;
                 }
             }
             
@@ -2933,13 +2943,14 @@ namespace QuanLyBanDoChoiLEGO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PURCHASE_BILL_DETAILRow AddPURCHASE_BILL_DETAILRow(PURCHASE_BILLRow parentPURCHASE_BILLRowByfk_purchase_bill_detail_id_bill, PRODUCTRow parentPRODUCTRowByfk_purchase_bill_detail_id_product, int quantity, double cost) {
+            public PURCHASE_BILL_DETAILRow AddPURCHASE_BILL_DETAILRow(PURCHASE_BILLRow parentPURCHASE_BILLRowByfk_purchase_bill_detail_id_bill, PRODUCTRow parentPRODUCTRowByfk_purchase_bill_detail_id_product, double cost, int quantity, double tt_cost) {
                 PURCHASE_BILL_DETAILRow rowPURCHASE_BILL_DETAILRow = ((PURCHASE_BILL_DETAILRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
+                        cost,
                         quantity,
-                        cost};
+                        tt_cost};
                 if ((parentPURCHASE_BILLRowByfk_purchase_bill_detail_id_bill != null)) {
                     columnValuesArray[0] = parentPURCHASE_BILLRowByfk_purchase_bill_detail_id_bill[0];
                 }
@@ -2970,8 +2981,9 @@ namespace QuanLyBanDoChoiLEGO {
             internal void InitVars() {
                 this.columnid_bill = base.Columns["id_bill"];
                 this.columnid_product = base.Columns["id_product"];
-                this.columnquantity = base.Columns["quantity"];
                 this.columncost = base.Columns["cost"];
+                this.columnquantity = base.Columns["quantity"];
+                this.columntt_cost = base.Columns["tt_cost"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2981,11 +2993,12 @@ namespace QuanLyBanDoChoiLEGO {
                 base.Columns.Add(this.columnid_bill);
                 this.columnid_product = new global::System.Data.DataColumn("id_product", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_product);
-                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnquantity);
                 this.columncost = new global::System.Data.DataColumn("cost", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncost);
-                this.columnid_bill.AllowDBNull = false;
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
+                this.columntt_cost = new global::System.Data.DataColumn("tt_cost", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntt_cost);
                 this.columnid_product.AllowDBNull = false;
             }
             
@@ -4509,7 +4522,12 @@ namespace QuanLyBanDoChoiLEGO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int id_bill {
                 get {
-                    return ((int)(this[this.tablePURCHASE_BILL_DETAIL.id_billColumn]));
+                    try {
+                        return ((int)(this[this.tablePURCHASE_BILL_DETAIL.id_billColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_bill\' in table \'PURCHASE_BILL_DETAIL\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePURCHASE_BILL_DETAIL.id_billColumn] = value;
@@ -4524,6 +4542,22 @@ namespace QuanLyBanDoChoiLEGO {
                 }
                 set {
                     this[this.tablePURCHASE_BILL_DETAIL.id_productColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double cost {
+                get {
+                    try {
+                        return ((double)(this[this.tablePURCHASE_BILL_DETAIL.costColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cost\' in table \'PURCHASE_BILL_DETAIL\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePURCHASE_BILL_DETAIL.costColumn] = value;
                 }
             }
             
@@ -4545,17 +4579,17 @@ namespace QuanLyBanDoChoiLEGO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double cost {
+            public double tt_cost {
                 get {
                     try {
-                        return ((double)(this[this.tablePURCHASE_BILL_DETAIL.costColumn]));
+                        return ((double)(this[this.tablePURCHASE_BILL_DETAIL.tt_costColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cost\' in table \'PURCHASE_BILL_DETAIL\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'tt_cost\' in table \'PURCHASE_BILL_DETAIL\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePURCHASE_BILL_DETAIL.costColumn] = value;
+                    this[this.tablePURCHASE_BILL_DETAIL.tt_costColumn] = value;
                 }
             }
             
@@ -4583,14 +4617,14 @@ namespace QuanLyBanDoChoiLEGO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsquantityNull() {
-                return this.IsNull(this.tablePURCHASE_BILL_DETAIL.quantityColumn);
+            public bool Isid_billNull() {
+                return this.IsNull(this.tablePURCHASE_BILL_DETAIL.id_billColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetquantityNull() {
-                this[this.tablePURCHASE_BILL_DETAIL.quantityColumn] = global::System.Convert.DBNull;
+            public void Setid_billNull() {
+                this[this.tablePURCHASE_BILL_DETAIL.id_billColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4603,6 +4637,30 @@ namespace QuanLyBanDoChoiLEGO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcostNull() {
                 this[this.tablePURCHASE_BILL_DETAIL.costColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsquantityNull() {
+                return this.IsNull(this.tablePURCHASE_BILL_DETAIL.quantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetquantityNull() {
+                this[this.tablePURCHASE_BILL_DETAIL.quantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istt_costNull() {
+                return this.IsNull(this.tablePURCHASE_BILL_DETAIL.tt_costColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settt_costNull() {
+                this[this.tablePURCHASE_BILL_DETAIL.tt_costColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8071,18 +8129,20 @@ SELECT id, id_staff, id_customer, date_of_purchase, purchase_bill_desc, total_co
             tableMapping.DataSetTable = "PURCHASE_BILL_DETAIL";
             tableMapping.ColumnMappings.Add("id_bill", "id_bill");
             tableMapping.ColumnMappings.Add("id_product", "id_product");
-            tableMapping.ColumnMappings.Add("quantity", "quantity");
             tableMapping.ColumnMappings.Add("cost", "cost");
+            tableMapping.ColumnMappings.Add("quantity", "quantity");
+            tableMapping.ColumnMappings.Add("tt_cost", "tt_cost");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PURCHASE_BILL_DETAIL] ([id_bill], [id_product], [quantity], [c" +
-                "ost]) VALUES (@id_bill, @id_product, @quantity, @cost)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PURCHASE_BILL_DETAIL] ([id_bill], [id_product], [cost], [quant" +
+                "ity], [tt_cost]) VALUES (@id_bill, @id_product, @cost, @quantity, @tt_cost)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_bill", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_bill", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cost", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tt_cost", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tt_cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8098,7 +8158,8 @@ SELECT id, id_staff, id_customer, date_of_purchase, purchase_bill_desc, total_co
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_bill, id_product, quantity, cost FROM dbo.PURCHASE_BILL_DETAIL";
+            this._commandCollection[0].CommandText = "SELECT id_bill, id_product, cost, quantity, tt_cost FROM dbo.PURCHASE_BILL_DETAIL" +
+                "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8159,20 +8220,31 @@ SELECT id, id_staff, id_customer, date_of_purchase, purchase_bill_desc, total_co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int id_bill, int id_product, global::System.Nullable<int> quantity, global::System.Nullable<double> cost) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_bill));
+        public virtual int Insert(global::System.Nullable<int> id_bill, int id_product, global::System.Nullable<double> cost, global::System.Nullable<int> quantity, global::System.Nullable<double> tt_cost) {
+            if ((id_bill.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_bill.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_product));
-            if ((quantity.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(quantity.Value));
+            if ((cost.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(cost.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((cost.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(cost.Value));
+            if ((quantity.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(quantity.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((tt_cost.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(tt_cost.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

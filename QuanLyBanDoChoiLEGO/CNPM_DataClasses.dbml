@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CNPM_NHOM_1" Class="CNPM_DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JUSTINPC\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=True" SettingsObjectName="QuanLyBanDoChoiLEGO.Properties.Settings" SettingsPropertyName="CNPM_NHOM_1ConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-C7M7T04D\SQLEXPRESS;Initial Catalog=CNPM_NHOM_1;Integrated Security=True" SettingsObjectName="QuanLyBanDoChoiLEGO.Properties.Settings" SettingsPropertyName="CNPM_NHOM_1ConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -68,17 +68,17 @@
       <Column Name="date_of_purchase" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="purchase_bill_desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="total_cost" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="PURCHASE_BILL_PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAIL" ThisKey="id" OtherKey="id_bill" Type="PURCHASE_BILL_DETAIL" Cardinality="One" />
+      <Association Name="PURCHASE_BILL_PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAILs" ThisKey="id" OtherKey="id_bill" Type="PURCHASE_BILL_DETAIL" />
       <Association Name="CUSTOMER_PURCHASE_BILL" Member="CUSTOMER" ThisKey="id_customer" OtherKey="id" Type="CUSTOMER" IsForeignKey="true" />
       <Association Name="STAFF_PURCHASE_BILL" Member="STAFF" ThisKey="id_staff" OtherKey="id" Type="STAFF" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL_DETAILs">
     <Type Name="PURCHASE_BILL_DETAIL">
-      <Column Name="id_bill" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_bill" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="id_product" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="cost" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="tt_cost" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="PURCHASE_BILL_PURCHASE_BILL_DETAIL" Member="PURCHASE_BILL" ThisKey="id_bill" OtherKey="id" Type="PURCHASE_BILL" IsForeignKey="true" />
       <Association Name="PRODUCT_PURCHASE_BILL_DETAIL" Member="PRODUCT" ThisKey="id_product" OtherKey="id" Type="PRODUCT" IsForeignKey="true" />
