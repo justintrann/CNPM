@@ -18,6 +18,7 @@ namespace QuanLyBanDoChoiLEGO
         }
 
         public static bool is_admin = false;
+        //public static ACCOUNT account;
 
         public form_mainwindow(ACCOUNT account)
         {
@@ -28,14 +29,16 @@ namespace QuanLyBanDoChoiLEGO
                 is_admin = true;
                 enableAdminControl(is_admin);
             }
-            else is_admin = false;
+            else { is_admin = false; }
         }
 
         private void enableAdminControl(bool is_admin = false)
         {
-            if(is_admin)
+            if (is_admin)
+            {
                 btn_board_taikhoan.Enabled = true;
                 btn_board_taikhoan.Visible = true;
+            }
         }
 
         private void btn_board_1_Click(object sender, EventArgs e)
@@ -72,7 +75,7 @@ namespace QuanLyBanDoChoiLEGO
             }
             if (isOpen == false)
             {
-                form_dashboard_lichsu f2 = new form_dashboard_lichsu();
+                form_dashboard_lichsu f2 = new form_dashboard_lichsu(is_admin);
                 f2.MdiParent = this;
                 f2.Show();
             }
@@ -112,7 +115,7 @@ namespace QuanLyBanDoChoiLEGO
             }
             if (isOpen == false)
             {
-                form_dashboard_sanpham f2 = new form_dashboard_sanpham();
+                form_dashboard_sanpham f2 = new form_dashboard_sanpham(is_admin);
                 f2.MdiParent = this;
                 f2.Show();
             }
