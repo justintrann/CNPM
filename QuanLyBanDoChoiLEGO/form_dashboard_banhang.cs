@@ -307,8 +307,28 @@ namespace QuanLyBanDoChoiLEGO
 
                     //Code to Print Bill
 
+                    DialogResult dialogResult = MessageBox.Show("Bạn có muốn in hoá đơn ?", "Giao dịch thành công", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DGVPrinter printer = new DGVPrinter();
 
-                    MessageBox.Show("Transaction Completed Sucessfully");
+                        printer.Title = "\r\n\r\n\r\n LEGO STORE. LTD. \r\n\r\n";
+                        printer.SubTitle = "280 An Duong Vuong, Q5, Saigon \r\n Contact us: 0123456789 \r\n\r\n Chi tiết đơn hàng \r\n\r\n";
+                        printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                        printer.PageNumbers = true;
+                        printer.PageNumberInHeader = false;
+                        printer.PorportionalColumns = true;
+                        printer.HeaderCellAlignment = StringAlignment.Near;
+                        printer.Footer = "Tổng tiền: " + txtSubTotal.Text +"0VND \r\n\r\n" + "Let's creative \r\n\r\n Thank you so much ";
+                        printer.FooterSpacing = 15;
+                        printer.PrintDataGridView(dgvAddedProducts);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        MessageBox.Show("Hoàn thành đơn hàng");
+                    }
+
+                    //  MessageBox.Show("Transaction Completed Sucessfully");
                     //Celar the Data Grid View and Clear all the TExtboxes
                     dgvAddedProducts.DataSource = null;
                     dgvAddedProducts.Rows.Clear();
