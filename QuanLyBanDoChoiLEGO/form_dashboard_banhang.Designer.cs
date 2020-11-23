@@ -49,7 +49,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtRate = new System.Windows.Forms.TextBox();
-            this.TxtQty = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.txtInventory = new System.Windows.Forms.TextBox();
@@ -72,6 +71,8 @@
             this.cNPM_NHOM_1DataSet = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSet();
             this.pURCHASEBILLDETAILBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pURCHASE_BILL_DETAILTableAdapter = new QuanLyBanDoChoiLEGO.CNPM_NHOM_1DataSetTableAdapters.PURCHASE_BILL_DETAILTableAdapter();
+            this.TxtQty = new System.Windows.Forms.NumericUpDown();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -79,6 +80,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pURCHASEBILLDETAILBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtQty)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -203,10 +205,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.TxtQty);
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtRate);
-            this.groupBox2.Controls.Add(this.TxtQty);
             this.groupBox2.Controls.Add(this.txtProductName);
             this.groupBox2.Controls.Add(this.txtSearchProduct);
             this.groupBox2.Controls.Add(this.txtInventory);
@@ -255,18 +257,8 @@
             this.txtRate.Margin = new System.Windows.Forms.Padding(4);
             this.txtRate.Name = "txtRate";
             this.txtRate.ReadOnly = true;
-            this.txtRate.Size = new System.Drawing.Size(192, 29);
+            this.txtRate.Size = new System.Drawing.Size(204, 29);
             this.txtRate.TabIndex = 21;
-            // 
-            // TxtQty
-            // 
-            this.TxtQty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtQty.Location = new System.Drawing.Point(710, 86);
-            this.TxtQty.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtQty.Name = "TxtQty";
-            this.TxtQty.Size = new System.Drawing.Size(192, 29);
-            this.TxtQty.TabIndex = 20;
-            this.TxtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
             // 
             // txtProductName
             // 
@@ -356,6 +348,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.button1);
             this.groupBox4.Controls.Add(this.btnSave);
             this.groupBox4.Controls.Add(this.txtReturnAmount);
@@ -385,10 +378,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.Cyan;
+            this.btnSave.BackColor = System.Drawing.Color.Crimson;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(215, 223);
+            this.btnSave.Location = new System.Drawing.Point(323, 235);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(157, 43);
@@ -476,7 +469,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -527,6 +520,30 @@
             // 
             this.pURCHASE_BILL_DETAILTableAdapter.ClearBeforeFill = true;
             // 
+            // TxtQty
+            // 
+            this.TxtQty.AutoSize = true;
+            this.TxtQty.Location = new System.Drawing.Point(714, 86);
+            this.TxtQty.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtQty.MinimumSize = new System.Drawing.Size(50, 0);
+            this.TxtQty.Name = "TxtQty";
+            this.TxtQty.Size = new System.Drawing.Size(200, 22);
+            this.TxtQty.TabIndex = 21;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(94, 235);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 43);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "CLEAR";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // form_dashboard_banhang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -555,6 +572,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cNPM_NHOM_1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pURCHASEBILLDETAILBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtQty)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +594,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtRate;
-        private System.Windows.Forms.TextBox TxtQty;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.TextBox txtSearchProduct;
         private System.Windows.Forms.TextBox txtInventory;
@@ -599,5 +616,7 @@
         private CNPM_NHOM_1DataSet cNPM_NHOM_1DataSet;
         private System.Windows.Forms.BindingSource pURCHASEBILLDETAILBindingSource;
         private CNPM_NHOM_1DataSetTableAdapters.PURCHASE_BILL_DETAILTableAdapter pURCHASE_BILL_DETAILTableAdapter;
+        private System.Windows.Forms.NumericUpDown TxtQty;
+        private System.Windows.Forms.Button button2;
     }
 }

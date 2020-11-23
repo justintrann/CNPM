@@ -129,7 +129,7 @@ namespace QuanLyBanDoChoiLEGO
                 string productName = txtProductName.Text;
                 float Rate = float.Parse(txtRate.Text);
                 int Qty = int.Parse(TxtQty.Text);
-
+                int inv = int.Parse(txtInventory.Text);
                 float Total = Rate * Qty; //Total=RatexQty
 
                 //Display the Subtotal in textbox
@@ -141,7 +141,19 @@ namespace QuanLyBanDoChoiLEGO
                 if (productName == "")
                 {
                     //Display error MEssage
-                    MessageBox.Show("Select the product first. Try Again.");
+                    MessageBox.Show("Hãy chọn sản phẩm !");
+                }
+                else
+                if (Qty<=0)
+                {
+                    //Display error MEssage
+                    MessageBox.Show("Số lượng phải lớn hơn 0 !");
+                }
+                else
+                if (Qty>inv)
+                {
+                    //Display error MEssage
+                    MessageBox.Show("Vượt quá số lượng hàng trong kho !");
                 }
                 else
                 {
@@ -367,26 +379,7 @@ namespace QuanLyBanDoChoiLEGO
 
         private void txtDiscount_enter(object sender, EventArgs e)
         {
-            //Get the value fro discount textbox
-            // string value = txtDiscount.Text;
-
-            /*if (value == "")
-            {
-                //Display Error Message
-                MessageBox.Show("Please Add Discount First");
-            }
-            else
-            {
-                //Get the discount in decimal value
-                decimal subTotal = decimal.Parse(txtSubTotal.Text);
-                decimal discount = decimal.Parse(txtDiscount.Text);
-
-                //Calculate the grandtotal based on discount
-                decimal grandTotal = ((100 - discount) / 100) * subTotal;
-
-                //Display the GrandTotla in TextBox
-                txtGrandTotal.Text = grandTotal.ToString();
-            */
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -403,6 +396,35 @@ namespace QuanLyBanDoChoiLEGO
                 TxtQty.Text = x.ToString();
             }
             return;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dgvAddedProducts.DataSource = null;
+            dgvAddedProducts.Rows.Clear();
+
+            txtSearch.Text = "";
+            txtName.Text = "";
+            txtContact.Text = "";
+            txtAddress.Text = "";
+            txtSearchProduct.Text = "";
+            txtProductName.Text = "";
+            txtInventory.Text = "0";
+            txtRate.Text = "0";
+            TxtQty.Text = "0";
+            txtSubTotal.Text = "0";
+            txtPaidAmount.Text = "0";
+            txtReturnAmount.Text = "0";
+
+            for (int i = 0; i < transactionDT.Rows.Count; i++)
+            {
+                DataRow dr = transactionDT.Rows[i];
+                transactionDT.Rows.Remove(dr);
+            }
+            transactionDT.RejectChanges();
+
+            this.Controls.Clear();
+            this.InitializeComponent();
         }
     }
 }
